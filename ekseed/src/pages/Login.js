@@ -2,27 +2,23 @@ import React, {useState} from "react";
 import { useSetRecoilState } from "recoil";
 
 
-import UserModel from "../../models/UserModel";
-import AuthModel from "../../models/AuthModel";
-import { userState } from "../../recoil/atoms";
+import UserModel from "../models/UserModel";
+import AuthModel from "../models/AuthModel";
+import { userState } from "../recoil/atoms";
 
 
 const Login = (props)=> {
-    // const [user, setUser] = useRecoilState(userState);
-
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [signup_date, setSignup_Date] = useState("");
-
     const setUser = useSetRecoilState(userState);
+    // const [error, setError] = useState("");
 
     
     function handleSubmit(event) {
         event.preventDefault();
-        setSignup_Date = signup_date(Date.now());
 
-        AuthModel.login({ username, email, password, signup_date}).then((response) => {
+        AuthModel.login({username, email, password}).then((response) => {
             console.log(response);
             localStorage.setItem("uid", response.signedJwt);
             UserModel.show().then((response) => {
@@ -54,10 +50,11 @@ const Login = (props)=> {
                     onChange={(e)=> setEmail(e.target.value)}
                     /> <br/><br/>
 
-                    <label htmlFor="password">{password}</label><br/>
+                    <label htmlFor="password">Password</label><br/>
                     <input 
                     type="text" 
                     name={password}
+                    placeholder="password"
                     value={password}
                     onChange={(e)=> setPassword(e.target.value)}
                     /> <br/><br/>

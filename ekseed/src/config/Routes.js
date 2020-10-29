@@ -7,7 +7,8 @@ import MyGarden from "../pages/MyGarden";
 import UserConnectionNew from "../pages/UserConnectionNew";
 import UserConnectionShow from "../pages/UserConnectionShow";
 import UserConnectionEdit from "../pages/UserConnectionEdit";
-import Login from "../components/SideBar/Login";
+import Login from "../pages/Login";
+import Register from "../pages/Register"
 
 import { useRecoilValue } from "recoil";
 import { loggedInState } from "../recoil/selectors";
@@ -17,8 +18,9 @@ const Routes = (props) => {
     return (
         <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/garden" component={MyGarden} />
+            {/* <Route path="/garden" component={MyGarden} /> */}
             <Route path="/login" component={Login} />{/* at login establish connection to backend */}
+            <Route path="/register" component={Register} />{/* at register establish connection to backend */}
 
             {loggedIn && (
                 <Switch>
@@ -27,7 +29,7 @@ const Routes = (props) => {
                     {/* <Route path="/userconnection/:id/edit" component={UserConnectionEdit} /> */}
                     {/* <Route path="/userconnection/:id" component={UserConnectionShow} /> */}
                     <Route path="/garden" component={MyGarden} />
-                    <Route path="/" component={Home} />
+                    <Route exact path="/" component={Home} />
 
                     {/* http://localhost:3001/api/v1/auth/register */}
 
