@@ -7,8 +7,8 @@ export const userState = atom({
 });
 
 
-export const connection = atom({
-    key:"component",
+export const connectionState = atom({
+    key:"connectionState",
     default: null,
 })
 

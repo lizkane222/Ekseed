@@ -45,7 +45,7 @@ const SideBar = (props) => {
                                 <NavLink to={"/user"}>Garden (all companies in my network)</NavLink>
                             </p>
                             <p>
-                                <NavLink to={"/userconnection/new"}>New Connection</NavLink>
+                                <NavLink to={"/connection/new"}>New Connection</NavLink>
                             </p>
                             <p className="btn" onClick={logout}>
                                 <NavLink to={"/"}>Logout</NavLink>

@@ -14,25 +14,20 @@ const Login = (props)=> {
     const setUser = useSetRecoilState(userState);
     // const [error, setError] = useState("");
 
-    // useEffect(function () {
-    //     if (localStorage.getItem("uid")) {
-    //         UserModel.show().then((response) => {
-    //         console.log(response)
-    //         setUser(response.data);
-    //         });
-    //     }
-    // }, []);
-
     function handleSubmit(event) {
         event.preventDefault();
 
         AuthModel.login({username, email, password}).then((response) => {
             console.log(response);
-            localStorage.setItem("uid", response.signedJwt);
+            localStorage.setItem("uid", response.token);
             UserModel.show().then((response) => {
                 console.log(response);
-                setUser(response.data);
-                props.history.push("/user")
+                // if (response.status === 200) {
+                    setUser(response.User);
+                    props.history.push("/user")
+                // } else {
+                    // setError(response.message);
+                // }
             })
         })
     }
@@ -41,34 +36,39 @@ const Login = (props)=> {
         return (
             <div className="login-form">
                 <h3>Login</h3>
+                {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="username">Username {username}</label><br/>
-                    <input 
-                    type="text" 
-                    name="username"
-                    value={username}
-                    onChange={(e)=> setUsername(e.target.value)}
-                    /> <br/><br/>
+                    <div>
+                        <label htmlFor="username">Username {username}</label><br/>
+                        <input 
+                        type="text" 
+                        name="username"
+                        value={username}
+                        onChange={(e)=> setUsername(e.target.value)}
+                        /> <br/><br/>
+                    </div>
 
-                    <label htmlFor="email">Email: {email}</label><br/>
-                    <input 
-                    type="text" 
-                    name="email"
-                    value={email}
-                    onChange={(e)=> setEmail(e.target.value)}
-                    /> <br/><br/>
+                    <div>
+                        <label htmlFor="email">Email: {email}</label><br/>
+                        <input 
+                        type="text" 
+                        name="email"
+                        value={email}
+                        onChange={(e)=> setEmail(e.target.value)}
+                        /> <br/><br/>
+                    </div>
 
-                    <label htmlFor="password">Password</label><br/>
-                    <input 
-                    type="text" 
-                    name={password}
-                    placeholder="password"
-                    value={password}
-                    onChange={(e)=> setPassword(e.target.value)}
-                    /> <br/><br/>
-    {/* handle submit */}
-    {/* authorization login */}
-            {/* write a handle submit, when form is submitted it takes state from all hooks & sends to auth model, then set user state to the authorized user */}
+                    <div>
+                        <label htmlFor="password">Password</label><br/>
+                        <input 
+                        type="password" 
+                        name={password}
+                        placeholder="password"
+                        value={password}
+                        onChange={(e)=> setPassword(e.target.value)}
+                        /> <br/><br/>
+                    </div>
+
                     <input 
                     type="submit"
                     value="Login"

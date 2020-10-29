@@ -1,4 +1,4 @@
-const URL = "http://localhost:3001/api/v1/users";
+const URL = "http://localhost:3001/api/v1/user";
 
 class UserModel {
     static show() {

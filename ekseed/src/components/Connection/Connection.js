@@ -6,7 +6,7 @@ const Connection = (props) => {
     const {preferredName, firstName, lastName, network, company, dateReview, profilePhoto, notes: [{content, reviewed, bookmark, privacy}], _id } = props.connection;
     return (
         <>
-            <Link to={`/auth/userconnection/connection/${_id}`} >
+            <Link to={`/auth//connection/${_id}`} >
                 <div>
                     <div className='image-wrapper'>
                         <img src={profilePhoto} alt={preferredName} />

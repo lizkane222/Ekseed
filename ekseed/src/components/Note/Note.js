@@ -17,7 +17,7 @@ const Note = () => {
     const [privacy, setPrivacy] = useRecoilState(noteState);
 
     function tagNote() {
-        const dbUserConnection = {
+        const dbConnection = {
             tag : ""
         }
     }

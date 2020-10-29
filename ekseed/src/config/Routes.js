@@ -3,10 +3,10 @@ import {Switch, Route} from "react-router-dom";
 
 import Home from "../pages/Home";
 import MyGarden from "../pages/MyGarden";
-// import UserConnectionList from "../pages/UserConnectionList";
-import UserConnectionNew from "../pages/UserConnectionNew";
-import UserConnectionShow from "../pages/UserConnectionShow";
-import UserConnectionEdit from "../pages/UserConnectionEdit";
+// import ConnectionList from "../pages/ConnectionList";
+import ConnectionNew from "../pages/ConnectionNew";
+import ConnectionShow from "../pages/ConnectionShow";
+import ConnectionEdit from "../pages/ConnectionEdit";
 import Login from "../pages/Login";
 import Register from "../pages/Register"
 
@@ -24,10 +24,10 @@ const Routes = (props) => {
 
             {loggedIn && (
                 <Switch>
-                    <Route path="/userconnection/new" component={UserConnectionNew} />
+                    <Route path="/connection/new" component={ConnectionNew} />
                     {/*  put these links in the garden page */}
-                    {/* <Route path="/userconnection/:id/edit" component={UserConnectionEdit} /> */}
-                    {/* <Route path="/userconnection/:id" component={UserConnectionShow} /> */}
+                    {/* <Route path="/connection/:id/edit" component={ConnectionEdit} /> */}
+                    {/* <Route path="/connection/:id" component={ConnectionShow} /> */}
                     <Route path="/user" component={MyGarden} />
                     <Route exact path="/" component={Home} />
 

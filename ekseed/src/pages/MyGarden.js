@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 
-import UserConnectionModel from "../models/UserConnectionModel";
+import ConnectionModel from "../models/ConnectionModel";
 import SideBar from '../components/SideBar/SideBar';
 
 
@@ -13,14 +13,14 @@ const Garden = (userId) => {
 
     function fetchConnections(id) {
         // if (id) {
-        //     UserConnectionModel.show(id).then((data) => {
+        //     ConnectionModel.show(id).then((data) => {
         //         console.log(data);
-        //         setConnections(data.UserConnection);
+        //         setConnections(data.Connection);
         //     });
         // } else {
-            UserConnectionModel.all().then((data) => {
+            ConnectionModel.all().then((data) => {
                 console.log(data);
-                setConnections(data.UserConnection);
+                setConnections(data.Connection);
             });
         // }
     }
