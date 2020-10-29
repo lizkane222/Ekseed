@@ -25,3 +25,5 @@ class UserConnectionModel {
         })
     }
 }
+
+export default UserConnectionModel;

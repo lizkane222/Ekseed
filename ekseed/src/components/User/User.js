@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState, useEffect} from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+
 
 import Connection from '../Connection/Connection';
+import UserModel from "../../models/UserModel";
+import { userState } from "../../recoil/atoms";
 
-const User = (props) => {
+
+const User = () => {
+    const [user, setUser] = useRecoilState(userState)
+
     function generateConnections(user) {
         return user.map(connection => {
             return <Connection key={connection._id} connection={connection} />
@@ -11,7 +18,11 @@ const User = (props) => {
 
     return (
         <div >
-            {generateConnections(props.data)}
+
+            {user.connection ?
+                <div>{generateConnections(user.data)}</div>
+            : <div>{user}</div>
+            }
         </div>
     )
 }

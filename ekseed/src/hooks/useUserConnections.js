@@ -1,6 +1,7 @@
-import { userState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import UserConnection from '../models/UserConnectionModel';
+
 
 function useUserConnection(connectionId) {
     const [connections, setConnections] = useState([]);

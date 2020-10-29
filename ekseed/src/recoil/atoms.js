@@ -5,3 +5,18 @@ export const userState = atom({
     key: "userState",
     default: null,
 });
+
+
+export const connection = atom({
+    key:"component",
+    default: null,
+})
+
+
+export const noteState = atom({
+    key: "noteState",
+    default: null,
+});
+
+
+
