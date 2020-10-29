@@ -20,10 +20,14 @@ class UserConnectionModel {
     };
 
     static edit = (userConnectionid, userConnectionData) => {
-        return fetch(`${URL}/${userConnectionData}`, {
-            
-        })
-    }
+        return fetch(`${URL}/${userConnectionid}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userConnectionData),
+        }).then((response) => response.json())
+    };
 }
 
 export default UserConnectionModel;

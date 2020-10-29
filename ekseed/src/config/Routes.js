@@ -18,7 +18,7 @@ const Routes = (props) => {
     return (
         <Switch>
             <Route exact path="/" component={Home} />
-            {/* <Route path="/garden" component={MyGarden} /> */}
+            {/* <Route path="/user" component={MyGarden} /> */}
             <Route path="/login" component={Login} />{/* at login establish connection to backend */}
             <Route path="/register" component={Register} />{/* at register establish connection to backend */}
 
@@ -28,7 +28,7 @@ const Routes = (props) => {
                     {/*  put these links in the garden page */}
                     {/* <Route path="/userconnection/:id/edit" component={UserConnectionEdit} /> */}
                     {/* <Route path="/userconnection/:id" component={UserConnectionShow} /> */}
-                    <Route path="/garden" component={MyGarden} />
+                    <Route path="/user" component={MyGarden} />
                     <Route exact path="/" component={Home} />
 
                     {/* http://localhost:3001/api/v1/auth/register */}

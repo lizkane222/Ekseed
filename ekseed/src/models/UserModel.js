@@ -6,6 +6,7 @@ class UserModel {
             method: "GET",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("uid")}`,
+                // authorization: `Bearer ${localStorage.uid}`,
             },
         })
         .then((response) => response.json())

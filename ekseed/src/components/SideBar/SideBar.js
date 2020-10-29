@@ -42,7 +42,7 @@ const SideBar = (props) => {
                         <>
                             <p>{user.username}</p>
                             <p>
-                                <NavLink to={"/garden"}>Garden (all companies in my network)</NavLink>
+                                <NavLink to={"/user"}>Garden (all companies in my network)</NavLink>
                             </p>
                             <p>
                                 <NavLink to={"/userconnection/new"}>New Connection</NavLink>

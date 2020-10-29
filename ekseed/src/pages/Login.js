@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { useSetRecoilState } from "recoil";
 
 
@@ -14,7 +14,15 @@ const Login = (props)=> {
     const setUser = useSetRecoilState(userState);
     // const [error, setError] = useState("");
 
-    
+    // useEffect(function () {
+    //     if (localStorage.getItem("uid")) {
+    //         UserModel.show().then((response) => {
+    //         console.log(response)
+    //         setUser(response.data);
+    //         });
+    //     }
+    // }, []);
+
     function handleSubmit(event) {
         event.preventDefault();
 
@@ -24,7 +32,7 @@ const Login = (props)=> {
             UserModel.show().then((response) => {
                 console.log(response);
                 setUser(response.data);
-                props.history.push("/garden")
+                props.history.push("/user")
             })
         })
     }
