@@ -1,5 +1,5 @@
 import React from "react";
-import {Switch, Route} from "react-router-dom";
+import {Switch, Route } from "react-router-dom";
 
 import Home from "../pages/Home";
 import MyGarden from "../pages/MyGarden";
@@ -9,6 +9,7 @@ import ConnectionShow from "../pages/ConnectionShow";
 import ConnectionEdit from "../pages/ConnectionEdit";
 import Login from "../pages/Login";
 import Register from "../pages/Register"
+import User from "../components/User/User"
 
 import { useRecoilValue } from "recoil";
 import { loggedInState } from "../recoil/selectors";
@@ -22,6 +23,7 @@ const Routes = (props) => {
 
     return (
         <Switch>
+
             <Route exact path="/" component={Home} />
             {/* <Route path="/user" component={MyGarden} /> */}
             <Route path="/login" component={Login} />{/* at login establish connection to backend */}
@@ -32,16 +34,14 @@ const Routes = (props) => {
                 <Switch>
                     <Route path="/user/connection/new" component={ConnectionNew} />
                     {/*  put these links in the garden page */}
-                    {/* <Route path="/user/connection/:id/edit" component={ConnectionEdit} /> */}
+                    <Route path="/user/connection/:id/edit" component={ConnectionEdit} />
                     <Route path="/user/connection/:id" component={ConnectionShow} />
                     {/* <Route path="/user/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
 
                     {/* <Link to={`/user/connection/${_id}`} > */}
-                    <Route path="/user" component={MyGarden} />
-                    {/* <Route exact path="/" component={Home} /> */}
-
-                    {/* http://localhost:3001/api/v1/auth/register */}
-
+                    <Route exact path="/user" component={MyGarden} />
+                    {/* <Route exact path="/user" component={User} /> */}
+                    <Route exact path="/" component={Home} />
                 </Switch>
             )}
         </Switch>
@@ -49,8 +49,3 @@ const Routes = (props) => {
 }
 
 export default Routes;
-
-// const Routes = (props) => {
-//     const loggedIn = useRecoilValue(loggedInState);
-
-// }

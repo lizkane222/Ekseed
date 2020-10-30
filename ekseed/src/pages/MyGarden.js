@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import ConnectionModel from "../models/ConnectionModel";
 import SideBar from '../components/SideBar/SideBar';
 import { userState } from "../recoil/atoms";
+import UserGarden from "../components/User/UserGarden";
 
 
 
 const Garden = (userId) => {
-    console.log(" My Garden passes userId");
+    // console.log(" My Garden passes userId");
 
     const [connections, setConnections] = useState([]);
 
@@ -37,8 +38,10 @@ const Garden = (userId) => {
         <div>
             <h1>My Garden Page</h1>
             <SideBar />
-            {/* <h3>{connections.preferredName}</h3> */}
+            <UserGarden />
+            <div>
 
+            </div>
         </div>
     );
 }

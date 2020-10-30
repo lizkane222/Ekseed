@@ -17,7 +17,7 @@ function Register(props) {
     // signup_date = setSignup_date
     // AuthModel.register({ username, email, password, signup_date, connections}).then((response) => {
     AuthModel.register({ username, email, password}).then((response) => {
-      console.log(signup_date);
+      // console.log(signup_date);
       console.log(response);
       if (response.status === 201) {
         props.history.push("/login");

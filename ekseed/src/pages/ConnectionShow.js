@@ -4,139 +4,180 @@ import { withRouter } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userState, connectionState } from "../recoil/atoms";
 import ConnectionModel from "../models/ConnectionModel"
+import SideBar from "../components/SideBar/SideBar";
+import ConnectionComp from "../components/Connection/Connection"
 // if you have access to the global user then you can use that global user to call the back end for that user and then get that users connections
 
 
 
 const Connection = (props) => {
-    // console.log("CONNECTION SHOW LINE 12",props)
-    const connectionId = props.match.params.id
-    // console.log(connectionId)
+//     // console.log("CONNECTION SHOW LINE 12",props)
+//     const connectionId = props.match.params.id
+//     // console.log(connectionId)
 
-    const [connectionDetail, setConnectionDetail] = useState(userState)
-    console.log("ConnectionShow: userState?",userState)
-    // const [connectionUserId, setConnectionUserId] = useState(userState)
+//     const [connectionDetail, setConnectionDetail] = useState(userState)
+//     console.log("ConnectionShow: is userState", userState)
+//     // const [connectionUserId, setConnectionUserId] = useState(userState)
     
 
-    useEffect(function () {
-        return getConnectionDetail()
-    },[]);
+//     useEffect(function () {
+//         return getConnectionDetail()
+//     },[]);
 
-    function getConnectionDetail() {
-        ConnectionModel.show(connectionId).then((response) => {
-            setConnectionDetail(response.connection)
-            // console.log("connectionshow pages get connection detail", response)
+//     function getConnectionDetail() {
+//         ConnectionModel.show(connectionId).then((response) => {
+//             setConnectionDetail(response.connection)
+//             // console.log("connectionshow pages get connection detail", response)
 
-        })
-    }
-    console.log("line31 connection detail connection data",connectionDetail)
+//         })
+//     }
+//     console.log("line31 connection detail connection data, CONNECTION DETAIL ",connectionDetail)
+//     const noteArr = []
+// // connectionDetail for notes .map()
 
-// connectionDetail for notes .map()
+    // for (let i in connectionDetail){
+    //     // if (connectionDetail.hasOwnProperty("note")){
+    //         console.log("MY FOR LOOP TO GET NOTE", i, typeof(i))
+    //     // }
+    // }
+
+    // {connectionDetail.note.map(note => <p>{note.content} </p>)}
+
+    // note.preferredName
+    // note.firstName
+    // note.lastName
+    // note.network
+    // note.company
+    // note.dateReview
+    // note.profilePhoto
+    // note.noteTag
+    // note.noteContent
+    // noteReviewed
+    // noteBookmark
+    // notePrivacy
+    // noteTimestamp
+    // cellPhoneOne
+    // cellPhoneTwo
+    // email
+    // workName
+    // workPhone
+    // workEmail
+    // workAddress
+    // moreContact
+
 
 
     return(
         <div className="connectionShow">
+            <SideBar />
+
             <h1>Connection Show Page</h1>
-            {connectionDetail && (
-            <>
-                {/* <p>{connectionDetail.preferredName}</p> */}
-                <div>
-                    <p>{connectionDetail.preferredName}</p>
-                </div>
+            <ConnectionComp props={props}/>
 
-                <div>
-                    <p>{connectionDetail.firstName}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.lastName}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.network}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.company}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.dateReview}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.profilePhoto}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.noteTag}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.noteContent}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.noteReviewed}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.noteBookmark}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.notePrivacy}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.noteTimestamp}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.cellPhoneOne}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.cellPhoneTwo}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.email}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.workName}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.workPhone}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.workEmail}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.workAddress}</p>
-                </div>
-
-                <div>
-                    <p>{connectionDetail.moreContact}</p>
-                </div>
-            </>
-            )}
-
-        </div>
+            </div>
     )
 }
 
+export default withRouter(Connection);
+
+            {/* {connectionDetail && (
+            <> */}
+                {/* <p>{connectionDetail.preferredName}</p> */}
+                {/* <div>
+                    <p>preferredName: <b>{connectionDetail.preferredName}</b></p>
+                </div>
+
+                <div>
+                    <p>firstName: <b>{connectionDetail.firstName}</b></p>
+                </div>
+
+                <div>
+                    <p>lastName: <b>{connectionDetail.lastName}</b></p>
+                </div>
+
+                <div>
+                    <p>network: <b>{connectionDetail.network}</b></p>
+                </div>
+
+                <div>
+                    <p>company: <b>{connectionDetail.company}</b></p>
+                </div>
+
+                <div>
+                    <p>dateReview: <b>{connectionDetail.dateReview}</b></p>
+                </div>
+
+                <div>
+                    <p>profilePhoto: <b>{connectionDetail.profilePhoto}</b></p>
+                </div>
+
+                {/* <div>
+                    <p>note: <b>{connectionDetail.note}</b></p>
+                </div> */}
+
+                 {/* <div>
+                    <p>noteTag:</p> {connectionDetail.note.map(note =><p><b>{note.content}</b></p>)}
+                </div> */}
+{/* 
+                <div>
+                    <p>noteContent: <b>{connectionDetail.note.noteContent}</b></p>
+                </div>
+
+                <div>
+                    <p>noteReviewed: <b>{connectionDetail.note.noteReviewed}</b></p>
+                </div>
+
+                <div>
+                    <p>noteBookmark: <b>{connectionDetail.note.noteBookmark}</b></p>
+                </div>
+
+                <div>
+                    <p>notePrivacy: <b>{connectionDetail.note.notePrivacy}</b></p>
+                </div>
+
+                <div>
+                    <p>noteTimestamp: <b>{connectionDetail.note.noteTimestamp}</b></p>
+                </div> */}
+
+                {/* <div>
+                    <p>cellPhoneOne: <b>{connectionDetail.cellPhoneOne}</b></p>
+                </div>
+
+                <div>
+                    <p>cellPhoneTwo: <b>{connectionDetail.cellPhoneTwo}</b></p>
+                </div>
+
+                <div>
+                    <p>email: <b>{connectionDetail.email}</b></p>
+                </div>
+
+                <div>
+                    <p>workName: <b>{connectionDetail.workName}</b></p>
+                </div>
+
+                <div>
+                    <p>workPhone: <b>{connectionDetail.workPhone}</b></p>
+                </div>
+
+                <div>
+                    <p>workEmail: <b>{connectionDetail.workEmail}</b></p>
+                </div>
+
+                <div>
+                    <p>workAddress: <b>{connectionDetail.workAddress}</b></p>
+                </div>
+
+                <div>
+                    <p>moreContact: <b>{connectionDetail.moreContact}</b></p>
+                </div>
+            </>
+            )}  */}
 
 
 // import SideBar from '../components/SideBar/SideBar';
 
 {/* <SideBar /> */}
 
-export default withRouter(Connection);
 
 
     // const [preferredName, setPreferredName] = useRecoilState(connectionState)

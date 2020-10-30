@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import SideBar from "../components/SideBar/SideBar";
 import ConnectionModel from "../models/ConnectionModel";
 
 import User from "../models/UserModel";
-import { connectionState } from "../recoil/atoms";
+import { connectionState, userState } from "../recoil/atoms";
 import Connection from "./ConnectionShow";
+import Note from "../components/Note/Note";
+import NewNote from "../components/Note/NewNote";
 
 function ConnectionNew(props) {
     const [preferredName, setPreferredName] = useState("");
@@ -13,13 +16,21 @@ function ConnectionNew(props) {
     const [company, setCompany] = useState("");
     const [dateReview, setDateReview] = useState("");
     const [profilePhoto, setProfilePhoto] = useState("");
+    const [note, setNote] = userState("");
         
-        const [noteTag, setNoteTag] = useState("");
-        const [noteContent, setNoteContent] = useState("");
-        const [noteReviewed, setNoteReviewed] = useState("");
-        const [noteBookmark, setNoteBookmark] = useState("");
-        const [notePrivacy, setNotePrivacy] = useState("");
-        const [noteTimestamp, setNoteTimestamp] = useState("");
+        // const [noteTag, setNoteTag] = useState("");
+        // const [noteContent, setNoteContent] = useState("");
+        // const [noteReviewed, setNoteReviewed] = useState("");
+        // const [noteBookmark, setNoteBookmark] = useState("");
+        // const [notePrivacy, setNotePrivacy] = useState("");
+        // const [noteTimestamp, setNoteTimestamp] = useState("");
+
+        // const [note.tag, setNoteTag] = useState("");
+        // const [note.content, setNoteContent] = useState("");
+        // const [note.reviewed, setNoteReviewed] = useState("");
+        // const [note.bookmark, setNoteBookmark] = useState("");
+        // const [note.privacy, setNotePrivacy] = useState("");
+        // const [note.timestamp, setNoteTimestamp] = useState("");
     
         const [cellPhoneOne, setCellPhoneOne] = useState("");
         const [cellPhoneTwo, setCellPhoneTwo] = useState("");
@@ -35,30 +46,24 @@ function ConnectionNew(props) {
 
     function handleSubmit(event) {
         event.preventDefault(); 
-        // if (setDateReview){
-        //     dateReview = Date.now();
-        //     setDateReview = dateReview;
-        // }
-
-        // noteTimestamp = Date.now();
-        // setNoteTimestamp = noteTimestamp;
-        // handle dateReview, setDateReview
-        // handle noteTimestamp, setNoteTimestamp
-        ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, noteTag, noteContent, noteReviewed, noteBookmark, notePrivacy, noteTimestamp, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact})
-        .then((response)=>{
+    
+        ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, note, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
             console.log(response);
-            if (response.status === 201) {
-                props.history.push('/user/connection')
+            
+            if (response.connection === 201) {
+                // props.history.push('/user/connection')
+                props.history.push('/user')
             } else {
                 setError(response.message);
             }
-        })
-        
+        });
     }
 
     return (
         <div>
-        
+            <SideBar />
+
+            <h1>New Connection Form</h1>
             {error && <p style={{ color: "red" }}>{error}</p>}
             <form onSubmit={handleSubmit}>
             <div>
@@ -111,6 +116,8 @@ function ConnectionNew(props) {
                 /> <br/><br/>
             </div>
 
+            <div>{dateReview = Date.now()}</div>
+
             <div>
                 <label htmlFor="profilePhoto">profilePhoto: {profilePhoto}</label><br/>
                 <input 
@@ -121,7 +128,10 @@ function ConnectionNew(props) {
                 /> <br/><br/>
             </div>
 
-            <div>
+            
+            {/* {<NewNote note={note}/>} */}
+
+            {/* <div>
                 <div>
                     <label htmlFor="noteTag">noteTag: {noteTag}</label><br/>
                     <input 
@@ -171,7 +181,7 @@ function ConnectionNew(props) {
                     onChange={(e)=> setNotePrivacy(e.target.value)}
                     /> <br/><br/>
                 </div>
-            </div>
+            </div> */}
 
             <div>
                 <div>
@@ -260,6 +270,7 @@ function ConnectionNew(props) {
             value="Connect"
             />
         </form>
+
 
 
         </div>

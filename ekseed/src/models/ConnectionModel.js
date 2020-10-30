@@ -1,8 +1,4 @@
 import React, { useState} from "react";
-
-import UserModel from "./UserModel";
-
-
 const URL = "http://localhost:3001/api/v1/user/connection";
 
 class ConnectionModel {
@@ -11,7 +7,6 @@ class ConnectionModel {
     };
 
 
-    
     static show = (connectionId) => {
         console.log( "LINE 14", connectionId)
         return fetch(`${URL}/${connectionId}`,
@@ -23,14 +18,15 @@ class ConnectionModel {
     };
 
     static create = (connectionData) => {
-        return fetch(URL, {
+        return fetch(`${URL}/new`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-            },
-            body: JSON.stringify(connectionData),
+                authorization: `Bearer ${localStorage.uid}`},
+            body: JSON.stringify(connectionData)
         }).then((response) => response.json());
     };
+
 
     static edit = (connectionId, connectionData) => {
         return fetch(`${URL}/${connectionId}`, {

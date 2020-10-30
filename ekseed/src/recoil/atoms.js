@@ -20,3 +20,8 @@ export const noteState = atom({
 
 
 
+const noteContainerState = atom ({
+    key: 'noteContainerState',
+    default: [],
+});
+
