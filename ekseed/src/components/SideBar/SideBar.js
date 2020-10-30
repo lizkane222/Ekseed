@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 // import { BsPersonPlus } from 'react-icons'
 
 import UserModel from "../../models/UserModel";
@@ -13,6 +13,7 @@ import AuthModel from "../../models/AuthModel"
 // import "./Sidebar.scss"
 
 const SideBar = (props) => {
+    console.log("sidebar",props)
     const [user, setUser] = useRecoilState(userState);
 
     // useEffect(function () {
@@ -23,7 +24,21 @@ const SideBar = (props) => {
     //         });
     //     }
     // }, []);
+    // console.log(user)
 
+
+    const connectionList = user ? user.connections.map((connection) => {
+        return (
+            <Link to={`/user/connection/${connection._id}`}>
+                <p key={connection._id}> {connection.preferredName} </p>
+            </Link>
+        ) 
+        })
+        : '';
+    
+    
+
+    // const connectionList = user ? user.connections.map((connection) => <a href={`/user/connection/${connection._id}`}><p key={connection._id}>{connection.preferredName}</p></a>): '';
 
 
     function logout() {
@@ -41,11 +56,15 @@ const SideBar = (props) => {
                     {user ? (
                         <>
                             <p>{user.username}</p>
+                            {connectionList}
+
                             <p>
+                            {/* <Link to={`/user/connection/${_id}`} > */}
+
                                 <NavLink to={"/user"}>Garden (all companies in my network)</NavLink>
                             </p>
                             <p>
-                                <NavLink to={"/connection/new"}>New Connection</NavLink>
+                                <NavLink to={"/user/connection/new"}>New Connection</NavLink>
                             </p>
                             <p className="btn" onClick={logout}>
                                 <NavLink to={"/"}>Logout</NavLink>

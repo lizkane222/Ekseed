@@ -15,21 +15,30 @@ import { loggedInState } from "../recoil/selectors";
 
 const Routes = (props) => {
     const loggedIn = useRecoilValue(loggedInState);
+    // console.log("ARE WE props:",props)
+
+    const currentUser = localStorage.getItem("uid")
+    console.log(currentUser)
+
     return (
         <Switch>
             <Route exact path="/" component={Home} />
             {/* <Route path="/user" component={MyGarden} /> */}
             <Route path="/login" component={Login} />{/* at login establish connection to backend */}
             <Route path="/register" component={Register} />{/* at register establish connection to backend */}
+            {/* <Route path="/user/connection/:id" component={ConnectionShow} /> */}
 
             {loggedIn && (
                 <Switch>
-                    <Route path="/connection/new" component={ConnectionNew} />
+                    <Route path="/user/connection/new" component={ConnectionNew} />
                     {/*  put these links in the garden page */}
-                    {/* <Route path="/connection/:id/edit" component={ConnectionEdit} /> */}
-                    {/* <Route path="/connection/:id" component={ConnectionShow} /> */}
+                    {/* <Route path="/user/connection/:id/edit" component={ConnectionEdit} /> */}
+                    <Route path="/user/connection/:id" component={ConnectionShow} />
+                    {/* <Route path="/user/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
+
+                    {/* <Link to={`/user/connection/${_id}`} > */}
                     <Route path="/user" component={MyGarden} />
-                    <Route exact path="/" component={Home} />
+                    {/* <Route exact path="/" component={Home} /> */}
 
                     {/* http://localhost:3001/api/v1/auth/register */}
 

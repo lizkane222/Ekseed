@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Connection = (props) => {
     const {preferredName, firstName, lastName, network, company, dateReview, profilePhoto, notes: [{content, reviewed, bookmark, privacy}], _id } = props.connection;
+    console.log(props)
     return (
         <>
-            <Link to={`/auth//connection/${_id}`} >
+            <Link to={`/user/connection/${_id}`} >
                 <div>
                     <div className='image-wrapper'>
                         <img src={profilePhoto} alt={preferredName} />

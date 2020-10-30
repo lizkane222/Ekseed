@@ -32,51 +32,51 @@ const Login = (props)=> {
         })
     }
     
-    
-        return (
-            <div className="login-form">
-                <h3>Login</h3>
-                {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="username">Username {username}</label><br/>
-                        <input 
-                        type="text" 
-                        name="username"
-                        value={username}
-                        onChange={(e)=> setUsername(e.target.value)}
-                        /> <br/><br/>
-                    </div>
 
-                    <div>
-                        <label htmlFor="email">Email: {email}</label><br/>
-                        <input 
-                        type="text" 
-                        name="email"
-                        value={email}
-                        onChange={(e)=> setEmail(e.target.value)}
-                        /> <br/><br/>
-                    </div>
-
-                    <div>
-                        <label htmlFor="password">Password</label><br/>
-                        <input 
-                        type="password" 
-                        name={password}
-                        placeholder="password"
-                        value={password}
-                        onChange={(e)=> setPassword(e.target.value)}
-                        /> <br/><br/>
-                    </div>
-
+    return (
+        <div className="login-form">
+            <h3>Login</h3>
+            {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="username">Username {username}</label><br/>
                     <input 
-                    type="submit"
-                    value="Login"
-                    />
-                </form>
-            </div>
+                    type="text" 
+                    name="username"
+                    value={username}
+                    onChange={(e)=> setUsername(e.target.value)}
+                    /> <br/><br/>
+                </div>
 
-        )
+                <div>
+                    <label htmlFor="email">Email: {email}</label><br/>
+                    <input 
+                    type="text" 
+                    name="email"
+                    value={email}
+                    onChange={(e)=> setEmail(e.target.value)}
+                    /> <br/><br/>
+                </div>
+
+                <div>
+                    <label htmlFor="password">Password</label><br/>
+                    <input 
+                    type="password" 
+                    name={password}
+                    placeholder="password"
+                    value={password}
+                    onChange={(e)=> setPassword(e.target.value)}
+                    /> <br/><br/>
+                </div>
+
+                <input 
+                type="submit"
+                value="Login"
+                />
+            </form>
+        </div>
+
+    )
 }
 
 

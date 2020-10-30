@@ -1,52 +1,65 @@
 import React, { useState } from "react";
 import ConnectionModel from "../models/ConnectionModel";
 
+import User from "../models/UserModel";
 import { connectionState } from "../recoil/atoms";
 import Connection from "./ConnectionShow";
 
 function ConnectionNew(props) {
-    const [preferredName, setPreferredName] = useState("")
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [network, setNetwork] = useState("")
-    const [company, setCompany] = useState("")
-    const [dateReview, setDateReview] = useState("")
-    const [profilePhoto, setProfilePhoto] = useState("")
+    const [preferredName, setPreferredName] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [network, setNetwork] = useState("");
+    const [company, setCompany] = useState("");
+    const [dateReview, setDateReview] = useState("");
+    const [profilePhoto, setProfilePhoto] = useState("");
         
-        const [noteTag, setNoteTag] = useState("")
-        const [noteContent, setNoteContent] = useState("")
-        const [noteReviewed, setNoteReviewed] = useState("")
-        const [noteBookmark, setNoteBookmark] = useState("")
-        const [notePrivacy, setNotePrivacy] = useState("")
-        const [noteTimestamp, setNoteTimestamp] = useState("")
+        const [noteTag, setNoteTag] = useState("");
+        const [noteContent, setNoteContent] = useState("");
+        const [noteReviewed, setNoteReviewed] = useState("");
+        const [noteBookmark, setNoteBookmark] = useState("");
+        const [notePrivacy, setNotePrivacy] = useState("");
+        const [noteTimestamp, setNoteTimestamp] = useState("");
     
-        const [contactCellPhoneOne, setContactCellPhoneOne] = useState("")
-        const [contactCellPhoneTwo, setContactCellPhoneTwo] = useState("")
-        const [contactEmail, setContactEmail] = useState("")
-        const [contactWorkName, setContactWorkName] = useState("")
-        const [contactWorkPhone, setContactWorkPhone] = useState("")
-        const [contactWorkEmail, setContactWorkEmail] = useState("")
-        const [contactWorkAddress, setContactWorkAddress] = useState("")
+        const [cellPhoneOne, setCellPhoneOne] = useState("");
+        const [cellPhoneTwo, setCellPhoneTwo] = useState("");
+        const [email, setEmail] = useState("");
+        const [workName, setWorkName] = useState("");
+        const [workPhone, setWorkPhone] = useState("");
+        const [workEmail, setWorkEmail] = useState("");
+        const [workAddress, setWorkAddress] = useState("");
+        const [moreContact, setMoreContact] = useState("");
+        
+        const [error, setError] = useState("");
+
 
     function handleSubmit(event) {
         event.preventDefault(); 
+        // if (setDateReview){
+        //     dateReview = Date.now();
+        //     setDateReview = dateReview;
+        // }
 
+        // noteTimestamp = Date.now();
+        // setNoteTimestamp = noteTimestamp;
         // handle dateReview, setDateReview
         // handle noteTimestamp, setNoteTimestamp
-        ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, noteTag, noteContent, noteReviewed, noteBookmark, notePrivacy, noteTimestamp, contactCellPhoneOne, contactCellPhoneTwo, contactEmail, contactWorkName, contactWorkPhone, contactWorkEmail, contactWorkAddress}).then((response)=>{
+        ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, noteTag, noteContent, noteReviewed, noteBookmark, notePrivacy, noteTimestamp, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact})
+        .then((response)=>{
             console.log(response);
             if (response.status === 201) {
-                props.history.push('/user')
+                props.history.push('/user/connection')
+            } else {
+                setError(response.message);
             }
         })
         
     }
 
-
-
-
-return (
-    <div>
+    return (
+        <div>
+        
+            {error && <p style={{ color: "red" }}>{error}</p>}
             <form onSubmit={handleSubmit}>
             <div>
                 <label htmlFor="preferredName">preferredName {preferredName}</label><br/>
@@ -59,6 +72,16 @@ return (
             </div>
 
             <div>
+                <label htmlFor="firstName">firstName: {firstName}</label><br/>
+                <input 
+                type="text" 
+                name="firstName"
+                value={firstName}
+                onChange={(e)=> setFirstName(e.target.value)}
+                /> <br/><br/>
+            </div>
+            
+            <div>
                 <label htmlFor="lastName">lastName: {lastName}</label><br/>
                 <input 
                 type="text" 
@@ -68,6 +91,16 @@ return (
                 /> <br/><br/>
             </div>
 
+            <div>
+                <label htmlFor="network">network: {network}</label><br/>
+                <input 
+                type="text" 
+                name="network"
+                value={network}
+                onChange={(e)=> setNetwork(e.target.value)}
+                /> <br/><br/>
+            </div>
+            
             <div>
                 <label htmlFor="company">company: {company}</label><br/>
                 <input 
@@ -142,86 +175,96 @@ return (
 
             <div>
                 <div>
-                    <label htmlFor="contactCellPhoneOne">contactCellPhoneOne: {contactCellPhoneOne}</label><br/>
+                    <label htmlFor="cellPhoneOne">cellPhoneOne: {cellPhoneOne}</label><br/>
                     <input 
                     type="text" 
-                    name="contactCellPhoneOne"
-                    value={contactCellPhoneOne}
-                    onChange={(e)=> setContactCellPhoneOne(e.target.value)}
+                    name="cellPhoneOne"
+                    value={cellPhoneOne}
+                    onChange={(e)=> setCellPhoneOne(e.target.value)}
                     /> <br/><br/>
                 </div>
 
                 <div>
-                    <label htmlFor="contactCellPhoneTwo">contactCellPhoneTwo: {contactCellPhoneTwo}</label><br/>
+                    <label htmlFor="cellPhoneTwo">cellPhoneTwo: {cellPhoneTwo}</label><br/>
                     <input 
                     type="text" 
-                    name="contactCellPhoneTwo"
-                    value={contactCellPhoneTwo}
-                    onChange={(e)=> setContactCellPhoneTwo(e.target.value)}
+                    name="cellPhoneTwo"
+                    value={cellPhoneTwo}
+                    onChange={(e)=> setCellPhoneTwo(e.target.value)}
                     /> <br/><br/>
                 </div>
 
                 <div>
-                    <label htmlFor="contactEmail">contactEmail: {contactEmail}</label><br/>
+                    <label htmlFor="email">email: {email}</label><br/>
                     <input 
                     type="text" 
-                    name="contactEmail"
-                    value={contactEmail}
-                    onChange={(e)=> setContactEmail(e.target.value)}
+                    name="email"
+                    value={email}
+                    onChange={(e)=> setEmail(e.target.value)}
                     /> <br/><br/>
                 </div>
 
                 <div>
-                    <label htmlFor="contactWorkName">contactWorkName: {contactWorkName}</label><br/>
+                    <label htmlFor="workName">workName: {workName}</label><br/>
                     <input 
                     type="text" 
-                    name="contactWorkName"
-                    value={contactWorkName}
-                    onChange={(e)=> setContactWorkName(e.target.value)}
+                    name="workName"
+                    value={workName}
+                    onChange={(e)=> setWorkName(e.target.value)}
                     /> <br/><br/>
                 </div>
 
                 <div>
-                    <label htmlFor="contactWorkPhone">contactWorkPhone: {contactWorkPhone}</label><br/>
+                    <label htmlFor="workPhone">workPhone: {workPhone}</label><br/>
                     <input 
                     type="text" 
-                    name="contactWorkPhone"
-                    value={contactWorkPhone}
-                    onChange={(e)=> setContactWorkPhone(e.target.value)}
+                    name="workPhone"
+                    value={workPhone}
+                    onChange={(e)=> setWorkPhone(e.target.value)}
                     /> <br/><br/>
                 </div>
 
                 <div>
-                    <label htmlFor="contactWorkEmail">contactWorkEmail: {contactWorkEmail}</label><br/>
+                    <label htmlFor="workEmail">workEmail: {workEmail}</label><br/>
                     <input 
                     type="text" 
-                    name="contactWorkEmail"
-                    value={contactWorkEmail}
-                    onChange={(e)=> setContactWorkEmail(e.target.value)}
+                    name="workEmail"
+                    value={workEmail}
+                    onChange={(e)=> setWorkEmail(e.target.value)}
                     /> <br/><br/>
                 </div>
 
                 <div>
-                    <label htmlFor="contactWorkAddress">contactWorkAddress: {contactWorkAddress}</label><br/>
+                    <label htmlFor="workAddress">workAddress: {workAddress}</label><br/>
                     <input 
                     type="text" 
-                    name="contactWorkAddress"
-                    value={contactWorkAddress}
-                    onChange={(e)=> setContactWorkAddress(e.target.value)}
+                    name="workAddress"
+                    value={workAddress}
+                    onChange={(e)=> setWorkAddress(e.target.value)}
+                    /> <br/><br/>
+                </div>
+
+                <div>
+                    <label htmlFor="moreContact">moreContact: {moreContact}</label><br/>
+                    <input 
+                    type="text" 
+                    name="moreContact"
+                    value={moreContact}
+                    onChange={(e)=> setMoreContact(e.target.value)}
                     /> <br/><br/>
                 </div>
             </div>
 
             <input 
             type="submit"
-            value="Login"
+            value="Connect"
             />
         </form>
 
 
-    </div>
+        </div>
     )
-}
+};
 
 
 
