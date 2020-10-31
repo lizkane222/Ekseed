@@ -7,6 +7,7 @@ const Home = () => {
     
     return (
         <div>
+            <SideBar />
             <h1>Ekseed Garden</h1>
 
 
@@ -14,7 +15,6 @@ const Home = () => {
 
             <p>This will display all of the companies in the api</p>
             <p>This is available outside of login</p>
-            <SideBar />
         </div>
     );
 }

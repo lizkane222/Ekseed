@@ -5,7 +5,7 @@ import { useSetRecoilState } from "recoil";
 import UserModel from "../models/UserModel";
 import AuthModel from "../models/AuthModel";
 import { userState } from "../recoil/atoms";
-
+import SideBar from "../components/SideBar/SideBar";
 
 const Login = (props)=> {
     const [username, setUsername] = useState("");
@@ -35,6 +35,7 @@ const Login = (props)=> {
 
     return (
         <div className="login-form">
+            <SideBar />
             <h3>Login</h3>
             {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
             <form onSubmit={handleSubmit}>

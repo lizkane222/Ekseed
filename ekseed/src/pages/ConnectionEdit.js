@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 // import Connection from "./ConnectionShow";
 import ConnectionModel from "../models/ConnectionModel";
-// import SideBar from '../components/SideBar/SideBar';
+import SideBar from '../components/SideBar/SideBar';
 
 import { connectionState } from "../recoil/atoms";
 
@@ -59,7 +59,7 @@ function ConnectionNew(props) {
 
     return (
         <div>
-        
+            <SideBar />
             {error && <p style={{ color: "red" }}>{error}</p>}
             <form onSubmit={handleSubmit}>
             <div>

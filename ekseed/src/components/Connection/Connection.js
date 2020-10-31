@@ -4,6 +4,8 @@ import { Link, withRouter } from 'react-router-dom';
 import { userState, connectionState } from "../../recoil/atoms";
 import ConnectionModel from "../../models/ConnectionModel"
 import Note from "../Note/Note";
+import "./Connection.css"
+
 
 const ConnectionComp = (props) => {
     // const {preferredName, firstName, lastName, network, company, dateReview, profilePhoto, note: [{content, reviewed, bookmark, privacy}],cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact, _id } = props.connection;
@@ -27,91 +29,106 @@ const ConnectionComp = (props) => {
     }
     // console.log("line31 connection detail connection data, CONNECTION DETAIL ",connectionDetail)
 
-    for (let i in connectionDetail){
-            console.log("MY FOR LOOP TO GET NOTE", i, typeof(i))
-    }
+    // for (let i in connectionDetail){
+    //         console.log("MY FOR LOOP TO GET NOTE", i, typeof(i))
+    // }
     // {connectionDetail.note.map(note => <p>{note.content} </p>)}
-    const notes = connectionDetail.note.map((note, idx) => <Note note={note}/> )
+    // const notes = connectionDetail.note.map((note, idx) => <Note note={note}/> )
 
     return (
-        <div>
+        <div className="connection-show">
             <>
-            
             <h3>Connection Component</h3>
 
             </>
             {connectionDetail && (
+            
             <>
-                <div>
+            <section className="connection-show__network">
+                <div className="connection-show__network__item">
                     <p>preferredName: <b>{connectionDetail.preferredName}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__network__item">
                     <p>firstName: <b>{connectionDetail.firstName}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__network__item">
                     <p>lastName: <b>{connectionDetail.lastName}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__network__item">
+                    {/* <Link to={`/user/connection`} >
+                        <div className='image-wrapper'>
+                            <img src={connectionDetail.network} alt={connectionDetail.network} />
+                        </div>
+                    </Link> */}
                     <p>network: <b>{connectionDetail.network}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__network__item">
+                    {/* <Link to={`/user/connection`} >
+                        <div className='image-wrapper'>
+                            <img src={connectionDetail.company} alt={connectionDetail.company} />
+                        </div>
+                    </Link> */}
                     <p>company: <b>{connectionDetail.company}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__network__item">
                     <p>dateReview: <b>{connectionDetail.dateReview}</b></p>
                 </div>
-
-                <div>
+            
+                <div className="connection-show__network__item">
                     <Link to={`/user/connection`} >
                         <div className='image-wrapper'>
                             <img src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
                         </div>
                     </Link>
                 </div>
+            </section>
+                {/* {connectionDetail && (notes)} */}
 
-                {<Note notes={notes} />}
 
-
-
-                <div>
+            <section className="connection-show__contact">
+                <div className="connection-show__contact__item">
                     <p>cellPhoneOne: <b>{connectionDetail.cellPhoneOne}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__contact__item">
                     <p>cellPhoneTwo: <b>{connectionDetail.cellPhoneTwo}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__contact__item">
                     <p>email: <b>{connectionDetail.email}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__contact__item">
                     <p>workName: <b>{connectionDetail.workName}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__contact__item">
                     <p>workPhone: <b>{connectionDetail.workPhone}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__contact__item">
                     <p>workEmail: <b>{connectionDetail.workEmail}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__contact__item">
                     <p>workAddress: <b>{connectionDetail.workAddress}</b></p>
                 </div>
 
-                <div>
+                <div className="connection-show__contact__item">
                     <p>moreContact: <b>{connectionDetail.moreContact}</b></p>
                 </div>
-
+            </section>
+            
             </>
             )}
+
+
+            <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a>
         </div>
     )
 }

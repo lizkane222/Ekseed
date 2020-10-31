@@ -1,6 +1,6 @@
 // https://recoiljs.org/docs/basic-tutorial/atoms
 import {useRecoilState} from "recoil";
-import { noteContainerState } from "../../../recoil/atoms";
+import { noteContainerState } from "../../../../recoil/atoms";
 
 
 

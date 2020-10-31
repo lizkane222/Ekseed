@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import AuthModel from "../models/AuthModel";
+import SideBar from "../components/SideBar/SideBar";
 
 function Register(props) {
   const [username, setUsername] = useState("");
@@ -29,42 +30,46 @@ function Register(props) {
 
   return (
     <div>
-        <h2>Register for an Account!</h2>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <form onSubmit={handleSubmit}>
-            <div className='form-input'>
-                <label htmlFor='username'>Username: {username}</label>
-                <input
-                type='text'
-                name='username'
-                placeholder="username"
-                onChange={(e) => setUsername(e.target.value)}
-                value={username}
-                />
-            </div>
-            <div className='form-input'>
-                <label htmlFor='email'>Email</label>
-                <input
-                type='text'
-                name='email'
-                placeholder="email address"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                />
-            </div>
-            <div className='form-input'>
-                <label htmlFor='password'>Password</label>
-                <input
-                type='password'
-                name='password'
-                placeholder="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                />
-            </div>
+        <SideBar />
+        <div>
 
-            <input type='submit' value='Register' />
-        </form>
+
+          <h2>Register for an Account!</h2>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <form onSubmit={handleSubmit}>
+              <div className='form-input'>
+                  <label htmlFor='username'>Username: {username}</label>
+                  <input
+                  type='text'
+                  name='username'
+                  placeholder="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                  value={username}
+                  />
+              </div>
+              <div className='form-input'>
+                  <label htmlFor='email'>Email</label>
+                  <input
+                  type='text'
+                  name='email'
+                  placeholder="email address"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  />
+              </div>
+              <div className='form-input'>
+                  <label htmlFor='password'>Password</label>
+                  <input
+                  type='password'
+                  name='password'
+                  placeholder="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  />
+              </div>
+              <input type='submit' value='Register' />
+          </form>
+        </div>
     </div>
   );
 }

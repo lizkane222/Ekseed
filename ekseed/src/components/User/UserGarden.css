@@ -1,0 +1,28 @@
+
+
+
+.garden-connectionList {
+    display: grid;
+    grid-template-columns: auto 400px 1fr 1fr 3fr 1fr 1fr;
+    grid-template-rows: 400px 1fr 1fr 3fr 1fr 1fr;
+}
+
+.garden-connectionList__item-name {
+    width: 500px;
+
+}
+
+.garden-connectionList__img-container {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+.garden-connectionList__img-container__img {
+    /* max-width: 200px; */
+    width: 250px;
+    position: center bottom;
+
+}

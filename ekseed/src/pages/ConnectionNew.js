@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import SideBar from "../components/SideBar/SideBar";
 import ConnectionModel from "../models/ConnectionModel";
 
+import "./pages.css"
+
 import User from "../models/UserModel";
 import { connectionState, userState } from "../recoil/atoms";
 import Connection from "./ConnectionShow";
 import Note from "../components/Note/Note";
-import NewNote from "../components/Note/NewNote";
+// import NewNote from "../components/Note/NewNote";
 
 function ConnectionNew(props) {
     const [preferredName, setPreferredName] = useState("");
@@ -16,7 +18,7 @@ function ConnectionNew(props) {
     const [company, setCompany] = useState("");
     const [dateReview, setDateReview] = useState("");
     const [profilePhoto, setProfilePhoto] = useState("");
-    const [note, setNote] = userState("");
+    // const [note, setNote] = userState("");
         
         // const [noteTag, setNoteTag] = useState("");
         // const [noteContent, setNoteContent] = useState("");
@@ -43,16 +45,32 @@ function ConnectionNew(props) {
         
         const [error, setError] = useState("");
 
+        // =======================================================
+        // setDateReview = Date.now()
+
+        // this example takes 2 seconds to run
+                // const start = Date.now();
+
+                // console.log('starting timer...');
+                // // expected output: starting timer...
+
+                // setTimeout(() => {
+                // const millis = Date.now() - start;
+
+                // console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
+                // // expected output: seconds elapsed = 2
+                // }, 2000);
+        // =======================================================
+
 
     function handleSubmit(event) {
         event.preventDefault(); 
-    
-        ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, note, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
+        // ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, note, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
+        ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
             console.log(response);
-            
+            console.log(props.history)
             if (response.connection === 201) {
-                // props.history.push('/user/connection')
-                props.history.push('/user')
+                props.history.push("/user")
             } else {
                 setError(response.message);
             }
@@ -107,7 +125,7 @@ function ConnectionNew(props) {
             </div>
             
             <div>
-                <label htmlFor="company">company: {company}</label><br/>
+                <label htmlFor="company">Company Name: {company}</label><br/>
                 <input 
                 type="text" 
                 name="company"
@@ -116,10 +134,10 @@ function ConnectionNew(props) {
                 /> <br/><br/>
             </div>
 
-            <div>{dateReview = Date.now()}</div>
+            <div>{}</div>
 
             <div>
-                <label htmlFor="profilePhoto">profilePhoto: {profilePhoto}</label><br/>
+                <label htmlFor="profilePhoto">Profile Photo: <img className="ConnectionNew-profile-photo-preview" src={profilePhoto} alt=""/> </label><br/>
                 <input 
                 type="text" 
                 name="profilePhoto"

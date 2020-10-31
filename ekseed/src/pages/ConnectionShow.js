@@ -1,84 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from 'react-router-dom';
 
 import { useRecoilState, useRecoilValue } from "recoil";
-import { userState, connectionState } from "../recoil/atoms";
-import ConnectionModel from "../models/ConnectionModel"
+// import { userState, connectionState } from "../recoil/atoms";
+// import ConnectionModel from "../models/ConnectionModel"
 import SideBar from "../components/SideBar/SideBar";
-import ConnectionComp from "../components/Connection/Connection"
-// if you have access to the global user then you can use that global user to call the back end for that user and then get that users connections
-
-
+import ConnectionComponent from "../components/Connection/Connection"
+import {loggedInState} from "../recoil/selectors"
+import { userState } from "../recoil/atoms";
 
 const Connection = (props) => {
-//     // console.log("CONNECTION SHOW LINE 12",props)
-//     const connectionId = props.match.params.id
-//     // console.log(connectionId)
-
-//     const [connectionDetail, setConnectionDetail] = useState(userState)
-//     console.log("ConnectionShow: is userState", userState)
-//     // const [connectionUserId, setConnectionUserId] = useState(userState)
-    
-
-//     useEffect(function () {
-//         return getConnectionDetail()
-//     },[]);
-
-//     function getConnectionDetail() {
-//         ConnectionModel.show(connectionId).then((response) => {
-//             setConnectionDetail(response.connection)
-//             // console.log("connectionshow pages get connection detail", response)
-
-//         })
-//     }
-//     console.log("line31 connection detail connection data, CONNECTION DETAIL ",connectionDetail)
-//     const noteArr = []
-// // connectionDetail for notes .map()
-
-    // for (let i in connectionDetail){
-    //     // if (connectionDetail.hasOwnProperty("note")){
-    //         console.log("MY FOR LOOP TO GET NOTE", i, typeof(i))
-    //     // }
-    // }
-
-    // {connectionDetail.note.map(note => <p>{note.content} </p>)}
-
-    // note.preferredName
-    // note.firstName
-    // note.lastName
-    // note.network
-    // note.company
-    // note.dateReview
-    // note.profilePhoto
-    // note.noteTag
-    // note.noteContent
-    // noteReviewed
-    // noteBookmark
-    // notePrivacy
-    // noteTimestamp
-    // cellPhoneOne
-    // cellPhoneTwo
-    // email
-    // workName
-    // workPhone
-    // workEmail
-    // workAddress
-    // moreContact
-
+    const user = useRecoilValue(userState)
 
 
     return(
         <div className="connectionShow">
-            <SideBar />
 
-            <h1>Connection Show Page</h1>
-            <ConnectionComp props={props}/>
 
-            </div>
+                <SideBar />
+                
+                <h1>Connection Show Page</h1>
+                <ConnectionComponent props={props} user={user}/>
+                
+   
+
+
+
+        </div>
     )
 }
 
 export default withRouter(Connection);
+// export default Connection;
+
+
+
+
+
 
             {/* {connectionDetail && (
             <> */}

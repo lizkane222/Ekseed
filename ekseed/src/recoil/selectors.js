@@ -11,3 +11,11 @@ export const loggedInState = selector({
     },
 });
 
+// export const getUserIdState = selector({
+//     key: "getUserIdState",
+//     get: ({ get }) => {
+//         const userId = get(userState);
+//         if (user) return user._id;
+//         return false
+//     }
+// })
