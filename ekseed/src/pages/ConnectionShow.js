@@ -8,6 +8,8 @@ import SideBar from "../components/SideBar/SideBar";
 import ConnectionComponent from "../components/Connection/Connection"
 import {loggedInState} from "../recoil/selectors"
 import { userState } from "../recoil/atoms";
+import Logo from "../components/Logo/Logo"
+
 
 const Connection = (props) => {
     const user = useRecoilValue(userState)
@@ -16,7 +18,8 @@ const Connection = (props) => {
     return(
         <div className="connectionShow">
 
-
+                <Logo />
+                
                 <SideBar />
                 
                 <h1>Connection Show Page</h1>

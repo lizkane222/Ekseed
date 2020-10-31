@@ -1,13 +1,11 @@
 @import url("https://use.typekit.net/mqq4bnw.css");
 
-.side-bar-container {
-    background-color: #00CEBD;
-    // height: 100vh;
-
-    // width: 5vw;
+#logo {
+    /* position: absolute; */
+    margin: 4px 50px 20px 5px;
     font-family: variex, sans-serif;
     font-style: normal;
     font-weight: 300;
-    font-size: 15px;
-    margin-left:95%;
+    font-size: 80px;
+    color: #00CEBD;
 }

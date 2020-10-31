@@ -41,7 +41,7 @@ const SideBar = (props) => {
     return (
         <nav className="side-bar-container" >
             <div>
-                <NavLink to="/" >Ekseed (all companies)</NavLink>
+                <NavLink to="/" >Ekseed</NavLink>
             </div>
             <div className="nav-links">
                 <ul>
@@ -57,7 +57,7 @@ const SideBar = (props) => {
                                 <NavLink to={"/user"}>Garden</NavLink>
                             </p>
                             <p>
-                                <NavLink to={"/user/connection/new"}>New Connect</NavLink>
+                                <NavLink to={"/user/connection/new"}> Connect</NavLink>
                             </p>
                             <p className="btn" onClick={logout}>
                                 <NavLink to={"/"}>Logout</NavLink>

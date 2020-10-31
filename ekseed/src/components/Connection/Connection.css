@@ -1,19 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #333;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-size: 45px;
+  font-weight: 300;
+  margin: 10px;
+}
+
+h2 span {
+  font-size: 30px;
+}
+
+p {
+  font-size: 20px;
+}
+
+
+
+/* .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.container > div {
+  cursor: pointer;
+  height: 210px;
+  background-size: cover;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  transition: all 0.5s ease-in;
+} */
+
+/* .container > div:hover {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+.container > div:nth-of-type() {
+  grid-column: 1 / 3;
+}
+
+.container > div:nth-of-type() {
+  grid-column: 3 / 5;
+}
+
+.container > div:nth-of-type() {
+  grid-column: 3 / 5;
+}
+
+.container > div:nth-of-type() {
+  grid-column: 1 / 3;
+} */
+
+/* .bg1 {
+  background: url('https://i.ibb.co/dBLbrRV/bg1.jpg');
+}
+
+.bg2 {
+  background: url('https://i.ibb.co/Fb5jb3J/bg2.jpg');
+  color: #333;
+} */
+
+
+
+
+
+
+
+
+
+
+/* ================================================ */
 .connection-show {
-
+    /* display: flex; */
+    max-width: 95vw;
+    max-height: 95vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
+
+/* .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 50px;
+} */
+
+
+
+
+/* network container */
 .connection-show__network {
+    background-color: rgb(66, 96, 136);
 
+    display: grid;
+    grid-template-columns: 3fr 1fr 4fr repeat(4,1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 10px;
+    margin: 50px;
 }
+
+.container > .connection-show__network__item {
+cursor: pointer;
+height: 80px;
+background-size: cover;
+background-attachment: fixed;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+
+transition: all 0.5s ease-in-out;
+}
+
+/* .connection-show__network {
+    background-color: rgb(66, 96, 136);
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+} */
 
 .connection-show__network__item {
+    background: url("./dandelion_seeds_by_jollyoldgeezer_d3gdzd7-pre.jpg")
+}
 
+.connection-show__network__item >h2 {
+    font-size: 30px;
+}
+
+.img-container {
+    margin-top: 50%;
+}
+
+.image-wrapper {
+    max-width: 100%;
+    max-height: 200%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.connection-show__network__img {
+    width: 100%;
+    display: fit;
+    justify-content: center;
+    align-items: center;
+    /* background-attachment: fit; */
+}
+
+/* network */
+.container > div:nth-of-type(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 5;
+}
+
+/* profilePhoto */
+.container > div:nth-of-type(2) {
+    grid-column: 3 / 4;
+    grid-row: 1 / 5;
+} 
+
+/* preferredName */
+.container > div:nth-of-type(3) {
+    grid-column: 4 / 8;
+  }
+
+/* firstName */
+.container > div:nth-of-type(4) {
+    grid-column: 4 / 8;
+}
+
+/* lastName */
+.container > div:nth-of-type(5) {
+    grid-column: 4 / 8;
+}
+
+/* company */
+.container > div:nth-of-type(6) {
+    grid-column: 5 / 7;
+}
+
+/* dateReview */
+.container > div:nth-of-type(7) {
+    grid-column: 5 / 7;
+}
+
+
+
+
+/* contact container */
+
+.container > .connection-show__contact__item {
+    cursor: pointer;
+    height: 40px;
+    background-size: cover;
+    background-attachment: fixed;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    transition: all 0.5s ease-in;
 }
 
 .connection-show__contact {
+    background-color: rgb(131, 212, 138);
 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding: 10px;
 }
 
 .connection-show__contact__item {
-
+    background: url("./natural_spectacles_26_by_mt_photografien_dahtedd-fullview.jpg")
 }
+
+.connection-show__contact__item >h2 {
+    font-size: 20px;
+}
+

@@ -5,7 +5,7 @@ import ConnectionModel from "../models/ConnectionModel";
 import SideBar from '../components/SideBar/SideBar';
 import { userState } from "../recoil/atoms";
 import UserGarden from "../components/User/UserGarden";
-
+import Logo from "../components/Logo/Logo"
 
 
 const Garden = (userId) => {
@@ -36,6 +36,7 @@ const Garden = (userId) => {
 
     return (
         <div>
+            <Logo />
             <h1>My Garden Page</h1>
             <SideBar />
             <UserGarden />

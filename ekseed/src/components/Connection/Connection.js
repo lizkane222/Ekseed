@@ -37,25 +37,68 @@ const ConnectionComp = (props) => {
 
     return (
         <div className="connection-show">
-            <>
             <h3>Connection Component</h3>
+
+            {/* <div class="container"> */}
+                {/* <div class="bg1">
+                    <h2>16 <span>| 24</span></h2>
+                    <p>Goals Completed</p>
+                </div>
+                <div class="bg1">
+                    <h2><i class="fas fa-battery-three-quarters"></i></h2>
+                    <p>Respiration</p>
+                </div>
+                <div class="bg2">
+                    <h2><i class="fas fa-running"></i></h2>
+                    <p>Miles</p>
+                </div>
+                <div class="bg1">
+                    <h2>36 &deg;</h2>
+                    <p>Temperature</p>
+                </div>
+                <div class="bg1">
+                    <h2><i class="fas fa-bed"></i></h2>
+                    <p>Sleep Keep</p>
+                </div>
+                <div class="bg2">
+                    <h2>98 <span>bpm</span></h2>
+                    <p>Heart Rate</p>
+                </div>
+                <div class="bg1">
+                    <h2>170 <span>lbs</span></h2>
+                    <p>Weight</p>
+                </div>
+                <div class="bg1">
+                    <h2>28 <span>%</span></h2>
+                    <p>Fat Percentage</p>
+                </div>
+                <div class="bg2">
+                    <h2>118 <span>mgdl</span></h2>
+                    <p>Blood Glucose</p>
+                </div>
+                <div class="bg2">
+                    <h2>680 <span>kcal</span></h2>
+                    <p>AVG Consumption</p>
+                </div>
+                <div class="bg2">
+                    <h2><i class="fas fa-dumbbell"></i></h2>
+                    <p>Workouts</p>
+                </div>
+                <div class="bg2">
+                    <h2>85 <span>%</span></h2>
+                    <p>Body Hydration</p>
+                </div>*/}
+            {/* </div>  */}
+
+
+
+            <>
 
             </>
             {connectionDetail && (
             
             <>
-            <section className="connection-show__network">
-                <div className="connection-show__network__item">
-                    <p>preferredName: <b>{connectionDetail.preferredName}</b></p>
-                </div>
-
-                <div className="connection-show__network__item">
-                    <p>firstName: <b>{connectionDetail.firstName}</b></p>
-                </div>
-
-                <div className="connection-show__network__item">
-                    <p>lastName: <b>{connectionDetail.lastName}</b></p>
-                </div>
+            <section className="connection-show__network container">
 
                 <div className="connection-show__network__item">
                     {/* <Link to={`/user/connection`} >
@@ -63,7 +106,31 @@ const ConnectionComp = (props) => {
                             <img src={connectionDetail.network} alt={connectionDetail.network} />
                         </div>
                     </Link> */}
-                    <p>network: <b>{connectionDetail.network}</b></p>
+                    <h2>network</h2>
+                    <p>{connectionDetail.network}</p>
+                </div>
+
+                <div >
+                    <Link to={`/user`} className=" img-container">
+                        <div className='connection-show__network__item image-wrapper'>
+                            <img class="connection-show__network__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
+                        </div>
+                    </Link>
+                </div>
+
+                <div className="connection-show__network__item">
+                    <h2>preferredName</h2>
+                    <p>{connectionDetail.preferredName}</p>
+                </div>
+
+                <div className="connection-show__network__item">
+                    <h2>firstName</h2>
+                    <p>{connectionDetail.firstName}</p>
+                </div>
+
+                <div className="connection-show__network__item">
+                    <h2>lastName</h2>
+                    <p>{connectionDetail.lastName}</p>
                 </div>
 
                 <div className="connection-show__network__item">
@@ -72,55 +139,59 @@ const ConnectionComp = (props) => {
                             <img src={connectionDetail.company} alt={connectionDetail.company} />
                         </div>
                     </Link> */}
-                    <p>company: <b>{connectionDetail.company}</b></p>
+                    <h2>company</h2>
+                    <p>{connectionDetail.company}</p>
                 </div>
 
                 <div className="connection-show__network__item">
-                    <p>dateReview: <b>{connectionDetail.dateReview}</b></p>
+                    <h2>dateReview</h2>
+                    <p>{connectionDetail.dateReview}</p>
                 </div>
             
-                <div className="connection-show__network__item">
-                    <Link to={`/user/connection`} >
-                        <div className='image-wrapper'>
-                            <img src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
-                        </div>
-                    </Link>
-                </div>
+
             </section>
                 {/* {connectionDetail && (notes)} */}
 
 
-            <section className="connection-show__contact">
+            <section className="connection-show__contact container">
                 <div className="connection-show__contact__item">
-                    <p>cellPhoneOne: <b>{connectionDetail.cellPhoneOne}</b></p>
+                    <h2>cellPhoneOne</h2>
+                    <p>{connectionDetail.cellPhoneOne}</p>
                 </div>
 
                 <div className="connection-show__contact__item">
-                    <p>cellPhoneTwo: <b>{connectionDetail.cellPhoneTwo}</b></p>
+                    <h2>cellPhoneTwo</h2>
+                    <p>{connectionDetail.cellPhoneTwo}</p>
                 </div>
 
                 <div className="connection-show__contact__item">
-                    <p>email: <b>{connectionDetail.email}</b></p>
+                    <h2>email</h2>
+                    <p>{connectionDetail.email}</p>
                 </div>
 
                 <div className="connection-show__contact__item">
-                    <p>workName: <b>{connectionDetail.workName}</b></p>
+                    <h2>workName</h2>
+                    <p>{connectionDetail.workName}</p>
                 </div>
 
                 <div className="connection-show__contact__item">
-                    <p>workPhone: <b>{connectionDetail.workPhone}</b></p>
+                    <h2>workPhone</h2>
+                    <p>{connectionDetail.workPhone}</p>
                 </div>
 
                 <div className="connection-show__contact__item">
-                    <p>workEmail: <b>{connectionDetail.workEmail}</b></p>
+                    <h2>workEmail</h2>
+                    <p>{connectionDetail.workEmail}</p>
                 </div>
 
                 <div className="connection-show__contact__item">
-                    <p>workAddress: <b>{connectionDetail.workAddress}</b></p>
+                    <h2>workAddress</h2>
+                    <p>{connectionDetail.workAddress}</p>
                 </div>
 
                 <div className="connection-show__contact__item">
-                    <p>moreContact: <b>{connectionDetail.moreContact}</b></p>
+                    <h2>moreContact</h2>
+                    <p>{connectionDetail.moreContact}</p>
                 </div>
             </section>
             
