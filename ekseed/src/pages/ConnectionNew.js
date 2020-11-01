@@ -79,7 +79,7 @@ function ConnectionNew(props) {
 
     return (
         <div>
-            <SideBar />
+            {/* <SideBar /> */}
 
             <h1>New Connection Form</h1>
             {error && <p style={{ color: "red" }}>{error}</p>}

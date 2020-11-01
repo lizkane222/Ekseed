@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink, Link } from "react-router-dom";
 
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -13,7 +13,7 @@ const UserGarden = (props) => {
         return (
             <div className="garden-connectionList">
                 <Link to={`/user/connection/${connection._id}`}>
-                    <p className="garden-connectionList__item-name" key={connection._id}> {connection.preferredName} </p>
+                    <p  key={connection._id} className="garden-connectionList__item-name"> {connection.preferredName} </p>
                         <div className="garden-connectionList__img-container">
                             <img className="garden-connectionList__img-container__img" src={connection.profilePhoto} alt={connection.preferredName} />
                         </div>

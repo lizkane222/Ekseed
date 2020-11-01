@@ -35,7 +35,7 @@ const Login = (props)=> {
 
     return (
         <div className="login-form">
-            <SideBar />
+            {/* <SideBar /> */}
             <h3>Login</h3>
             {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
             <form onSubmit={handleSubmit}>

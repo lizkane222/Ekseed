@@ -13,6 +13,7 @@ import User from "../components/User/User"
 
 import { useRecoilValue } from "recoil";
 import { loggedInState } from "../recoil/selectors";
+import NoteContainer from "../components/Note/NoteContainer/NoteContainer";
 
 const Routes = (props) => {
     const loggedIn = useRecoilValue(loggedInState);
@@ -28,8 +29,9 @@ const Routes = (props) => {
             {/* <Route path="/user" component={MyGarden} /> */}
             <Route path="/login" component={Login} />{/* at login establish connection to backend */}
             <Route path="/register" component={Register} />{/* at register establish connection to backend */}
+            <Route path="/note" component={NoteContainer} />{/* at register establish connection to backend */}
             {/* <Route path="/user/connection/:id" component={ConnectionShow} /> */}
-
+            
             {loggedIn && (
                 <Switch>
                     <Route path="/user/connection/new" component={ConnectionNew} />
@@ -39,7 +41,8 @@ const Routes = (props) => {
                     {/* <Route path="/user/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
 
                     {/* <Link to={`/user/connection/${_id}`} > */}
-                    <Route exact path="/user" component={MyGarden} />
+                    <Route path="/user/connection" component={MyGarden} />
+                    <Route path="/user" component={MyGarden} />
                     {/* <Route exact path="/user" component={User} /> */}
                     <Route exact path="/" component={Home} />
                 </Switch>

@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 // import reportWebVitals from './reportWebVitals';
 import { RecoilRoot, atom, selector, useRecoilState, useRecoilValue } from "recoil";
-
+import NiceInputPassword from 'react-nice-input-password';
+import 'react-nice-input-password/dist/react-nice-input-password.css';
 
 
 // Interal Imports

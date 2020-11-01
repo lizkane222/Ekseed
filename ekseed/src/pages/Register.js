@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import NiceInputPassword from 'react-nice-input-password';
+import 'react-nice-input-password/dist/react-nice-input-password.css';
+import {TextField, InputLabel, Typography} from '@material-ui/core';
+// import LockIcon from '@material-ui/icons/Lock';
 
 import AuthModel from "../models/AuthModel";
 import SideBar from "../components/SideBar/SideBar";
@@ -14,11 +18,9 @@ function Register(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // setSignup_date = Date.now();
-    // signup_date = setSignup_date
-    // AuthModel.register({ username, email, password, signup_date, connections}).then((response) => {
+
     AuthModel.register({ username, email, password}).then((response) => {
-      // console.log(signup_date);
+
       console.log(response);
       if (response.status === 201) {
         props.history.push("/login");
@@ -28,11 +30,11 @@ function Register(props) {
     });
   }
 
+
   return (
     <div>
-        <SideBar />
+        {/* <SideBar /> */}
         <div>
-
 
           <h2>Register for an Account!</h2>
           {error && <p style={{ color: "red" }}>{error}</p>}
@@ -57,7 +59,44 @@ function Register(props) {
                   value={email}
                   />
               </div>
-              <div className='form-input'>
+
+                {/* BEGIN react-nice-input-password */}
+                {/* <Password data={password} /> */}
+                
+                <NiceInputPassword
+                  label="password"
+                  name="password"
+                  value={password}
+                  showSecurityLevelBar
+                  onChange={(e) => setPassword(e.target.value)}
+                  onSubmit={(e) => setPassword(e.target.value)}
+                  LabelComponent={InputLabel}
+                  InputComponent={TextField}
+                  // InputComponentProps={{
+                  //   variant: 'outlined',
+                  //   // InputProps: {
+                  //   //   endAdornment: <LockIcon />,
+                  //   // }
+                  // }}
+                  securityLevels={[
+                    {
+                      descriptionLabel: <Typography>1 number</Typography>,
+                      validator: /.*[0-9].*/,
+                    },
+                    {
+                      descriptionLabel: <Typography>1 lowercase letter</Typography>,
+                      validator: /.*[a-z].*/,
+                    },
+                    {
+                      descriptionLabel: <Typography>1 uppercase letter</Typography>,
+                      validator: /.*[A-Z].*/,
+                    },
+                  ]}
+                  
+                />
+
+
+              {/* <div className='form-input'>
                   <label htmlFor='password'>Password</label>
                   <input
                   type='password'
@@ -66,7 +105,10 @@ function Register(props) {
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   />
-              </div>
+              </div> */}
+
+
+              
               <input type='submit' value='Register' />
           </form>
         </div>

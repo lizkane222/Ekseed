@@ -145,7 +145,7 @@ transition: all 0.5s ease-in-out;
 } */
 
 .connection-show__network__item {
-    background: url("./dandelion_seeds_by_jollyoldgeezer_d3gdzd7-pre.jpg")
+    background: url("./images/dandelion_seeds_by_jollyoldgeezer_d3gdzd7-pre.jpg")
 }
 
 .connection-show__network__item >h2 {
@@ -238,7 +238,7 @@ transition: all 0.5s ease-in-out;
 }
 
 .connection-show__contact__item {
-    background: url("./natural_spectacles_26_by_mt_photografien_dahtedd-fullview.jpg")
+    background: url("./images/natural_spectacles_26_by_mt_photografien_dahtedd-fullview.jpg")
 }
 
 .connection-show__contact__item >h2 {

@@ -11,7 +11,7 @@ import Login from "../../pages/Login"
 import Register from "../../pages/Register"
 import { loggedInState } from "../../recoil/selectors";
 import AuthModel from "../../models/AuthModel"
-
+import Routes from "../../config/Routes"
 
 
 import "./Sidebar.scss"
@@ -40,6 +40,7 @@ const SideBar = (props) => {
 
     return (
         <nav className="side-bar-container" >
+            {/* <Routes /> */}
             <div>
                 <NavLink to="/" >Ekseed</NavLink>
             </div>

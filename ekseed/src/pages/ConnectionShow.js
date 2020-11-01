@@ -5,13 +5,14 @@ import { useRecoilState, useRecoilValue } from "recoil";
 // import { userState, connectionState } from "../recoil/atoms";
 // import ConnectionModel from "../models/ConnectionModel"
 import SideBar from "../components/SideBar/SideBar";
-import ConnectionComponent from "../components/Connection/Connection"
+import Connection from "../components/Connection/Connection"
 import {loggedInState} from "../recoil/selectors"
 import { userState } from "../recoil/atoms";
 import Logo from "../components/Logo/Logo"
+import NoteContainer from "../components/Note/NoteContainer/NoteContainer"
+import Note from "../components/Note/Note";
 
-
-const Connection = (props) => {
+const ConnectionShow = (props) => {
     const user = useRecoilValue(userState)
 
 
@@ -20,11 +21,14 @@ const Connection = (props) => {
 
                 <Logo />
                 
-                <SideBar />
+                {/* <SideBar /> */}
                 
                 <h1>Connection Show Page</h1>
-                <ConnectionComponent props={props} user={user}/>
-                
+
+
+
+                <Connection props={props} user={user}/>
+                <NoteContainer />
    
 
 
@@ -33,7 +37,7 @@ const Connection = (props) => {
     )
 }
 
-export default withRouter(Connection);
+export default withRouter(ConnectionShow);
 // export default Connection;
 
 

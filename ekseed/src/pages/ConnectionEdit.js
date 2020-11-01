@@ -59,7 +59,7 @@ function ConnectionNew(props) {
 
     return (
         <div>
-            <SideBar />
+            {/* <SideBar /> */}
             {error && <p style={{ color: "red" }}>{error}</p>}
             <form onSubmit={handleSubmit}>
             <div>
