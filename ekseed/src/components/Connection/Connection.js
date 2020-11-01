@@ -54,7 +54,7 @@ const Connection = (props) => {
                     <div >
                         <Link to={`/user`} className=" img-container">
                             <div className='connection-show__network__item image-wrapper'>
-                                <img class="connection-show__network__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
+                                <img className="connection-show__network__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
                             </div>
                         </Link>
                     </div>

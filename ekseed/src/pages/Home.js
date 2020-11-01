@@ -7,6 +7,7 @@ const Home = () => {
     
     return (
         <div>
+
             {/* <SideBar /> */}
             <h1>Ekseed Garden</h1>
 

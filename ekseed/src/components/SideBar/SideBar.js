@@ -1,24 +1,32 @@
 import React, { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 // import { BsPersonPlus } from 'react-icons'
+import {Modal as loginModal} from 'react-bootstrap'
+import {Modal as registerModal} from 'react-bootstrap'
 
 import UserModel from "../../models/UserModel";
-
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userState } from "../../recoil/atoms";
 import {Switch, Route} from "react-router-dom";
-import Login from "../../pages/Login"
-import Register from "../../pages/Register"
+// import Login from "../Forms/Login"
+// import Register from "../Forms/Register"
 import { loggedInState } from "../../recoil/selectors";
 import AuthModel from "../../models/AuthModel"
 import Routes from "../../config/Routes"
-
+import NoteContainer from "../Note/NoteContainer/NoteContainer"
+import Logo from "../Logo/Logo"
+import Login from "../Forms/Login"
+import Register from "../Forms/Register"
 
 import "./Sidebar.scss"
 
 const SideBar = (props) => {
     console.log("sidebar", props)
     const [user, setUser] = useRecoilState(userState);
+    // const [modalShow, setModalShow] = React.useState(false);
+
+    const [loginModalShow, setLoginModalShow] = React.useState(false);
+    const [registerModalShow, setRegisterModalShow] = React.useState(false);
 
     // const connectionList = user ? user.connections.map((connection) => {
     //     return (
@@ -39,44 +47,58 @@ const SideBar = (props) => {
     }
 
     return (
-        <nav className="side-bar-container" >
-            {/* <Routes /> */}
-            <div>
-                <NavLink to="/" >Ekseed</NavLink>
+        <div >
+            <div className="header-logo">
+                <Logo />
             </div>
-            <div className="nav-links">
-                <ul>
-                    {user ? (
-                        <>
-                            <NavLink to={"/user"}>{user.username}</NavLink>
-                            <p>{user.username}</p>
-                            {/* {connectionList} */}
 
-                            <p>
-                            {/* <Link to={`/user/connection/${_id}`} > */}
+            <nav className="side-bar-container" >
 
-                                <NavLink to={"/user"}>Garden</NavLink>
-                            </p>
-                            <p>
-                                <NavLink to={"/user/connection/new"}> Connect</NavLink>
-                            </p>
-                            <p className="btn" onClick={logout}>
-                                <NavLink to={"/"}>Logout</NavLink>
-                            </p>
-                        </>
-                     ) : (
-                        <>
-                            <p>
-                                <NavLink to={"/login"}>Login</NavLink>
-                            </p>
-                            <p>
-                                <NavLink to={"/register"}>Register</NavLink>
-                            </p>
-                        </>
-                    )}
-                </ul>
-            </div>
-        </nav>
+                
+                    <NavLink to="/" ><p className="link">Ekseed</p></NavLink>
+                
+                
+                
+                    <NavLink to="/note" ><p className="link">Note</p></NavLink>
+                
+
+                <div className="nav-links">
+                    <ul>
+                        {user ? (
+                            <>
+                                    <NavLink className="navlink" to={"/user/connection"}><p className="link">{user.username}</p></NavLink>
+                
+                                    <NavLink to={"/user"}><p className="link">Garden</p></NavLink>
+                                
+                                    <NavLink to={"/user/connection/new"}><p className="link"> Connect</p></NavLink>
+                                
+                                    <NavLink to={"/"}><p className="link" onClick={logout}>Logout</p></NavLink>
+                                
+                            </>
+                        ) : (
+                            <>
+                                {/* {  */}
+                                <NavLink to={"/login"} variant="primary" onClick={() => setLoginModalShow(true)} data-target="#loginModal"><p className="link">login</p></NavLink>
+                                <Login show={loginModalShow} onHide={() => setLoginModalShow(false)}/>
+                                {/* ?
+                                (
+                                <> */}
+                                    {/* <a href="/login"><div type="submit" className="nav-link text-light btn link" data-toggle="modal" data-target="#loginModal"><p className="link">Login</p></div></a> */}
+                                    {/* <Login show={modalShow} onHide={() => setModalShow(false)}/> */}
+                                {/* </>
+                                ) :  */}
+                                <NavLink to={"/register"} variant="primary" onClick={() => setRegisterModalShow(true)} data-target="#registerModal"><p className="link">register</p></NavLink>
+                                {/* (
+                                <>     */}
+                                    <Register show={registerModalShow} onHide={() => setRegisterModalShow(false)}/>
+                                {/* </>
+                                )} */}
+                            </>
+                        )}
+                    </ul>
+                </div>
+            </nav>
+        </div>
     );
 };
 export default SideBar;

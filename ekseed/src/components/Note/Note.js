@@ -26,7 +26,7 @@ const Note = ({note}) => {
 
     
     return(
-        <div class="singleNote">
+        <div className="singleNote">
             <p>PER NOTE</p>
             <p>tag: {tag}</p>
             <p>content: {content}</p>

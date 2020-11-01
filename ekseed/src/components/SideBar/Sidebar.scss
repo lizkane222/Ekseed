@@ -1,13 +1,67 @@
 @import url("https://use.typekit.net/mqq4bnw.css");
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+
+  }
+
 .side-bar-container {
     background-color: #00CEBD;
-    // height: 100vh;
+    height: 100vh;
+    position: absolute;
+    width: 10vw;
+    // display: flex;
 
-    // width: 5vw;
     font-family: variex, sans-serif;
     font-style: normal;
     font-weight: 300;
-    font-size: 15px;
-    margin-left:95%;
+    // font-size: 20px;
+    right: 0;
+    top: 0;
+
+}
+
+.navlink {
+    display: flex;
+    // transition: all 0.5s ease-in;
+
+}
+
+// .navlink:hover {
+//     opacity: 0.7;
+//     transform: scale(0.98);
+// }
+
+.link {
+    display: flex;
+    margin-top: .8em;
+    text-decoration: none;
+
+    padding: .5em 0 1.5em .8em;
+    background-color: #fff;
+
+    text-align: left;
+    align-items: flex-start;
+    align-content: center;
+    margin-right: 1.2em;
+    margin-left: -.8em;
+    border-radius: 5px;
+    max-height: 2em;
+    max-width: 6em;
+    min-width: 6em;
+
+    transition: all 0.3s ease-in-out;
+
+}
+
+
+
+.link:hover {
+    // opacity: 0.7;
+    background-color: #eff;
+    // transform: scale(0.98);
+    margin-left: -1em;
 }

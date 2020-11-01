@@ -36,7 +36,7 @@ const Garden = (userId) => {
 
     return (
         <div>
-            <Logo />
+            
             <h1>My Garden Page</h1>
             {/* <SideBar /> */}
             <UserGarden />

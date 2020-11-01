@@ -19,7 +19,7 @@ const ConnectionShow = (props) => {
     return(
         <div className="connectionShow">
 
-                <Logo />
+                {/* <Logo /> */}
                 
                 {/* <SideBar /> */}
                 

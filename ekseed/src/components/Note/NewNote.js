@@ -44,7 +44,7 @@
 
 
 //     return(
-//         <div class="singleNote">
+//         <div className="singleNote">
 //             <p>PER NOTE</p>
 //             <form onSubmit={handleNoteSubmit}>
 //                 {/* <p>content: {content}</p>

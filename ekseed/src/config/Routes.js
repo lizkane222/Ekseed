@@ -7,8 +7,8 @@ import MyGarden from "../pages/MyGarden";
 import ConnectionNew from "../pages/ConnectionNew";
 import ConnectionShow from "../pages/ConnectionShow";
 import ConnectionEdit from "../pages/ConnectionEdit";
-import Login from "../pages/Login";
-import Register from "../pages/Register"
+import Login from "../components/Forms/Login";
+import Register from "../components/Forms/Register"
 import User from "../components/User/User"
 
 import { useRecoilValue } from "recoil";
@@ -25,11 +25,12 @@ const Routes = (props) => {
     return (
         <Switch>
 
-            <Route exact path="/" component={Home} />
             {/* <Route path="/user" component={MyGarden} /> */}
             <Route path="/login" component={Login} />{/* at login establish connection to backend */}
             <Route path="/register" component={Register} />{/* at register establish connection to backend */}
-            <Route path="/note" component={NoteContainer} />{/* at register establish connection to backend */}
+            <Route path="/note" component={NoteContainer} />
+            <Route exact path="/" component={Home} />
+
             {/* <Route path="/user/connection/:id" component={ConnectionShow} /> */}
             
             {loggedIn && (
@@ -39,12 +40,14 @@ const Routes = (props) => {
                     <Route path="/user/connection/:id/edit" component={ConnectionEdit} />
                     <Route path="/user/connection/:id" component={ConnectionShow} />
                     {/* <Route path="/user/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
+                    
+                    <Route path="/note" component={NoteContainer} />
 
                     {/* <Link to={`/user/connection/${_id}`} > */}
                     <Route path="/user/connection" component={MyGarden} />
                     <Route path="/user" component={MyGarden} />
                     {/* <Route exact path="/user" component={User} /> */}
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/ekseed" component={Home} />
                 </Switch>
             )}
         </Switch>
