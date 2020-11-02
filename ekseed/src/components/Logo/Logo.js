@@ -12,7 +12,7 @@ function Logo() {
     const [user, setUser] = useRecoilState(userState);
 
     return(
-        <div className="container">
+        <div className="logoContainer">
             {/* <ul> */}
 
             

@@ -10,21 +10,23 @@ body {
   background: #333;
   color: #fff;
   font-family: 'Roboto', sans-serif;
+  top:0;
+  left: 0;
 }
 
-h2 {
-  font-size: 45px;
+/* h2 {
+  font-size: 30px;
   font-weight: 300;
   margin: 10px;
-}
+} */
 
 h2 span {
-  font-size: 30px;
-}
-
-p {
   font-size: 20px;
 }
+
+/* p {
+  font-size: 15px;
+} */
 
 
 
@@ -89,16 +91,20 @@ p {
 
 
 /* ================================================ */
-.connection-show {
+.connectionShow {
     /* display: flex; */
-    max-width: 95vw;
-    max-height: 95vh;
+    min-width: 100vw;
+    max-height: 30vh;
+    margin-top: 35em;
+    
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
-}
+    /* align-items: center; */
 
+    z-index: -5;
+    position: absolute;
+}
 
 /* .container {
     display: grid;
@@ -107,113 +113,238 @@ p {
     margin: 50px;
 } */
 
-
-
-
+/* /////////////////////////// */
 /* network container */
-.connection-show__network {
+/* /////////////////////////// */
+section .connectionShowNetwork {
+    max-height: 20vh;
+
     background-color: rgb(66, 96, 136);
+    /* min-width: 100%; */
 
     display: grid;
-    grid-template-columns: 3fr 1fr 4fr repeat(4,1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-gap: 10px;
-    margin: 50px;
+    grid-template-columns: repeat(22,1fr);
+    grid-template-rows: repeat(11, 1fr);
+    grid-gap: 1em;
+    margin-bottom: 50px;
+
+    position: relative;
 }
 
-.container > .connection-show__network__item {
+/* .networkContainer {
+  background-attachment: fixed;
+  background: url("./images/dandelion_seeds_by_jollyoldgeezer_d3gdzd7-pre.jpg")
+
+} */
+
+.networkContainer > .connectionShowNetworkItem {
 cursor: pointer;
-height: 80px;
-background-size: cover;
+
 background-attachment: fixed;
+background-size: cover;
+background-position: center;
+
 
 display: flex;
 flex-direction: column;
-align-items: center;
-justify-content: center;
 text-align: center;
 
 transition: all 0.5s ease-in-out;
 }
 
-/* .connection-show__network {
-    background-color: rgb(66, 96, 136);
-    
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-} */
 
-.connection-show__network__item {
+.connectionShowNetworkItem {
     background: url("./images/dandelion_seeds_by_jollyoldgeezer_d3gdzd7-pre.jpg")
 }
 
-.connection-show__network__item >h2 {
-    font-size: 30px;
+.connectionShowNetworkItem >p {
+    font-size: 1.2em;
 }
 
-.img-container {
-    margin-top: 50%;
+.connectionShowNetworkItem >h2 {
+    font-size: .5em;
+}
+
+/* /////////////////////////// */
+/* main profile photo START */
+#getSmaller {
+  width: 15em;
+}
+
+.imgContainer {
+    /* margin-top: 50%; */
+    max-width: 15em;
+    max-height: 15em;
+    width: 15em;
+    height:15em;
 }
 
 .image-wrapper {
-    max-width: 100%;
-    max-height: 200%;
+    /* max-width: 100%; */
+    background-color: antiquewhite;
+    max-height: 100%;
+    /* width: 15em; */
+    height:100%;
     border-radius: 50%;
     overflow: hidden;
 }
 
-.connection-show__network__img {
-    width: 100%;
-    display: fit;
-    justify-content: center;
-    align-items: center;
-    /* background-attachment: fit; */
+.connectionShowNetwork__img {
+  width: 100%;
+  /* display: fit; */
+  justify-content: baseline;
+  align-items: baseline;
+  /* bottom: 0; */
+  /* background-attachment: fit; */
 }
 
-/* network */
-.container > div:nth-of-type(1) {
-    grid-column: 1 / 2;
-    grid-row: 1 / 5;
+/* END main profile photo */
+/* /////////////////////////// */
+
+
+/* /////////////////////////// */
+/* (property)-network parents */
+.grandparent-circle{
+  border: .4em solid #fff;
+  background-color: #E41A24;  
+
+  max-height: 15em;
+  max-width: 15em;
+  min-height: 10em;
+  min-width: 10em;
+  
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.parent-circle{
+  display: flex;
+  align-self: center;
+
+}
+
+/* .network-photo {
+  padding: 20px;
+} */
+
+/* container children (network) */
+.networkContainer > div:nth-of-type(1) {
+    grid-column: 3 / 6;
+    grid-row: 2 / 5;
+    
 }
 
 /* profilePhoto */
-.container > div:nth-of-type(2) {
-    grid-column: 3 / 4;
-    grid-row: 1 / 5;
+.networkContainer > div:nth-of-type(2) {
+    grid-column: 10 / 15;
+    grid-row: 2 / 7;
 } 
 
+.network_deets {
+    max-height: 3em;
+    margin: 1em;
+    max-width: 10em;
+}
+
 /* preferredName */
-.container > div:nth-of-type(3) {
-    grid-column: 4 / 8;
+.networkContainer > div:nth-of-type(3) {
+    grid-column: 17 / 21;
+    grid-row: 2 / 3;
   }
 
 /* firstName */
-.container > div:nth-of-type(4) {
-    grid-column: 4 / 8;
+.networkContainer > div:nth-of-type(4) {
+    grid-column: 17 / 21;
+    grid-row: 3 / 4;
 }
 
 /* lastName */
-.container > div:nth-of-type(5) {
-    grid-column: 4 / 8;
+.networkContainer > div:nth-of-type(5) {
+    grid-column: 17 / 21;
+    grid-row: 4 / 5;
 }
 
 /* company */
-.container > div:nth-of-type(6) {
-    grid-column: 5 / 7;
+.networkContainer > div:nth-of-type(6) {
+    grid-column: 17 / 19;
+    grid-row: 5 / 6;
 }
 
 /* dateReview */
-.container > div:nth-of-type(7) {
-    grid-column: 5 / 7;
+.networkContainer > div:nth-of-type(7) {
+    grid-column: 19 / 21;
+    grid-row: 6 / 7;
 }
 
+/* /////////////////////////// */
+/* mini-photo styles */
+.great-grandparent-mini-photo {
+  border-radius: 50%;
+  max-width: 5em;
+}
+
+.grandparent-mini-photo {
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.parent-mini-photo {
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.mini-photo {
+  width: 100%;
+}
+
+/* first-mini-photo */
+.networkContainer > div:nth-of-type(8) {
+  grid-column: 7 / 9;
+  grid-row: 4 / 6;
+}
+
+/* second-mini-photo */
+.networkContainer > div:nth-of-type(9) {
+  grid-column: 8 / 10;
+  grid-row: 6 / 8;
+}
+
+/* third-mini-photo */
+.networkContainer > div:nth-of-type(10) {
+  grid-column: 10 / 12;
+  grid-row: 8 / 10;
+}
+
+/* fourth-mini-photo */
+.networkContainer > div:nth-of-type(11) {
+  grid-column: 13 / 15;
+  grid-row: 8 / 10;
+}
+
+/* fifth-mini-photo */
+.networkContainer > div:nth-of-type(12) {
+  grid-column: 15 / 17;
+  grid-row: 7 / 9;
+}
+/* /////////////////////////// */
+/* END network networkContainer */
+/* /////////////////////////// */
 
 
+/* /////////////////////////// */
+/* contact Container START */
+/* /////////////////////////// */
+section .connection-show__contact {
+  max-height: 20vh;
 
-/* contact container */
+}
 
-.container > .connection-show__contact__item {
+.contactContainer > .connection-show__contactItem {
     cursor: pointer;
     height: 40px;
     background-size: cover;
@@ -237,11 +368,14 @@ transition: all 0.5s ease-in-out;
     padding: 10px;
 }
 
-.connection-show__contact__item {
+.connection-show__contactItem {
     background: url("./images/natural_spectacles_26_by_mt_photografien_dahtedd-fullview.jpg")
 }
 
-.connection-show__contact__item >h2 {
+.connection-show__contactItem >h2 {
     font-size: 20px;
 }
 
+/* /////////////////////////// */
+/* END  contact Container */
+/* /////////////////////////// */

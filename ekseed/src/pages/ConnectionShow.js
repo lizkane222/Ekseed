@@ -23,7 +23,7 @@ const ConnectionShow = (props) => {
                 
                 {/* <SideBar /> */}
                 
-                <h1>Connection Show Page</h1>
+                {/* <h1>Connection Show Page</h1> */}
 
 
 

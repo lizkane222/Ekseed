@@ -34,49 +34,57 @@ const Connection = (props) => {
     // const notes = connectionDetail.note.map((note, idx) => <Note note={note}/> )
 
     return (
-        <div className="connection-show">
-            <h3>Connection Component</h3>
+        <div className="connectionShow">
+            {/* <h3>Connection Component</h3> */}
 
             {connectionDetail && (          
             <>
-                <section className="connection-show__network container">
+                <section className="connectionShowNetwork networkContainer">
 
-                    <div className="connection-show__network__item">
-                        {/* <Link to={`/user/connection`} >
-                            <div className='image-wrapper'>
-                                <img src={connectionDetail.network} alt={connectionDetail.network} />
+                    {/* <div className="connectionShowNetworkItem"> */}
+                    <div>
+                        <div class="grandparent-circle">
+                            <div class="parent-circle">
+                                {/* <Link to={`/user/connection`} className="linkContain" >
+                                    <div className='image-wrapper'>
+                                        <img src={connectionDetail.network} alt={connectionDetail.network} />
+                                    </div>
+                                </Link> */}
+                                {/* <p>network</p> */}
+                                <h3 id="network-photo">{connectionDetail.network}</h3>
                             </div>
-                        </Link> */}
-                        <h2>network</h2>
-                        <p>{connectionDetail.network}</p>
+                        </div>
                     </div>
 
-                    <div >
-                        <Link to={`/user`} className=" img-container">
-                            <div className='connection-show__network__item image-wrapper'>
-                                <img className="connection-show__network__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
+                    <div className="connectionShowNetworkItem" id="getSmaller">
+                    {/* <div > */}
+                        <Link to={`/user`} className="linkContain imgContainer">
+                            <div className="imgContainer connectionShowNetworkItem">
+                                <div className='image-wrapper'>
+                                    <img className="connectionShowNetwork__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
+                                </div>
                             </div>
                         </Link>
                     </div>
 
-                    <div className="connection-show__network__item">
+                    <div className="connectionShowNetworkItem network_deets">
                         <h2>preferredName</h2>
                         <p>{connectionDetail.preferredName}</p>
                     </div>
 
-                    <div className="connection-show__network__item">
+                    <div className="connectionShowNetworkItem network_deets">
                         <h2>firstName</h2>
                         <p>{connectionDetail.firstName}</p>
                     </div>
 
-                    <div className="connection-show__network__item">
+                    <div className="connectionShowNetworkItem network_deets">
                         <h2>lastName</h2>
                         <p>{connectionDetail.lastName}</p>
                     </div>
 
-                    <div className="connection-show__network__item">
-                        {/* <Link to={`/user/connection`} >
-                            <div className='image-wrapper'>
+                    <div className="connectionShowNetworkItem network_deets">
+                        {/* <Link to={`/user/connection`} className="linkContain">
+                            <div className='image-wrapper network_deets'>
                                 <img src={connectionDetail.company} alt={connectionDetail.company} />
                             </div>
                         </Link> */}
@@ -84,53 +92,100 @@ const Connection = (props) => {
                         <p>{connectionDetail.company}</p>
                     </div>
 
-                    <div className="connection-show__network__item">
+                    <div className="connectionShowNetworkItem network_deets">
                         <h2>dateReview</h2>
                         <p>{connectionDetail.dateReview}</p>
                     </div>
                 
+                    <div className="great-grandparent-mini-photo">
+                        <div className="grandparent-mini-photo">
+                            <div className="parent-mini-photo">
+                                <img className="mini-photo" src="https://i.imgur.com/vUsuD2I.jpg" alt="Corey"/>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div className="great-grandparent-mini-photo">
+                        <div className="grandparent-mini-photo">
+                            <div className="parent-mini-photo">
+                                <img className="mini-photo" src="https://i.imgur.com/EH3fQR8.png" alt="Rick"/>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div className="great-grandparent-mini-photo">
+                        <div className="grandparent-mini-photo">
+                            <div className="parent-mini-photo">
+                                <img className="mini-photo" src="https://i.imgur.com/K2f7bL9.jpg" alt="Lia"/>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div className="great-grandparent-mini-photo">
+                        <div className="grandparent-mini-photo">
+                            <div className="parent-mini-photo">
+                                <img className="mini-photo" src="https://i.imgur.com/VMv1FMw.jpg" alt="Rodrigo"/>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div className="great-grandparent-mini-photo">
+                        <div className="grandparent-mini-photo">
+                            <div className="parent-mini-photo">
+                                <img className="mini-photo" src="https://i.imgur.com/pF14yIU.jpg" alt="Crystal"/>
+                            </div>
+                        </div>
+                    </div>
+                
+                    {/* <div className="great-grandparent-mini-photo">
+                        <div className="grandparent-mini-photo">
+                            <div className="parent-mini-photo">
+                                <img className="mini-photo" src="" alt=""/>
+                            </div>
+                        </div>
+                    </div> */}
 
                 </section>
                     {/* {connectionDetail && (notes)} */}
 
 
                 <section className="connection-show__contact container">
-                    <div className="connection-show__contact__item">
+                    <div className="connection-show__contactItem">
                         <h2>cellPhoneOne</h2>
                         <p>{connectionDetail.cellPhoneOne}</p>
                     </div>
 
-                    <div className="connection-show__contact__item">
+                    <div className="connection-show__contactItem">
                         <h2>cellPhoneTwo</h2>
                         <p>{connectionDetail.cellPhoneTwo}</p>
                     </div>
 
-                    <div className="connection-show__contact__item">
+                    <div className="connection-show__contactItem">
                         <h2>email</h2>
                         <p>{connectionDetail.email}</p>
                     </div>
 
-                    <div className="connection-show__contact__item">
+                    <div className="connection-show__contactItem">
                         <h2>workName</h2>
                         <p>{connectionDetail.workName}</p>
                     </div>
 
-                    <div className="connection-show__contact__item">
+                    <div className="connection-show__contactItem">
                         <h2>workPhone</h2>
                         <p>{connectionDetail.workPhone}</p>
                     </div>
 
-                    <div className="connection-show__contact__item">
+                    <div className="connection-show__contactItem">
                         <h2>workEmail</h2>
                         <p>{connectionDetail.workEmail}</p>
                     </div>
 
-                    <div className="connection-show__contact__item">
+                    <div className="connection-show__contactItem">
                         <h2>workAddress</h2>
                         <p>{connectionDetail.workAddress}</p>
                     </div>
 
-                    <div className="connection-show__contact__item">
+                    <div className="connection-show__contactItem">
                         <h2>moreContact</h2>
                         <p>{connectionDetail.moreContact}</p>
                     </div>
