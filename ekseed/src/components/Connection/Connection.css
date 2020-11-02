@@ -9,7 +9,7 @@
 body {
   background: #333;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: variex, sans-serif;
   top:0;
   left: 0;
 }
@@ -21,7 +21,7 @@ body {
 } */
 
 h2 span {
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 /* p {
@@ -91,18 +91,15 @@ h2 span {
 
 
 /* ================================================ */
+/* .connectionShow { */
 .connectionShow {
     /* display: flex; */
     min-width: 100vw;
     max-height: 30vh;
-    margin-top: 35em;
-    
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    /* align-items: center; */
+    /* margin-top: 35em; */
 
-    z-index: -5;
+
+    /* z-index: -5; */
     position: absolute;
 }
 
@@ -147,6 +144,8 @@ background-position: center;
 
 display: flex;
 flex-direction: column;
+align-items: center;
+justify-content: center;
 text-align: center;
 
 transition: all 0.5s ease-in-out;
@@ -204,6 +203,12 @@ transition: all 0.5s ease-in-out;
 
 /* /////////////////////////// */
 /* (property)-network parents */
+.great-grandparent-mini-photo {
+  max-width: 15em;
+  position: relative;
+  display: flex;
+}
+
 .grandparent-circle{
   border: .4em solid #fff;
   background-color: #E41A24;  

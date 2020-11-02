@@ -39,7 +39,7 @@ const Connection = (props) => {
 
             {connectionDetail && (          
             <>
-                <section className="connectionShowNetwork networkContainer">
+                <section className="connectionShowNetwork container">
 
                     {/* <div className="connectionShowNetworkItem"> */}
                     <div>
