@@ -56,10 +56,10 @@ const Connection = (props) => {
                         </div>
                     </div>
 
-                    <div className="connectionShowNetworkItem" id="getSmaller">
-                    {/* <div > */}
-                        <Link to={`/user`} className="linkContain imgContainer">
-                            <div className="imgContainer connectionShowNetworkItem">
+                    <div className="connectionShowNetworkItem" id="profile-photo">
+                    {/* <div className="connectionShowNetworkItem"> */}
+                        <Link to={`/user`} className="imgContainer">
+                            <div className="imgContainer">
                                 <div className='image-wrapper'>
                                     <img className="connectionShowNetwork__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
                                 </div>
@@ -93,11 +93,16 @@ const Connection = (props) => {
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
+                        <h2>network</h2>
+                        <p>{connectionDetail.network}</p>
+                    </div>
+
+                    <div className="connectionShowNetworkItem network_deets">
                         <h2>dateReview</h2>
                         <p>{connectionDetail.dateReview}</p>
                     </div>
                 
-                    <div className="great-grandparent-mini-photo">
+                    <div className="great-grandparent-mini-photo  connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
                                 <img className="mini-photo" src="https://i.imgur.com/vUsuD2I.jpg" alt="Corey"/>
@@ -105,7 +110,7 @@ const Connection = (props) => {
                         </div>
                     </div>
                 
-                    <div className="great-grandparent-mini-photo">
+                    <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
                                 <img className="mini-photo" src="https://i.imgur.com/EH3fQR8.png" alt="Rick"/>
@@ -113,7 +118,7 @@ const Connection = (props) => {
                         </div>
                     </div>
                 
-                    <div className="great-grandparent-mini-photo">
+                    <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
                                 <img className="mini-photo" src="https://i.imgur.com/K2f7bL9.jpg" alt="Lia"/>
@@ -121,7 +126,7 @@ const Connection = (props) => {
                         </div>
                     </div>
                 
-                    <div className="great-grandparent-mini-photo">
+                    <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
                                 <img className="mini-photo" src="https://i.imgur.com/VMv1FMw.jpg" alt="Rodrigo"/>
@@ -129,7 +134,7 @@ const Connection = (props) => {
                         </div>
                     </div>
                 
-                    <div className="great-grandparent-mini-photo">
+                    <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
                                 <img className="mini-photo" src="https://i.imgur.com/pF14yIU.jpg" alt="Crystal"/>
@@ -137,7 +142,7 @@ const Connection = (props) => {
                         </div>
                     </div>
                 
-                    {/* <div className="great-grandparent-mini-photo">
+                    {/* <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
                                 <img className="mini-photo" src="" alt=""/>
