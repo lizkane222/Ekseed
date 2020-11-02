@@ -30,7 +30,7 @@ const Connection = (props) => {
     // for (let i in connectionDetail){
     //         console.log("MY FOR LOOP TO GET NOTE", i, typeof(i))
     // }
-    // {connectionDetail.note.map(note => <p>{note.content} </p>)}
+    // {connectionDetail.note.map(note => <h4>{note.content} </h4>)}
     // const notes = connectionDetail.note.map((note, idx) => <Note note={note}/> )
 
     return (
@@ -50,7 +50,7 @@ const Connection = (props) => {
                                         <img src={connectionDetail.network} alt={connectionDetail.network} />
                                     </div>
                                 </Link> */}
-                                {/* <p>network</p> */}
+                                {/* <h4>network</h4> */}
                                 <h3 id="network-photo">{connectionDetail.network}</h3>
                             </div>
                         </div>
@@ -68,18 +68,18 @@ const Connection = (props) => {
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2>preferredName</h2>
-                        <p>{connectionDetail.preferredName}</p>
+                        <h2>{connectionDetail.preferredName}</h2>
+                        <p>preferredName</p>
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2>firstName</h2>
-                        <p>{connectionDetail.firstName}</p>
+                        <h4>{connectionDetail.firstName}</h4>
+                        <p>firstName</p>
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2>lastName</h2>
-                        <p>{connectionDetail.lastName}</p>
+                        <h4>{connectionDetail.lastName}</h4>
+                        <p>lastName</p>
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
@@ -88,24 +88,24 @@ const Connection = (props) => {
                                 <img src={connectionDetail.company} alt={connectionDetail.company} />
                             </div>
                         </Link> */}
-                        <h2>company</h2>
-                        <p>{connectionDetail.company}</p>
+                        <h4>{connectionDetail.company}</h4>
+                        <p>company</p>
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2>network</h2>
-                        <p>{connectionDetail.network}</p>
+                        <h4>{connectionDetail.network}</h4>
+                        <p>network</p>
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2>dateReview</h2>
-                        <p>{connectionDetail.dateReview}</p>
+                        <h4>{connectionDetail.dateReview}</h4>
+                        <p>dateReview</p>
                     </div>
                 
-                    <div className="great-grandparent-mini-photo  connectionShowNetworkItem">
+                    <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
-                                <img className="mini-photo" src="https://i.imgur.com/vUsuD2I.jpg" alt="Corey"/>
+                                <img className="miniPhoto" src="https://i.imgur.com/vUsuD2I.jpg" alt="Corey"/>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ const Connection = (props) => {
                     <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
-                                <img className="mini-photo" src="https://i.imgur.com/EH3fQR8.png" alt="Rick"/>
+                                <img className="miniPhoto" src="https://i.imgur.com/EH3fQR8.png" alt="Rick"/>
                             </div>
                         </div>
                     </div>
@@ -121,7 +121,7 @@ const Connection = (props) => {
                     <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
-                                <img className="mini-photo" src="https://i.imgur.com/K2f7bL9.jpg" alt="Lia"/>
+                                <img className="miniPhoto" src="https://i.imgur.com/K2f7bL9.jpg" alt="Lia"/>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@ const Connection = (props) => {
                     <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
-                                <img className="mini-photo" src="https://i.imgur.com/VMv1FMw.jpg" alt="Rodrigo"/>
+                                <img className="miniPhoto" src="https://i.imgur.com/VMv1FMw.jpg" alt="Rodrigo"/>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@ const Connection = (props) => {
                     <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
-                                <img className="mini-photo" src="https://i.imgur.com/pF14yIU.jpg" alt="Crystal"/>
+                                <img className="miniPhoto" src="https://i.imgur.com/pF14yIU.jpg" alt="Crystal"/>
                             </div>
                         </div>
                     </div>
@@ -153,54 +153,54 @@ const Connection = (props) => {
                 </section>
                     {/* {connectionDetail && (notes)} */}
 
-
+{/* 
                 <section className="connection-show__contact container">
                     <div className="connection-show__contactItem">
-                        <h2>cellPhoneOne</h2>
-                        <p>{connectionDetail.cellPhoneOne}</p>
+                        <p>cellPhoneOne</p>
+                        <h4>{connectionDetail.cellPhoneOne}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <h2>cellPhoneTwo</h2>
-                        <p>{connectionDetail.cellPhoneTwo}</p>
+                        <p>cellPhoneTwo</p>
+                        <h4>{connectionDetail.cellPhoneTwo}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <h2>email</h2>
-                        <p>{connectionDetail.email}</p>
+                        <p>email</p>
+                        <h4>{connectionDetail.email}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <h2>workName</h2>
-                        <p>{connectionDetail.workName}</p>
+                        <p>workName</p>
+                        <h4>{connectionDetail.workName}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <h2>workPhone</h2>
-                        <p>{connectionDetail.workPhone}</p>
+                        <p>workPhone</p>
+                        <h4>{connectionDetail.workPhone}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <h2>workEmail</h2>
-                        <p>{connectionDetail.workEmail}</p>
+                        <p>workEmail</p>
+                        <h4>{connectionDetail.workEmail}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <h2>workAddress</h2>
-                        <p>{connectionDetail.workAddress}</p>
+                        <p>workAddress</p>
+                        <h4>{connectionDetail.workAddress}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <h2>moreContact</h2>
-                        <p>{connectionDetail.moreContact}</p>
+                        <p>moreContact</p>
+                        <h4>{connectionDetail.moreContact}</h4>
                     </div>
-                </section>
+                </section> */}
             
             </>
             )}
 
 
-            <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a>
+            {/* <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
         </div>
     )
 }
@@ -223,35 +223,35 @@ export default Connection;
 
 
 {/* <div>
-                    <p>note: <b>{connectionDetail.note}</b></p>
+                    <h4>note: <b>{connectionDetail.note}</b></h4>
                 </div> */}
 
                  {/* <div>
-                    <p>noteTag:</p> {connectionDetail.note.map(note =><p><b>{note.content}</b></p>)}
+                    <h4>noteTag:</h4> {connectionDetail.note.map(note =><h4><b>{note.content}</b></h4>)}
                 </div> */}
 {/* 
                 <div>
-                    <p>noteContent: <b>{connectionDetail.note.noteContent}</b></p>
+                    <h4>noteContent: <b>{connectionDetail.note.noteContent}</b></h4>
                 </div>
 
                 <div>
-                    <p>noteReviewed: <b>{connectionDetail.note.noteReviewed}</b></p>
+                    <h4>noteReviewed: <b>{connectionDetail.note.noteReviewed}</b></h4>
                 </div>
 
                 <div>
-                    <p>noteBookmark: <b>{connectionDetail.note.noteBookmark}</b></p>
+                    <h4>noteBookmark: <b>{connectionDetail.note.noteBookmark}</b></h4>
                 </div>
 
                 <div>
-                    <p>notePrivacy: <b>{connectionDetail.note.notePrivacy}</b></p>
+                    <h4>notePrivacy: <b>{connectionDetail.note.notePrivacy}</b></h4>
                 </div>
 
                 <div>
-                    <p>noteTimestamp: <b>{connectionDetail.note.noteTimestamp}</b></p>
+                    <h4>noteTimestamp: <b>{connectionDetail.note.noteTimestamp}</b></h4>
                 </div> */}
 
 
-    // {connectionDetail.note.map(note =><p>{note.content}</p>)}
+    // {connectionDetail.note.map(note =><h4>{note.content}</h4>)}
 
     // note.preferredName
     // note.firstName
@@ -307,85 +307,85 @@ export default Connection;
 
 
                 {/* <div>
-                <p>{preferredName}</p>
+                <h4>{preferredName}</h4>
             </div>
 
             <div>
-                <p>{firstName}</p>
+                <h4>{firstName}</h4>
             </div>
 
             <div>
-                <p>{lastName}</p>
+                <h4>{lastName}</h4>
             </div>
 
             <div>
-                <p>{network}</p>
+                <h4>{network}</h4>
             </div>
 
             <div>
-                <p>{company}</p>
+                <h4>{company}</h4>
             </div>
 
             <div>
-                <p>{dateReview}</p>
+                <h4>{dateReview}</h4>
             </div>
 
             <div>
-                <p>{profilePhoto}</p>
+                <h4>{profilePhoto}</h4>
             </div>
 
             <div>
-                <p>{noteTag}</p>
+                <h4>{noteTag}</h4>
             </div>
 
             <div>
-                <p>{noteContent}</p>
+                <h4>{noteContent}</h4>
             </div>
 
             <div>
-                <p>{noteReviewed}</p>
+                <h4>{noteReviewed}</h4>
             </div>
 
             <div>
-                <p>{noteBookmark}</p>
+                <h4>{noteBookmark}</h4>
             </div>
 
             <div>
-                <p>{notePrivacy}</p>
+                <h4>{notePrivacy}</h4>
             </div>
 
             <div>
-                <p>{noteTimestamp}</p>
+                <h4>{noteTimestamp}</h4>
             </div>
 
             <div>
-                <p>{cellPhoneOne}</p>
+                <h4>{cellPhoneOne}</h4>
             </div>
 
             <div>
-                <p>{cellPhoneTwo}</p>
+                <h4>{cellPhoneTwo}</h4>
             </div>
 
             <div>
-                <p>{email}</p>
+                <h4>{email}</h4>
             </div>
 
             <div>
-                <p>{workName}</p>
+                <h4>{workName}</h4>
             </div>
 
             <div>
-                <p>{workPhone}</p>
+                <h4>{workPhone}</h4>
             </div>
 
             <div>
-                <p>{workEmail}</p>
+                <h4>{workEmail}</h4>
             </div>
 
             <div>
-                <p>{workAddress}</p>
+                <h4>{workAddress}</h4>
             </div>
 
             <div>
-                <p>{moreContact}</p>
+                <h4>{moreContact}</h4>
             </div> */}

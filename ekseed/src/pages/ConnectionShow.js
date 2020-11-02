@@ -17,7 +17,7 @@ const ConnectionShow = (props) => {
 
 
     return(
-        <div className="connectionShow">
+        <div className="connectionShowPage">
 
                 {/* <Logo /> */}
                 
