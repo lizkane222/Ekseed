@@ -7,7 +7,7 @@ import "./UserGarden.css"
 
 const UserGarden = (props) => {
     console.log("UserGarden", props)
-    const [user, setUser] = useRecoilState(userState);
+    const user = useRecoilValue(userState);
 
     const connectionList = user ? user.connections.map((connection) => {
         return (

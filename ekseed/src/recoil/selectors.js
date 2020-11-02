@@ -1,6 +1,6 @@
 import { selector } from 'recoil';
 
-import { userState } from './atoms';
+import { userState, currentUserState } from './atoms';
 
 export const loggedInState = selector({
     key: "loggedInState",
@@ -19,3 +19,13 @@ export const loggedInState = selector({
 //         return false
 //     }
 // })
+
+export const getCurrentUserState = selector({
+    key: "getCurrentUserState",
+    get:({ get }) => {
+        const userUid = get(currentUserState);
+    }   
+})
+
+// localStorage.getItem("uid")
+// const currentUser = localStorage.getItem("uid")

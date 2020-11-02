@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+
 import NiceInputPassword from 'react-nice-input-password';
 import 'react-nice-input-password/dist/react-nice-input-password.css';
-import {TextField, InputLabel, Typography} from '@material-ui/core';
-// import LockIcon from '@material-ui/icons/Lock';
+import {TextField, InputLabel, Typography, showSecurityLevelDescription} from '@material-ui/core';
+import LockIcon from '@material-ui/icons/Lock';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal} from 'react-bootstrap'
 import {useHistory, UseHistory} from "react-router-dom";
@@ -21,11 +23,17 @@ function Register(props) {
 
   const [error, setError] = useState("");
 
+
+  function handleChange(event) {
+    event.preventDefault()
+
+    setPassword(event.target.value)
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
     AuthModel.register({ username, email, password}).then((response) => {
-
       console.log(response);
       if (response.status === 201) {
         history.push("/login");
@@ -34,12 +42,23 @@ function Register(props) {
       }
     });
   }
-
+  const securityLevels=[
+    {
+      descriptionLabel: <Typography>1 number</Typography>,
+      validator: /.*[0-9].*/,
+    },
+    {
+      descriptionLabel: <Typography>1 lowercase letter</Typography>,
+      validator: /.*[a-z].*/,
+    },
+    {
+      descriptionLabel: <Typography>1 uppercase letter</Typography>,
+      validator: /.*[A-Z].*/,
+    },
+    ]
 
   return (
     <div>
-
-
         <div>
           <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered id="registerModal">
                   <Modal.Header closeButton>
@@ -49,6 +68,7 @@ function Register(props) {
 
                   <Modal.Body>
                     <h2>Register for an Account!</h2>
+
               {error && <p style={{ color: "red" }}>{error}</p>}
               <form onSubmit={handleSubmit}>
                   <div className='form-input'>
@@ -58,9 +78,10 @@ function Register(props) {
                       name='username'
                       placeholder="username"
                       onChange={(e) => setUsername(e.target.value)}
-                      value={username}
+                      // value={username}
                       />
                   </div>
+
                   <div className='form-input'>
                       <label htmlFor='email'>Email</label>
                       <input
@@ -68,56 +89,30 @@ function Register(props) {
                       name='email'
                       placeholder="email address"
                       onChange={(e) => setEmail(e.target.value)}
-                      value={email}
+                      // value={email}
                       />
                   </div>
 
                     {/* BEGIN react-nice-input-password */}
                     {/* <Password data={password} /> */}
-                    
-                    <NiceInputPassword
+                    {<NiceInputPassword
                       label="password"
                       name="password"
-                      value={password}
-                      showSecurityLevelBar
-                      onChange={(e) => setPassword(e.target.value)}
-                      onSubmit={(e) => setPassword(e.target.value)}
                       LabelComponent={InputLabel}
                       InputComponent={TextField}
-                      // InputComponentProps={{
-                      //   variant: 'outlined',
-                      //   // InputProps: {
-                      //   //   endAdornment: <LockIcon />,
-                      //   // }
-                      // }}
-                      securityLevels={[
-                        {
-                          descriptionLabel: <Typography>1 number</Typography>,
-                          validator: /.*[0-9].*/,
-                        },
-                        {
-                          descriptionLabel: <Typography>1 lowercase letter</Typography>,
-                          validator: /.*[a-z].*/,
-                        },
-                        {
-                          descriptionLabel: <Typography>1 uppercase letter</Typography>,
-                          validator: /.*[A-Z].*/,
-                        },
-                      ]}
-                      
-                    />
-
-
-                  {/* <div className='form-input'>
-                      <label htmlFor='password'>Password</label>
-                      <input
-                      type='password'
-                      name='password'
-                      placeholder="password"
-                      onChange={(e) => setPassword(e.target.value)}
+                      InputComponentProps={{
+                        variant: 'outlined',
+                        InputProps: {
+                          endAdornment: <LockIcon />,
+                        }
+                      }}
                       value={password}
-                      />
-                  </div> */}
+                      showSecurityLevelBar
+                      showSecurityLevelDescription
+                      securityLevels={securityLevels}
+                      onChange={handleChange}
+                    />}
+                    
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.onHide}>Close</button>
                             {/* <button type="button" className="btn btn-primary"> */}

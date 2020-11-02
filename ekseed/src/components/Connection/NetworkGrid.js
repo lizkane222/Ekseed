@@ -43,8 +43,8 @@ const NetworkGrid = (props) => {
 
                     {/* <div className="connectionShowNetworkItem"> */}
                     <div>
-                        <div class="grandparent-circle">
-                            <div class="parent-circle">
+                        <div className="grandparent-circle">
+                            <div className="parent-circle">
                                 {/* <Link to={`/user/connection`} className="linkContain" >
                                     <div className='image-wrapper'>
                                         <img src={connectionDetail.network} alt={connectionDetail.network} />

@@ -27,7 +27,8 @@ const ConnectionShow = (props) => {
 
 
 
-                <Connection props={props} user={user}/>
+                {/* <Connection props={props} user={user}/> */}
+                <Connection user={user}/>
                 <NoteContainer />
    
 

@@ -3,28 +3,39 @@ import { Link, withRouter } from 'react-router-dom';
 
 import { userState, connectionState } from "../../recoil/atoms";
 import ConnectionModel from "../../models/ConnectionModel"
-import NoteContainer from "../Note/NoteContainer/NoteContainer";
+// import NoteContainer from "../Note/NoteContainer/NoteContainer";
 import "./Connection.css"
+import NetworkPhoto from "./ConnectionGridComponents/NetworkPhoto";
+import ProfilePhoto from "./ConnectionGridComponents/ProfilePhoto";
+import CompanyItem from "./ConnectionGridComponents/CompanyItem";
+import NetworkName from "./ConnectionGridComponents/NetworkName";
+import DateReviewed from "./ConnectionGridComponents/DateReviewed";
+import MiniProfilePhotoList from "./ConnectionGridComponents/MiniProfilePhotoList";
+import PreferredName from "./ConnectionGridComponents/PreferredName";
+import FirstName from "./ConnectionGridComponents/FirstName";
+import LastName from "./ConnectionGridComponents/LastName";
+
+
 
 
 const Connection = (props) => {
     
-    const connectionId = props.props.match.params.id
-
-    const [connectionDetail, setConnectionDetail] = useState(userState)
-    // console.log("ConnectionShow: is userState", userState)
+    // const connectionId = props.props.match.params.id
+    console.log(props.user)
+    // const [connectionDetail, setConnectionDetail] = useState(userState)
+    // // console.log("ConnectionShow: is userState", userState)
     
 
-    useEffect(function () {
-        return getConnectionDetail()
-    },[]);
+    // useEffect(function () {
+    //     return getConnectionDetail()
+    // },[]);
 
-    function getConnectionDetail() {
-        ConnectionModel.show(connectionId).then((response) => {
-            setConnectionDetail(response.connection)
+    // function getConnectionDetail() {
+    //     ConnectionModel.show(connectionId).then((response) => {
+    //         setConnectionDetail(response.connection)
 
-        })
-    }
+    //     })
+    // }
     // console.log("line31 connection detail connection data, CONNECTION DETAIL ",connectionDetail)
 
     // for (let i in connectionDetail){
@@ -37,27 +48,25 @@ const Connection = (props) => {
         <div className="connectionShow">
             {/* <h3>Connection Component</h3> */}
 
-            {connectionDetail && (          
-            <>
+            {/* {connectionDetail && (          
+            <> */}
                 <section className="connectionShowNetwork container">
 
-                    {/* <div className="connectionShowNetworkItem"> */}
-                    <div>
-                        <div class="grandparent-circle">
-                            <div class="parent-circle">
-                                {/* <Link to={`/user/connection`} className="linkContain" >
-                                    <div className='image-wrapper'>
-                                        <img src={connectionDetail.network} alt={connectionDetail.network} />
-                                    </div>
-                                </Link> */}
-                                {/* <h4>network</h4> */}
-                                <h3 id="network-photo">{connectionDetail.network}</h3>
+                    <div className="connectionShowNetworkItem">
+
+                    {/* <div> */}
+                        <div className="grandparent-circle">
+                            <div className="parent-circle">
+                                
+                                <NetworkPhoto />
+                                
+                                {/* <h3 id="network-photo">{connectionDetail.network}</h3> */}
                             </div>
                         </div>
                     </div>
 
-                    <div className="connectionShowNetworkItem" id="profile-photo">
-                    {/* <div className="connectionShowNetworkItem"> */}
+                    <ProfilePhoto />
+                    {/* <div className="connectionShowNetworkItem" id="profile-photo">
                         <Link to={`/user`} className="imgContainer">
                             <div className="imgContainer">
                                 <div className='image-wrapper'>
@@ -65,42 +74,45 @@ const Connection = (props) => {
                                 </div>
                             </div>
                         </Link>
-                    </div>
+                    </div> */}
 
-                    <div className="connectionShowNetworkItem network_deets">
+                    <PreferredName />
+                    {/* <div className="connectionShowNetworkItem network_deets">
                         <h2>{connectionDetail.preferredName}</h2>
                         <p>preferredName</p>
-                    </div>
+                    </div> */}
 
-                    <div className="connectionShowNetworkItem network_deets">
+                    <FirstName />
+                    {/* <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.firstName}</h4>
                         <p>firstName</p>
-                    </div>
+                    </div> */}
 
-                    <div className="connectionShowNetworkItem network_deets">
+                    <LastName />
+                    {/* <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.lastName}</h4>
                         <p>lastName</p>
-                    </div>
+                    </div> */}
 
-                    <div className="connectionShowNetworkItem network_deets">
-                        {/* <Link to={`/user/connection`} className="linkContain">
-                            <div className='image-wrapper network_deets'>
-                                <img src={connectionDetail.company} alt={connectionDetail.company} />
-                            </div>
-                        </Link> */}
+                    {/* <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.company}</h4>
                         <p>company</p>
-                    </div>
+                    </div> */}
+                    <CompanyItem />
 
-                    <div className="connectionShowNetworkItem network_deets">
+                    {/* <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.network}</h4>
                         <p>network</p>
-                    </div>
+                    </div> */}
+                    <NetworkName />
 
-                    <div className="connectionShowNetworkItem network_deets">
+                    {/* <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.dateReview}</h4>
                         <p>dateReview</p>
-                    </div>
+                    </div> */}
+                    <DateReviewed />
+                
+                    {/* <MiniProfilePhotoList /> */}
                 
                     <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
@@ -196,8 +208,8 @@ const Connection = (props) => {
                     </div>
                 </section> */}
             
-            </>
-            )}
+            {/* </>
+            )} */}
 
 
             {/* <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a> */}

@@ -32,12 +32,12 @@ const Logout = (props) => {
 
     return(
         <div>
-            {/* <button type="button" class="btn btn-primary" data-toggle="modal" data-target="logoutModal" id="logoutModal">LOGOUT</button> */}
+            {/* <button type="button" className="btn btn-primary" data-toggle="modal" data-target="logoutModal" id="logoutModal">LOGOUT</button> */}
 
 
-            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="#logoutmodal" id="logoutmodal" aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
+            <div className="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="#logoutmodal" id="logoutmodal" aria-hidden="true">
+                <div className="modal-dialog modal-sm">
+                    <div className="modal-content">
                         <h3>Are you sure you want to logout of ekseed?</h3>                    
                         
                         <div className="modal-footer">

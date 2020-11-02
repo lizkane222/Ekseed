@@ -4,6 +4,11 @@ import { NavLink, Link } from "react-router-dom";
 // import {Modal as loginModal} from 'react-bootstrap'
 import {Modal as registerModal} from 'react-bootstrap'
 import {Modal as logoutModal} from 'react-bootstrap'
+// import { person_add } from "react-icons/md";
+
+// REACT-ICONS
+import { BsPersonPlusFill } from "react-icons/bs"
+
 
 import UserModel from "../../models/UserModel";
 import { useRecoilState, useRecoilValue } from "recoil";
@@ -64,7 +69,7 @@ const SideBar = (props) => {
                     <NavLink className="navlink" to="/" ><p className="link">Ekseed</p></NavLink>
                 
                     <NavLink className="navlink" to="/note" ><p className="link">Note</p></NavLink>
-                {/* <button type="button" class="btn btn-primary" data-toggle="modal"  onClick={() => setlogoutModal(true)}data-target="#logoutmodal">logout</button> */}
+                {/* <button type="button" className="btn btn-primary" data-toggle="modal"  onClick={() => setlogoutModal(true)}data-target="#logoutmodal">logout</button> */}
                 {/* <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/> */}
 
 
@@ -76,11 +81,14 @@ const SideBar = (props) => {
                 
                                 <NavLink className="navlink" to={"/user"}><p className="link">Garden</p></NavLink>
                                 
-                                <NavLink className="navlink" to={"/user/connection/new"}><p className="link"> Connect</p></NavLink>
-                                
+                                {/* <NavLink className="navlink" to={"/user/connection/new"}><p className="link"><span className="material-icons">person_add</span> Connect</p></NavLink> */}
+                                {/* <NavLink className="navlink" to={"/user/connection/new"}><p className="link"><IoMdPersonAdd /> Connect</p></NavLink> */}
+                                <NavLink className="navlink" to={"/user/connection/new"}><p className="link"><BsPersonPlusFill /> Connect</p></NavLink>
+                                                 
+
                                 <NavLink className="navlink" to={"/"}><p className="link" onClick={logout}>Logout</p></NavLink>
-                                {/* <button type="button" class="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true)} data-target="#logoutmodal">logout</button> */}
-                                <button type="button" class="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true).then(() => logoutModalFunction)} data-target="#logoutmodal">logout</button>
+                                {/* <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true)} data-target="#logoutmodal">logout</button> */}
+                                <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true).then(() => logoutModalFunction)} data-target="#logoutmodal">logout</button>
                                 {/* <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/> */}
                                 {logoutModalFunction}
 

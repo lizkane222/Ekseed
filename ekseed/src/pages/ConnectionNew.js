@@ -69,11 +69,11 @@ function ConnectionNew(props) {
         ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
             console.log(response);
             console.log(props.history)
-            if (response.connection === 201) {
-                props.history.push("/user")
-            } else {
-                setError(response.message);
-            }
+            // if (response.connection === 201) {
+                props.history.push("/user/connection")
+        //     } else {
+        //         setError(response.message);
+        //     }
         });
     }
 

@@ -20,8 +20,14 @@ export const noteState = atom({
 
 
 
-const noteContainerState = atom ({
+export const noteContainerState = atom ({
     key: 'noteContainerState',
     default: [],
 });
 
+export const currentUserState = atom({
+    key: 'currentUserUid',
+    default: localStorage.getItem("uid")
+})
+//  localStorage.getItem("uid")
+//  const currentUser = localStorage.getItem("uid")
