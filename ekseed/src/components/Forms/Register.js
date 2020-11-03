@@ -11,6 +11,7 @@ import {useHistory, UseHistory} from "react-router-dom";
 
 import AuthModel from "../../models/AuthModel";
 import SideBar from "../SideBar/SideBar";
+import "./Forms.css"
 
 function Register(props) {
   const history = useHistory()
@@ -25,11 +26,13 @@ function Register(props) {
 
 
   function handleChange(event) {
-    event.preventDefault()
+    event.preventDefault(setPassword)
 
     setPassword(event.target.value)
   }
 
+
+  
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -42,6 +45,9 @@ function Register(props) {
       }
     });
   }
+
+
+
   const securityLevels=[
     {
       descriptionLabel: <Typography>1 number</Typography>,
@@ -63,7 +69,7 @@ function Register(props) {
           <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered id="registerModal">
                   <Modal.Header closeButton>
                       {/* <Modal.Title id="contained-modal-title-vcenter">Login</Modal.Title> */}
-                      <Modal.Title id="registerModal">Register</Modal.Title>
+                      <Modal.Title id="registerModal"><h4 className="modalHeader">Register</h4></Modal.Title>
                   </Modal.Header>
 
                   <Modal.Body>
@@ -72,7 +78,7 @@ function Register(props) {
               {error && <p style={{ color: "red" }}>{error}</p>}
               <form onSubmit={handleSubmit}>
                   <div className='form-input'>
-                      <label htmlFor='username'>Username: {username}</label>
+                      <label htmlFor='username'>Username: <span className="inputValue">{username}</span></label>
                       <input
                       type='text'
                       name='username'
@@ -83,7 +89,7 @@ function Register(props) {
                   </div>
 
                   <div className='form-input'>
-                      <label htmlFor='email'>Email</label>
+                      <label htmlFor='email'>Email <span className="inputValue">{email}</span></label>
                       <input
                       type='text'
                       name='email'
@@ -95,7 +101,7 @@ function Register(props) {
 
                     {/* BEGIN react-nice-input-password */}
                     {/* <Password data={password} /> */}
-                    {<NiceInputPassword
+                    {/* {<NiceInputPassword
                       label="password"
                       name="password"
                       LabelComponent={InputLabel}
@@ -111,7 +117,17 @@ function Register(props) {
                       showSecurityLevelDescription
                       securityLevels={securityLevels}
                       onChange={handleChange}
-                    />}
+                    />} */}
+                    <div className='form-input'>
+                      <label htmlFor='password'>Password</label>
+                      <input
+                      type='password'
+                      name='password'
+                      placeholder="password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                      />
+                  </div>
                     
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={props.onHide}>Close</button>

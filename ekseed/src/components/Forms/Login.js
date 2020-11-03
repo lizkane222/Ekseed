@@ -7,6 +7,7 @@ import UserModel from "../../models/UserModel";
 import AuthModel from "../../models/AuthModel";
 import { userState } from "../../recoil/atoms";
 import {useHistory, UseHistory} from "react-router-dom";
+import "./Forms.css"
 
 const Login = (props)=> {
     const history = useHistory()
@@ -25,13 +26,8 @@ const Login = (props)=> {
             localStorage.setItem("uid", response.token);
             UserModel.show().then((response) => {
                 console.log(response);
-                // if (response.status === 200) {
                     setUser(response.User)
                     history.push("/user")
-                    // console.log("history" ,history)
-                // } else {
-                    // setError(response.message);
-                // }
             })
         })
     }
@@ -41,15 +37,15 @@ const Login = (props)=> {
         <div>
             <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered >
                 <Modal.Header closeButton>
-                    <Modal.Title id="loginModal">Login</Modal.Title>
+                    <Modal.Title id="loginModal"><h2>Login</h2></Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
-                    <h4>Current User Credentials</h4>
+                    <h4 className="modalHeader">Current User Credentials</h4>
                     {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
                     <form onSubmit={handleSubmit}>
                         <div>
-                            <label htmlFor="username">Username {username}</label><br/>
+                            <label htmlFor="username">Username <span className="inputValue">{username}</span></label><br/>
                             <input 
                             type="text" 
                             name="username"
@@ -59,7 +55,7 @@ const Login = (props)=> {
                         </div>
 
                         <div>
-                            <label htmlFor="email">Email: {email}</label><br/>
+                            <label htmlFor="email">Email: <span className="inputValue">{email}</span></label><br/>
                             <input 
                             type="text" 
                             name="email"

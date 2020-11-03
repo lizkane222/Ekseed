@@ -11,8 +11,8 @@ import "../Connection.css"
 
 const MiniProfilePhoto = (props) => {
     const user = useRecoilValue(userState)
-    const connectionId = user.id    
-    // const connectionId = props.props.match.params.id
+    // const connectionId = user.id    
+    const connectionId = props.props.match.params.id
 
     const [connectionDetail, setConnectionDetail] = useState(userState)
     // console.log("ConnectionShow: is userState", userState)

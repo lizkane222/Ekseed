@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, useHistory, UseHistory} from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userState, connectionState } from "../../../recoil/atoms";
 
 import ConnectionModel from "../../../models/ConnectionModel"
 import "../Connection.css"
 
+import UserModel from "../../../models/UserModel";
+// import {} from "react-router-dom";
+
 
 
 const NetworkPhoto = (props) => {
-    const user = useRecoilValue(userState)
-    
+    const [user, setUser] = useRecoilState(userState)
+    const history = useHistory()
+
+   
 
     // const connectionId = props.props.match.params.id
     const connectionId = user.id
@@ -20,13 +25,17 @@ const NetworkPhoto = (props) => {
     
 
     useEffect(function () {
-        return getConnectionDetail()
+        getConnectionDetail()
     },[]);
 
     function getConnectionDetail() {
         ConnectionModel.show(connectionId).then((response) => {
             setConnectionDetail(response.connection)
-
+            UserModel.show().then((response) => {
+                console.log(response);
+                    setUser(response.User)
+                    // history.push("/user")
+            }) 
         })
     }
 

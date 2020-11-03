@@ -1,1 +1,15 @@
 /* <hr className="my-4"> */
+
+
+
+
+.inputValue {
+    color: blue;
+    font-size: 1.3em;
+    margin-left: 2em;
+}
+
+
+.modalHeader {
+    text-align: center;
+}

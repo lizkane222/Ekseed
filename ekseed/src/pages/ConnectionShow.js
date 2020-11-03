@@ -15,20 +15,23 @@ import Note from "../components/Note/Note";
 const ConnectionShow = (props) => {
     const user = useRecoilValue(userState)
 
+    // import React, {useState, useEffect} from "react";
+    // import { useSetRecoilState } from "recoil";
+    // import UserModel from "../../models/UserModel";
+    // import { userState } from "../../recoil/atoms";
+    // import {useHistory, UseHistory} from "react-router-dom";
+        
+    //     UserModel.show().then((response) => {
+    //                 console.log(response);
+    //                     setUser(response.User)
+    //                     history.push("/user")
+    //             })
 
     return(
         <div className="connectionShowPage">
 
-                {/* <Logo /> */}
-                
-                {/* <SideBar /> */}
-                
-                {/* <h1>Connection Show Page</h1> */}
-
-
-
                 {/* <Connection props={props} user={user}/> */}
-                <Connection user={user}/>
+                <Connection props={props} user={user}/>
                 <NoteContainer />
    
 

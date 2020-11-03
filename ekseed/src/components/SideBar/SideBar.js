@@ -10,6 +10,7 @@ import {Modal as logoutModal} from 'react-bootstrap'
 import { BsPersonPlusFill } from "react-icons/bs"
 
 
+
 import UserModel from "../../models/UserModel";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userState } from "../../recoil/atoms";
@@ -117,7 +118,7 @@ export default SideBar;
 // import {Switch, Route, withRouter } from "react-router-dom";
 
 // import Home from "../../pages/Home";
-// import MyGarden from "../../pages/MyGarden";
+// import Garden from "../../pages/Garden";
 // // import ConnectionList from "../pages/ConnectionList";
 // import ConnectionNew from "../../pages/ConnectionNew";
 // import ConnectionShow from "../../pages/ConnectionShow";
@@ -212,7 +213,7 @@ export default SideBar;
 //    // ==============================================================// */}
 //             <Switch>
 //                 <Route exact path="/" component={Home} />
-//                 {/* <Route path="/user" component={MyGarden} /> */}
+//                 {/* <Route path="/user" component={Garden} /> */}
 //                 <Route path="/login" component={Login} />{/* at login establish connection to backend */}
 //                 <Route path="/register" component={Register} />{/* at register establish connection to backend */}
 //                 {/* <Route path="/user/connection/:id" component={ConnectionShow} /> */}
@@ -226,7 +227,7 @@ export default SideBar;
 //                         {/* <Route path="/user/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
 
 //                         {/* <Link to={`/user/connection/${_id}`} > */}
-//                         <Route path="/user" component={MyGarden} />
+//                         <Route path="/user" component={Garden} />
 //                         <Route exact path="/" component={Home} />
 
 //                         {/* http://localhost:3001/api/v1/auth/register */}

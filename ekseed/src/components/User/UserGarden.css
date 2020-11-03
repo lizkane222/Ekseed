@@ -26,3 +26,12 @@
     position: center bottom;
 
 }
+
+.selfNetwork {
+    width: 15em;
+    
+}
+
+.userNetwork {
+    width: 6em;
+}

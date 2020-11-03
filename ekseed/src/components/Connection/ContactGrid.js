@@ -16,7 +16,7 @@ const ContactGrid = (props) => {
     
 
     useEffect(function () {
-        return getConnectionDetail()
+        getConnectionDetail()
     },[]);
 
     function getConnectionDetail() {

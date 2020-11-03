@@ -8,7 +8,7 @@ import UserGarden from "../components/User/UserGarden";
 import Logo from "../components/Logo/Logo"
 
 
-const Garden = (userId) => {
+const Garden = (props) => {
     // console.log(" My Garden passes userId");
 
     const [connections, setConnections] = useState([]);
@@ -29,15 +29,15 @@ const Garden = (userId) => {
 
     useEffect(
         function() {
-            fetchConnections(userId);
+            fetchConnections();
         },
-        [userId]
+        []
     )
 
     return (
         <div>
             
-            <h1>My Garden Page</h1>
+            {/* <h1>My Garden Page</h1> */}
             {/* <SideBar /> */}
             <UserGarden />
             <div>

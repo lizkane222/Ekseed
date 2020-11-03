@@ -3,14 +3,18 @@ import SideBar from "../components/SideBar/SideBar";
 import ConnectionModel from "../models/ConnectionModel";
 
 import "./pages.css"
+import { useSetRecoilState } from "recoil";
 
-import User from "../models/UserModel";
+
+import UserModel from "../models/UserModel";
 import { connectionState, userState } from "../recoil/atoms";
 import Connection from "./ConnectionShow";
 import Note from "../components/Note/Note";
 // import NewNote from "../components/Note/NewNote";
 
 function ConnectionNew(props) {
+    const setUser = useSetRecoilState(userState);
+
     const [preferredName, setPreferredName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -20,6 +24,7 @@ function ConnectionNew(props) {
     const [profilePhoto, setProfilePhoto] = useState("");
     // const [note, setNote] = userState("");
         
+        // =======================================================
         // const [noteTag, setNoteTag] = useState("");
         // const [noteContent, setNoteContent] = useState("");
         // const [noteReviewed, setNoteReviewed] = useState("");
@@ -62,25 +67,38 @@ function ConnectionNew(props) {
                 // }, 2000);
         // =======================================================
 
+        // import React, {useState, useEffect} from "react";
+        // import { useSetRecoilState } from "recoil";
+        // import UserModel from "../../models/UserModel";
+        // import { userState } from "../../recoil/atoms";
+        // import {useHistory, UseHistory} from "react-router-dom";
+        
+        // const history = useHistory()
+
+        // UserModel.show().then((response) => {
+        //                 console.log(response);
+        //                     setUser(response.User)
+        //                     history.push("/user")
+        //             })
+
+
 
     function handleSubmit(event) {
         event.preventDefault(); 
-        // ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, note, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
         ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
             console.log(response);
             console.log(props.history)
-            // if (response.connection === 201) {
-                props.history.push("/user/connection")
-        //     } else {
-        //         setError(response.message);
-        //     }
+            // TODO
+            UserModel.show().then((response) => {
+                console.log(response);
+                    setUser(response.User)
+                    props.history.push("/user/connection")
+            })
         });
     }
 
     return (
         <div>
-            {/* <SideBar /> */}
-
             <h1>New Connection Form</h1>
             {error && <p style={{ color: "red" }}>{error}</p>}
             <form onSubmit={handleSubmit}>
@@ -134,7 +152,7 @@ function ConnectionNew(props) {
                 /> <br/><br/>
             </div>
 
-            <div>{}</div>
+            {/* <div>{}</div> */}
 
             <div>
                 <label htmlFor="profilePhoto">Profile Photo: <img className="ConnectionNew-profile-photo-preview" src={profilePhoto} alt=""/> </label><br/>

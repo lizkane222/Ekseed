@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Link, withRouter } from 'react-router-dom';
+import {roundedCircle} from 'react-bootstrap'
+
+import { MdPhoneIphone } from "react-icons/md"
+import { BsBuilding } from "react-icons/bs"
+import { FaDraft2Digital } from "react-icons/fa"
+
 
 import { userState, connectionState } from "../../recoil/atoms";
 import ConnectionModel from "../../models/ConnectionModel"
 // import NoteContainer from "../Note/NoteContainer/NoteContainer";
 import "./Connection.css"
+
+
 import NetworkPhoto from "./ConnectionGridComponents/NetworkPhoto";
 import ProfilePhoto from "./ConnectionGridComponents/ProfilePhoto";
 import CompanyItem from "./ConnectionGridComponents/CompanyItem";
@@ -20,22 +28,23 @@ import LastName from "./ConnectionGridComponents/LastName";
 
 const Connection = (props) => {
     
-    // const connectionId = props.props.match.params.id
+    const connectionId = props.props.match.params.id
     console.log(props.user)
-    // const [connectionDetail, setConnectionDetail] = useState(userState)
+    const [connectionDetail, setConnectionDetail] = useState(userState)
     // // console.log("ConnectionShow: is userState", userState)
     
 
-    // useEffect(function () {
-    //     return getConnectionDetail()
-    // },[]);
+    useEffect(function () {
+        getConnectionDetail()
+    },[]);
 
-    // function getConnectionDetail() {
-    //     ConnectionModel.show(connectionId).then((response) => {
-    //         setConnectionDetail(response.connection)
+    function getConnectionDetail() {
+        ConnectionModel.show(connectionId).then((response) => {
+            setConnectionDetail(response.connection)
 
-    //     })
-    // }
+        })
+    }
+
     // console.log("line31 connection detail connection data, CONNECTION DETAIL ",connectionDetail)
 
     // for (let i in connectionDetail){
@@ -48,69 +57,69 @@ const Connection = (props) => {
         <div className="connectionShow">
             {/* <h3>Connection Component</h3> */}
 
+            <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a>
             {/* {connectionDetail && (          
             <> */}
                 <section className="connectionShowNetwork container">
 
+
                     <div className="connectionShowNetworkItem">
 
                     {/* <div> */}
+                                {/* <NetworkPhoto /> */}
                         <div className="grandparent-circle">
                             <div className="parent-circle">
-                                
-                                <NetworkPhoto />
-                                
-                                {/* <h3 id="network-photo">{connectionDetail.network}</h3> */}
+                                <h3 id="network-photo">{connectionDetail.network}</h3>
                             </div>
                         </div>
                     </div>
 
-                    <ProfilePhoto />
-                    {/* <div className="connectionShowNetworkItem" id="profile-photo">
-                        <Link to={`/user`} className="imgContainer">
+                    {/* <ProfilePhoto /> */}
+                    <div className="connectionShowNetworkItem" id="profile-photo">
+                        <Link to={`/user/connection/:id`} className="imgContainer ">
                             <div className="imgContainer">
                                 <div className='image-wrapper'>
                                     <img className="connectionShowNetwork__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
                                 </div>
                             </div>
                         </Link>
-                    </div> */}
+                    </div>
 
-                    <PreferredName />
-                    {/* <div className="connectionShowNetworkItem network_deets">
+                    {/* <PreferredName /> */}
+                    <div className="connectionShowNetworkItem network_deets">
                         <h2>{connectionDetail.preferredName}</h2>
                         <p>preferredName</p>
-                    </div> */}
+                    </div>
 
-                    <FirstName />
-                    {/* <div className="connectionShowNetworkItem network_deets">
+                    {/* <FirstName /> */}
+                    <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.firstName}</h4>
                         <p>firstName</p>
-                    </div> */}
+                    </div>
 
-                    <LastName />
-                    {/* <div className="connectionShowNetworkItem network_deets">
+                    {/* <LastName /> */}
+                    <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.lastName}</h4>
                         <p>lastName</p>
-                    </div> */}
+                    </div>
 
-                    {/* <div className="connectionShowNetworkItem network_deets">
+                    <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.company}</h4>
                         <p>company</p>
-                    </div> */}
-                    <CompanyItem />
+                    </div>
+                    {/* <CompanyItem /> */}
 
-                    {/* <div className="connectionShowNetworkItem network_deets">
+                    <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.network}</h4>
                         <p>network</p>
-                    </div> */}
-                    <NetworkName />
+                    </div>
+                    {/* <NetworkName /> */}
 
-                    {/* <div className="connectionShowNetworkItem network_deets">
+                    <div className="connectionShowNetworkItem network_deets">
                         <h4>{connectionDetail.dateReview}</h4>
                         <p>dateReview</p>
-                    </div> */}
-                    <DateReviewed />
+                    </div>
+                    {/* <DateReviewed /> */}
                 
                     {/* <MiniProfilePhotoList /> */}
                 
@@ -165,15 +174,15 @@ const Connection = (props) => {
                 </section>
                     {/* {connectionDetail && (notes)} */}
 
-{/* 
+
                 <section className="connection-show__contact container">
                     <div className="connection-show__contactItem">
-                        <p>cellPhoneOne</p>
+                        <p><MdPhoneIphone/>1</p>
                         <h4>{connectionDetail.cellPhoneOne}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <p>cellPhoneTwo</p>
+                        <p><MdPhoneIphone/><FaDraft2Digital/></p>
                         <h4>{connectionDetail.cellPhoneTwo}</h4>
                     </div>
 
@@ -198,7 +207,7 @@ const Connection = (props) => {
                     </div>
 
                     <div className="connection-show__contactItem">
-                        <p>workAddress</p>
+                        <p><BsBuilding /></p>
                         <h4>{connectionDetail.workAddress}</h4>
                     </div>
 
@@ -206,13 +215,10 @@ const Connection = (props) => {
                         <p>moreContact</p>
                         <h4>{connectionDetail.moreContact}</h4>
                     </div>
-                </section> */}
+                </section>
             
             {/* </>
             )} */}
-
-
-            {/* <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
         </div>
     )
 }

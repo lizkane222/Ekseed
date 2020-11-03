@@ -29,3 +29,11 @@ export const getCurrentUserState = selector({
 
 // localStorage.getItem("uid")
 // const currentUser = localStorage.getItem("uid")
+
+
+// export const currentConnectionState = selector ({
+//     key: "currentConnectionState",
+//     get: ({ get }) => {
+//         const currentConnection = get(connectionState);
+//     }
+// })
