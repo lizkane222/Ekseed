@@ -6,12 +6,11 @@ import { MdPhoneIphone } from "react-icons/md"
 import { BsBuilding } from "react-icons/bs"
 import { FaDraft2Digital } from "react-icons/fa"
 
-
+import {useRecoilValue, useRecoilState} from "recoil"
 import { userState, connectionState } from "../../recoil/atoms";
 import ConnectionModel from "../../models/ConnectionModel"
 // import NoteContainer from "../Note/NoteContainer/NoteContainer";
 import "./Connection.css"
-
 
 import NetworkPhoto from "./ConnectionGridComponents/NetworkPhoto";
 import ProfilePhoto from "./ConnectionGridComponents/ProfilePhoto";
@@ -24,12 +23,16 @@ import FirstName from "./ConnectionGridComponents/FirstName";
 import LastName from "./ConnectionGridComponents/LastName";
 
 
-
-
 const Connection = (props) => {
+    const user = useRecoilValue(userState)
+    const connectionId = user.id
     
-    const connectionId = props.props.match.params.id
+    // const userId = user.id
+    // const connectionId = connection.id
+    // const connectionId = props.props.match.params.id
+    
     console.log(props.user)
+
     const [connectionDetail, setConnectionDetail] = useState(userState)
     // // console.log("ConnectionShow: is userState", userState)
     
@@ -57,9 +60,9 @@ const Connection = (props) => {
         <div className="connectionShow">
             {/* <h3>Connection Component</h3> */}
 
-            <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a>
-            {/* {connectionDetail && (          
-            <> */}
+            
+            {connectionDetail && (          
+            <>
                 <section className="connectionShowNetwork container">
 
 
@@ -76,7 +79,7 @@ const Connection = (props) => {
 
                     {/* <ProfilePhoto /> */}
                     <div className="connectionShowNetworkItem" id="profile-photo">
-                        <Link to={`/user/connection/:id`} className="imgContainer ">
+                        <Link to={`/connection/:id`} className="imgContainer ">
                             <div className="imgContainer">
                                 <div className='image-wrapper'>
                                     <img className="connectionShowNetwork__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
@@ -217,8 +220,8 @@ const Connection = (props) => {
                     </div>
                 </section>
             
-            {/* </>
-            )} */}
+            </>
+            )}
         </div>
     )
 }

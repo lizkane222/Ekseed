@@ -37,7 +37,7 @@ const SideBar = (props) => {
     const [registerModalShow, setRegisterModalShow] = React.useState(false);
 
     
-    // const connectionList = user ? user.connections.map((connection) => <a href={`/user/connection/${connection._id}`}><p key={connection._id}>{connection.preferredName}</p></a>): '';
+    // const connectionList = user ? user.connections.map((connection) => <a href={`/connection/${connection._id}`}><p key={connection._id}>{connection.preferredName}</p></a>): '';
     // <div>
 
     // function handleLogout(event) {
@@ -78,20 +78,20 @@ const SideBar = (props) => {
                     <ul>
                         {user ? (
                             <>
-                                <NavLink className="navlink" to={"/user/connection"}><p className="link">{user.username}</p></NavLink>
+                                <NavLink className="navlink" to={"/user"}><p className="link">{user.username}</p></NavLink>
                 
                                 <NavLink className="navlink" to={"/user"}><p className="link">Garden</p></NavLink>
                                 
-                                {/* <NavLink className="navlink" to={"/user/connection/new"}><p className="link"><span className="material-icons">person_add</span> Connect</p></NavLink> */}
-                                {/* <NavLink className="navlink" to={"/user/connection/new"}><p className="link"><IoMdPersonAdd /> Connect</p></NavLink> */}
-                                <NavLink className="navlink" to={"/user/connection/new"}><p className="link"><BsPersonPlusFill /> Connect</p></NavLink>
+                                {/* <NavLink className="navlink" to={"/connection/new"}><p className="link"><span className="material-icons">person_add</span> Connect</p></NavLink> */}
+                                {/* <NavLink className="navlink" to={"/connection/new"}><p className="link"><IoMdPersonAdd /> Connect</p></NavLink> */}
+                                <NavLink className="navlink" to={"/connection/new"}><p className="link"><BsPersonPlusFill /> Connect</p></NavLink>
                                                  
 
                                 <NavLink className="navlink" to={"/"}><p className="link" onClick={logout}>Logout</p></NavLink>
                                 {/* <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true)} data-target="#logoutmodal">logout</button> */}
-                                <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true).then(() => logoutModalFunction)} data-target="#logoutmodal">logout</button>
+                                {/* <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true).then(() => logoutModalFunction)} data-target="#logoutmodal">logout</button> */}
                                 {/* <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/> */}
-                                {logoutModalFunction}
+                                {/* {logoutModalFunction} */}
 
                             </>
                         ) : (
@@ -148,7 +148,7 @@ export default SideBar;
 //     const connectionList = user ? user.connections.map((connection) => {
 //         return (
 //             <div>
-//                 <Link to={`/user/connection/${connection._id}`}>
+//                 <Link to={`/connection/${connection._id}`}>
 //                     <p key={connection._id}> {connection.preferredName} </p>
 //                 </Link>
 //                 {/* <Routes />                */}
@@ -157,7 +157,7 @@ export default SideBar;
 //         })
 //         : '';
     
-//     // const connectionList = user ? user.connections.map((connection) => <a href={`/user/connection/${connection._id}`}><p key={connection._id}>{connection.preferredName}</p></a>): '';
+//     // const connectionList = user ? user.connections.map((connection) => <a href={`/connection/${connection._id}`}><p key={connection._id}>{connection.preferredName}</p></a>): '';
 
 //     function logout() {
 //         setUser(null);
@@ -181,12 +181,12 @@ export default SideBar;
 //                                 {connectionList}
 
 //                                 <p>
-//                                 {/* <Link to={`/user/connection/${_id}`} > */}
+//                                 {/* <Link to={`/connection/${_id}`} > */}
 
 //                                     <NavLink to={"/user"}>Garden (all companies in my network)</NavLink>
 //                                 </p>
 //                                 <p>
-//                                     <NavLink to={"/user/connection/new"}>New Connection</NavLink>
+//                                     <NavLink to={"/connection/new"}>New Connection</NavLink>
 //                                 </p>
 //                                 <p className="btn" onClick={logout}>
 //                                     <NavLink to={"/"}>Logout</NavLink>
@@ -216,17 +216,17 @@ export default SideBar;
 //                 {/* <Route path="/user" component={Garden} /> */}
 //                 <Route path="/login" component={Login} />{/* at login establish connection to backend */}
 //                 <Route path="/register" component={Register} />{/* at register establish connection to backend */}
-//                 {/* <Route path="/user/connection/:id" component={ConnectionShow} /> */}
+//                 {/* <Route path="/connection/:id" component={ConnectionShow} /> */}
 
 //                 {loggedIn && (
 //                     <Switch>
-//                         <Route path="/user/connection/new" component={ConnectionNew} />
+//                         <Route path="/connection/new" component={ConnectionNew} />
 //                         {/*  put these links in the garden page */}
-//                         <Route path="/user/connection/:id/edit" component={ConnectionEdit} />
-//                         <Route path="/user/connection/:id" component={ConnectionShow} />
-//                         {/* <Route path="/user/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
+//                         <Route path="/connection/:id/edit" component={ConnectionEdit} />
+//                         <Route path="/connection/:id" component={ConnectionShow} />
+//                         {/* <Route path="/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
 
-//                         {/* <Link to={`/user/connection/${_id}`} > */}
+//                         {/* <Link to={`/connection/${_id}`} > */}
 //                         <Route path="/user" component={Garden} />
 //                         <Route exact path="/" component={Home} />
 

@@ -45,7 +45,7 @@ const NetworkGrid = (props) => {
                     <div>
                         <div className="grandparent-circle">
                             <div className="parent-circle">
-                                {/* <Link to={`/user/connection`} className="linkContain" >
+                                {/* <Link to={`/connection`} className="linkContain" >
                                     <div className='image-wrapper'>
                                         <img src={connectionDetail.network} alt={connectionDetail.network} />
                                     </div>
@@ -83,7 +83,7 @@ const NetworkGrid = (props) => {
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        {/* <Link to={`/user/connection`} className="linkContain">
+                        {/* <Link to={`/connection`} className="linkContain">
                             <div className='image-wrapper network_deets'>
                                 <img src={connectionDetail.company} alt={connectionDetail.company} />
                             </div>
@@ -156,7 +156,7 @@ const NetworkGrid = (props) => {
             )}
 
 
-            <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a>
+            <a href="/connection/edit">EDIT {connectionDetail.preferredName}</a>
         </div>
     )
 }

@@ -85,9 +85,9 @@ function ConnectionNew(props) {
                 UserModel.show().then((response) => {
                     console.log(response);
                         setUser(response.User)
-                        props.history.push(`/user/connection/${connection}`)
+                        props.history.push(`/connection/${connection}`)
                 })
-                // props.history.push(`/user/connection/${props}`)
+                // props.history.push(`/connection/${props}`)
             } else {
                 setError(response.message);
             }

@@ -49,7 +49,7 @@ const NetworkPhoto = (props) => {
                 <div>
                     <div className="grandparent-circle">
                         <div className="parent-circle">
-                            {/* <Link to={`/user/connection`} className="linkContain" >
+                            {/* <Link to={`/connection`} className="linkContain" >
                                 <div className='image-wrapper'>
                                     <img src={connectionDetail.network} alt={connectionDetail.network} />
                                 </div>
@@ -63,7 +63,7 @@ const NetworkPhoto = (props) => {
             )}
 
 
-            {/* <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
+            {/* <a href="/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
         </div>
     )
 }

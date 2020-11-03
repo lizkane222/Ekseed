@@ -36,7 +36,7 @@ const CompanyList = (props) => {
             )}
 
 
-            {/* <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
+            {/* <a href="/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
         </div>
     )
 }

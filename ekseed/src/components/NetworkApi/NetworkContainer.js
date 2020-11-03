@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import NetworkModel from "../../models/NetworkModel";
 import NetworkItems from './NetworkItems';
 

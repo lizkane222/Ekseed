@@ -42,7 +42,6 @@ const NetworkName = (props) => {
             )}
 
 
-            {/* <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
         </div>
     )
 }

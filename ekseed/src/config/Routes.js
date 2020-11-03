@@ -31,20 +31,20 @@ const Routes = (props) => {
             <Route path="/note" component={NoteContainer} />
             <Route exact path="/" component={Home} />
 
-            {/* <Route path="/user/connection/:id" component={ConnectionShow} /> */}
+            {/* <Route path="/connection/:id" component={ConnectionShow} /> */}
             
             {loggedIn && (
                 <Switch>
-                    <Route path="/user/connection/new" component={ConnectionNew} />
+                    <Route path="/connection/new" component={ConnectionNew} />
                     {/*  put these links in the garden page */}
-                    <Route path="/user/connection/:id/edit" component={ConnectionEdit} />
-                    <Route path="/user/connection/:id" component={ConnectionShow} />
-                    {/* <Route path="/user/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
+                    <Route path="/connection/:id/edit" component={ConnectionEdit} />
+                    <Route path="/connection/:id" component={ConnectionShow} />
+                    {/* <Route path="/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
                     
                     <Route path="/note" component={NoteContainer} />
 
-                    {/* <Link to={`/user/connection/${_id}`} > */}
-                    <Route path="/user/connection" component={Garden} />
+                    {/* <Link to={`/connection/${_id}`} > */}
+                    <Route path="/connection" component={Garden} />
                     <Route path="/user" component={Garden} />
                     {/* <Route exact path="/user" component={User} /> */}
                     <Route exact path="/ekseed" component={Home} />

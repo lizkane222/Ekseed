@@ -38,7 +38,7 @@ const CompanyItem = (props) => {
             {connectionDetail && (          
             <>
                 <div className="connectionShowNetworkItem network_deets">
-                    {/* <Link to={`/user/connection`} className="linkContain">
+                    {/* <Link to={`/connection`} className="linkContain">
                         <div className='image-wrapper network_deets'>
                             <img src={connectionDetail.company} alt={connectionDetail.company} />
                         </div>
@@ -50,7 +50,7 @@ const CompanyItem = (props) => {
             )}
 
 
-            {/* <a href="/user/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
+            {/* <a href="/connection/edit">EDIT {connectionDetail.preferredName}</a> */}
         </div>
     )
 }

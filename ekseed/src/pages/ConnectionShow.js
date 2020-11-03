@@ -36,7 +36,7 @@ const ConnectionShow = (props) => {
    
 
 
-
+                <a href="/connection/:id">EDIT</a>
         </div>
     )
 }

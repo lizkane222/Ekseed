@@ -1,5 +1,5 @@
-import React, { useState} from "react";
-const URL = "http://localhost:3001/api/v1/user/connection";
+// import React, { useState} from "react";
+const URL = "http://localhost:3001/api/v1/connection";
 
 class ConnectionModel {
     static all = () => {

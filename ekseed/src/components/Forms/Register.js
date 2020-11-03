@@ -78,7 +78,7 @@ function Register(props) {
               {error && <p style={{ color: "red" }}>{error}</p>}
               <form onSubmit={handleSubmit}>
                   <div className='form-input'>
-                      <label htmlFor='username'>Username: <span className="inputValue">{username}</span></label>
+                      <label htmlFor='username'>Username: <span className="inputValue">{username}</span></label><br></br>
                       <input
                       type='text'
                       name='username'
@@ -89,7 +89,7 @@ function Register(props) {
                   </div>
 
                   <div className='form-input'>
-                      <label htmlFor='email'>Email <span className="inputValue">{email}</span></label>
+                      <label htmlFor='email'>Email <span className="inputValue">{email}</span></label><br></br>
                       <input
                       type='text'
                       name='email'
@@ -119,7 +119,7 @@ function Register(props) {
                       onChange={handleChange}
                     />} */}
                     <div className='form-input'>
-                      <label htmlFor='password'>Password</label>
+                      <label htmlFor='password'>Password</label><br></br>
                       <input
                       type='password'
                       name='password'

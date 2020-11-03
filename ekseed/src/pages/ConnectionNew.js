@@ -42,10 +42,11 @@ function ConnectionNew(props) {
         const [cellPhoneOne, setCellPhoneOne] = useState("");
         const [cellPhoneTwo, setCellPhoneTwo] = useState("");
         const [email, setEmail] = useState("");
-        const [workName, setWorkName] = useState("");
+        const [homeAddress, setHomeAddress] = useState("");
         const [workPhone, setWorkPhone] = useState("");
         const [workEmail, setWorkEmail] = useState("");
         const [workAddress, setWorkAddress] = useState("");
+        const [birthday, setBirthday] = useState("");
         const [moreContact, setMoreContact] = useState("");
         
         const [error, setError] = useState("");
@@ -85,14 +86,14 @@ function ConnectionNew(props) {
 
     function handleSubmit(event) {
         event.preventDefault(); 
-        ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
+        ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, cellPhoneOne, cellPhoneTwo, email, homeAddress, workPhone, workEmail, workAddress, birthday, moreContact}).then((response)=>{
             console.log(response);
             console.log(props.history)
             // TODO
             UserModel.show().then((response) => {
                 console.log(response);
                     setUser(response.User)
-                    props.history.push("/user/connection")
+                    props.history.push("/connection")
             })
         });
     }
@@ -107,6 +108,7 @@ function ConnectionNew(props) {
                 <input 
                 type="text" 
                 name="preferredName"
+                placeholder="What do you call them?"
                 value={preferredName}
                 onChange={(e)=> setPreferredName(e.target.value)}
                 /> <br/><br/>
@@ -117,6 +119,7 @@ function ConnectionNew(props) {
                 <input 
                 type="text" 
                 name="firstName"
+                placeholder="Their first name, & other names"
                 value={firstName}
                 onChange={(e)=> setFirstName(e.target.value)}
                 /> <br/><br/>
@@ -127,6 +130,7 @@ function ConnectionNew(props) {
                 <input 
                 type="text" 
                 name="lastName"
+                placeholder="Their last name, (maiden name)"
                 value={lastName}
                 onChange={(e)=> setLastName(e.target.value)}
                 /> <br/><br/>
@@ -137,6 +141,7 @@ function ConnectionNew(props) {
                 <input 
                 type="text" 
                 name="network"
+                placeholder="How do you know them?"
                 value={network}
                 onChange={(e)=> setNetwork(e.target.value)}
                 /> <br/><br/>
@@ -147,6 +152,7 @@ function ConnectionNew(props) {
                 <input 
                 type="text" 
                 name="company"
+                placeholder="What company do they work for?"
                 value={company}
                 onChange={(e)=> setCompany(e.target.value)}
                 /> <br/><br/>
@@ -159,6 +165,7 @@ function ConnectionNew(props) {
                 <input 
                 type="text" 
                 name="profilePhoto"
+                placeholder="Have a flattering photo of them?"
                 value={profilePhoto}
                 onChange={(e)=> setProfilePhoto(e.target.value)}
                 /> <br/><br/>
@@ -173,6 +180,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="noteTag"
+                    placeholder="noteTag"
                     value={noteTag}
                     onChange={(e)=> setNoteTag(e.target.value)}
                     /> <br/><br/>
@@ -183,6 +191,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="noteContent"
+                    placeholder="noteContent"
                     value={noteContent}
                     onChange={(e)=> setNoteContent(e.target.value)}
                     /> <br/><br/>
@@ -193,6 +202,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="noteReviewed"
+                    placeholder="noteReviewed"
                     value={noteReviewed}
                     onChange={(e)=> setNoteReviewed(e.target.value)}
                     /> <br/><br/>
@@ -203,6 +213,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="noteBookmark"
+                    placeholder="noteBookmark"
                     value={noteBookmark}
                     onChange={(e)=> setNoteBookmark(e.target.value)}
                     /> <br/><br/>
@@ -213,6 +224,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="notePrivacy"
+                    placeholder="notePrivacy"
                     value={notePrivacy}
                     onChange={(e)=> setNotePrivacy(e.target.value)}
                     /> <br/><br/>
@@ -225,6 +237,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="cellPhoneOne"
+                    placeholder="Cell # 1"
                     value={cellPhoneOne}
                     onChange={(e)=> setCellPhoneOne(e.target.value)}
                     /> <br/><br/>
@@ -235,6 +248,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="cellPhoneTwo"
+                    placeholder="Cell # 2"
                     value={cellPhoneTwo}
                     onChange={(e)=> setCellPhoneTwo(e.target.value)}
                     /> <br/><br/>
@@ -245,18 +259,20 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="email"
+                    placeholder="Their personal/primary email"
                     value={email}
                     onChange={(e)=> setEmail(e.target.value)}
                     /> <br/><br/>
                 </div>
 
                 <div>
-                    <label htmlFor="workName">workName: {workName}</label><br/>
+                    <label htmlFor="homeAddress">homeAddress: {homeAddress}</label><br/>
                     <input 
                     type="text" 
-                    name="workName"
-                    value={workName}
-                    onChange={(e)=> setWorkName(e.target.value)}
+                    name="homeAddress"
+                    placeholder="Their home address"
+                    value={homeAddress}
+                    onChange={(e)=> setHomeAddress(e.target.value)}
                     /> <br/><br/>
                 </div>
 
@@ -265,6 +281,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="workPhone"
+                    placeholder="Their work phone, & extension"
                     value={workPhone}
                     onChange={(e)=> setWorkPhone(e.target.value)}
                     /> <br/><br/>
@@ -275,6 +292,7 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="workEmail"
+                    placeholder="Their work email"
                     value={workEmail}
                     onChange={(e)=> setWorkEmail(e.target.value)}
                     /> <br/><br/>
@@ -285,19 +303,39 @@ function ConnectionNew(props) {
                     <input 
                     type="text" 
                     name="workAddress"
+                    placeholder="Their work address"
                     value={workAddress}
                     onChange={(e)=> setWorkAddress(e.target.value)}
                     /> <br/><br/>
                 </div>
 
                 <div>
-                    <label htmlFor="moreContact">moreContact: {moreContact}</label><br/>
+                    <label htmlFor="birthday">birthday: {birthday}</label><br/>
                     <input 
                     type="text" 
+                    name="birthday"
+                    placeholder="Their birthday"
+                    value={birthday}
+                    onChange={(e)=> setBirthday(e.target.value)}
+                    /> <br/><br/>
+                </div>
+
+                <div>
+                    <label htmlFor="moreContact">moreContact: {moreContact}</label><br/>
+                    <textarea 
+                    name="moreContact" 
+                    placeholder="Extra contact info"
+                    onChange={(e)=> setMoreContact(e.target.value)}
+                    >
+                    {moreContact}
+                    </textarea>
+                    {/* <input 
+                    type="text" 
                     name="moreContact"
+                    placeholder="Extra contact info"
                     value={moreContact}
                     onChange={(e)=> setMoreContact(e.target.value)}
-                    /> <br/><br/>
+                    /> */} <br/><br/>
                 </div>
             </div>
 

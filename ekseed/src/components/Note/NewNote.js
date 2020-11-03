@@ -33,7 +33,7 @@
 //             console.log(response);
             
 //             // if (response.connection === 201) {
-//             //     // props.history.push('/user/connection')
+//             //     // props.history.push('/connection')
 //             //     props.history.push('/user')
 //             // } else {
 //             //     setError(response.message);
