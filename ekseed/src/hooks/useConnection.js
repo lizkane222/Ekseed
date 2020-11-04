@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import React,{ useState, useEffect } from "react";
+import ConnectionModel from "../models/ConnectionModel";
 
-import Connection from '../models/ConnectionModel';
 
 
 function useConnection(connectionId) {
@@ -8,11 +8,11 @@ function useConnection(connectionId) {
 
     function fetchConnections(id) {
         if (id) {
-            Connection.show(id).then((data) => {
+            ConnectionModel.show(id).then((data) => {
                 setConnections(data.connection);
             });
         } else {
-            Connection.all().then((data) => {
+            ConnectionModel.all().then((data) => {
                 setConnections(data.connections);
             });
         }
@@ -22,7 +22,7 @@ function useConnection(connectionId) {
         function () {
             fetchConnections(connectionId);
         },
-        [connectionId]
+        []
     );
 
     return [connections, fetchConnections];

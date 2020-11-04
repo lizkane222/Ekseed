@@ -8,45 +8,55 @@ import { FaDraft2Digital } from "react-icons/fa"
 
 import {useRecoilValue, useRecoilState} from "recoil"
 import { userState, connectionState } from "../../recoil/atoms";
+import useConnection from "../../hooks/useConnection";
+
 import ConnectionModel from "../../models/ConnectionModel"
 // import NoteContainer from "../Note/NoteContainer/NoteContainer";
 import "./Connection.css"
 
-import NetworkPhoto from "./ConnectionGridComponents/NetworkPhoto";
-import ProfilePhoto from "./ConnectionGridComponents/ProfilePhoto";
-import CompanyItem from "./ConnectionGridComponents/CompanyItem";
-import NetworkName from "./ConnectionGridComponents/NetworkName";
-import DateReviewed from "./ConnectionGridComponents/DateReviewed";
-import MiniProfilePhotoList from "./ConnectionGridComponents/MiniProfilePhotoList";
-import PreferredName from "./ConnectionGridComponents/PreferredName";
-import FirstName from "./ConnectionGridComponents/FirstName";
-import LastName from "./ConnectionGridComponents/LastName";
+// REFACTURED PROPERTY IMPORTS
+// import NetworkPhoto from "./ConnectionGridComponents/NetworkPhoto";
+// import ProfilePhoto from "./ConnectionGridComponents/ProfilePhoto";
+// import CompanyItem from "./ConnectionGridComponents/CompanyItem";
+// import NetworkName from "./ConnectionGridComponents/NetworkName";
+// import DateReviewed from "./ConnectionGridComponents/DateReviewed";
+// import MiniProfilePhotoList from "./ConnectionGridComponents/MiniProfilePhotoList";
+// import PreferredName from "./ConnectionGridComponents/PreferredName";
+// import FirstName from "./ConnectionGridComponents/FirstName";
+// import LastName from "./ConnectionGridComponents/LastName";
 
 
 const Connection = (props) => {
     const user = useRecoilValue(userState)
-    const connectionId = user.id
-    
-    // const userId = user.id
-    // const connectionId = connection.id
-    // const connectionId = props.props.match.params.id
-    
-    console.log(props.user)
+    // console.log("connection @ 27 user",user)
+    // const connectionId = user.props.match.params.id
+    // console.log("connection @ 27 props user",props.user)
+    // const connection = props.connection
+    console.log("connection @ 33 props ",props)
+    console.log("connection line 33: props connection", props.connection)
 
-    const [connectionDetail, setConnectionDetail] = useState(userState)
+    const [connections, fetchConnections] = useConnection([]);
+
+    // const userId = user.id
+    const connectionId = user
+    // const connectionId = props.props.match.params.id
+
+    console.log("connection line34 props of user", props.user.connections)
+
+    const [thisConnection, setThisConnection] = useState(userState)
+
     // // console.log("ConnectionShow: is userState", userState)
     
-
     useEffect(function () {
-        getConnectionDetail()
+        fetchConnections()
     },[]);
 
-    function getConnectionDetail() {
-        ConnectionModel.show(connectionId).then((response) => {
-            setConnectionDetail(response.connection)
 
-        })
-    }
+    // function getThisConnection() {
+    //     ConnectionModel.show(connectionId).then((response) => {
+    //         setThisConnection(response.connection)
+    //     })
+    // }
 
     // console.log("line31 connection detail connection data, CONNECTION DETAIL ",connectionDetail)
 
@@ -58,10 +68,8 @@ const Connection = (props) => {
 
     return (
         <div className="connectionShow">
-            {/* <h3>Connection Component</h3> */}
-
             
-            {connectionDetail && (          
+            {thisConnection && (          
             <>
                 <section className="connectionShowNetwork container">
 
@@ -72,7 +80,7 @@ const Connection = (props) => {
                                 {/* <NetworkPhoto /> */}
                         <div className="grandparent-circle">
                             <div className="parent-circle">
-                                <h3 id="network-photo">{connectionDetail.network}</h3>
+                                <h3 id="network-photo">{thisConnection.network}</h3>
                             </div>
                         </div>
                     </div>
@@ -82,7 +90,7 @@ const Connection = (props) => {
                         <Link to={`/connection/:id`} className="imgContainer ">
                             <div className="imgContainer">
                                 <div className='image-wrapper'>
-                                    <img className="connectionShowNetwork__img" src={connectionDetail.profilePhoto} alt={connectionDetail.preferredName} />
+                                    <img className="connectionShowNetwork__img" src={thisConnection.profilePhoto} alt={thisConnection.preferredName} />
                                 </div>
                             </div>
                         </Link>
@@ -90,36 +98,36 @@ const Connection = (props) => {
 
                     {/* <PreferredName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2>{connectionDetail.preferredName}</h2>
+                        <h2>{thisConnection.preferredName}</h2>
                         <p>preferredName</p>
                     </div>
 
                     {/* <FirstName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connectionDetail.firstName}</h4>
+                        <h4>{thisConnection.firstName}</h4>
                         <p>firstName</p>
                     </div>
 
                     {/* <LastName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connectionDetail.lastName}</h4>
+                        <h4>{thisConnection.lastName}</h4>
                         <p>lastName</p>
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connectionDetail.company}</h4>
+                        <h4>{thisConnection.company}</h4>
                         <p>company</p>
                     </div>
                     {/* <CompanyItem /> */}
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connectionDetail.network}</h4>
+                        <h4>{thisConnection.network}</h4>
                         <p>network</p>
                     </div>
                     {/* <NetworkName /> */}
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connectionDetail.dateReview}</h4>
+                        <h4>{thisConnection.dateReview}</h4>
                         <p>dateReview</p>
                     </div>
                     {/* <DateReviewed /> */}
@@ -175,48 +183,48 @@ const Connection = (props) => {
                     </div> */}
 
                 </section>
-                    {/* {connectionDetail && (notes)} */}
+                    {/* {thisConnection && (notes)} */}
 
 
                 <section className="connection-show__contact container">
                     <div className="connection-show__contactItem">
                         <p><MdPhoneIphone/>1</p>
-                        <h4>{connectionDetail.cellPhoneOne}</h4>
+                        <h4>{thisConnection.cellPhoneOne}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
                         <p><MdPhoneIphone/><FaDraft2Digital/></p>
-                        <h4>{connectionDetail.cellPhoneTwo}</h4>
+                        <h4>{thisConnection.cellPhoneTwo}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
                         <p>email</p>
-                        <h4>{connectionDetail.email}</h4>
+                        <h4>{thisConnection.email}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
                         <p>workName</p>
-                        <h4>{connectionDetail.workName}</h4>
+                        <h4>{thisConnection.workName}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
                         <p>workPhone</p>
-                        <h4>{connectionDetail.workPhone}</h4>
+                        <h4>{thisConnection.workPhone}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
                         <p>workEmail</p>
-                        <h4>{connectionDetail.workEmail}</h4>
+                        <h4>{thisConnection.workEmail}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
                         <p><BsBuilding /></p>
-                        <h4>{connectionDetail.workAddress}</h4>
+                        <h4>{thisConnection.workAddress}</h4>
                     </div>
 
                     <div className="connection-show__contactItem">
                         <p>moreContact</p>
-                        <h4>{connectionDetail.moreContact}</h4>
+                        <h4>{thisConnection.moreContact}</h4>
                     </div>
                 </section>
             
@@ -244,15 +252,15 @@ export default Connection;
 
 
 {/* <div>
-                    <h4>note: <b>{connectionDetail.note}</b></h4>
+                    <h4>note: <b>{thisconnection.note}</b></h4>
                 </div> */}
 
                  {/* <div>
-                    <h4>noteTag:</h4> {connectionDetail.note.map(note =><h4><b>{note.content}</b></h4>)}
+                    <h4>noteTag:</h4> {thisconnection.note.map(note =><h4><b>{note.content}</b></h4>)}
                 </div> */}
 {/* 
                 <div>
-                    <h4>noteContent: <b>{connectionDetail.note.noteContent}</b></h4>
+                    <h4>noteContent: <b>{thisconnection.note.noteContent}</b></h4>
                 </div>
 
                 <div>

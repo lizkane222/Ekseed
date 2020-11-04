@@ -29,7 +29,7 @@ function Logo() {
                     {/* <NavLink to={"/user"}> */}
                         {/* <h3>{user.username}</h3> */}
                             {/* <h3>{currentUser.uid}</h3> */}
-                            <h3>Lizay</h3>
+                            {/* <h3>Lizay</h3> */}
                         {/* </NavLink> */}
                 </div>
             {/* } */}

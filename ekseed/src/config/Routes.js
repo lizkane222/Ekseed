@@ -2,8 +2,7 @@ import React from "react";
 import {Switch, Route } from "react-router-dom";
 
 import Home from "../pages/Home";
-import Garden from "../pages/Garden";
-// import ConnectionList from "../pages/ConnectionList";
+import ConnectionList from "../pages/ConnectionList";
 import ConnectionNew from "../pages/ConnectionNew";
 import ConnectionShow from "../pages/ConnectionShow";
 import ConnectionEdit from "../pages/ConnectionEdit";
@@ -44,10 +43,12 @@ const Routes = (props) => {
                     <Route path="/note" component={NoteContainer} />
 
                     {/* <Link to={`/connection/${_id}`} > */}
-                    <Route path="/connection" component={Garden} />
-                    <Route path="/user" component={Garden} />
+                    <Route path="/connection" component={ConnectionList} />
+                    <Route path="/user" component={ConnectionList} />
                     {/* <Route exact path="/user" component={User} /> */}
                     <Route exact path="/ekseed" component={Home} />
+                    <Route path="/note" component={NoteContainer} />
+
                 </Switch>
             )}
         </Switch>

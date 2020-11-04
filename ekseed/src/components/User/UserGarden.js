@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
+import ConnectionList from "../Connection/Connections"
 
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userState } from "../../recoil/atoms";
@@ -14,7 +15,7 @@ const UserGarden = (props) => {
             return (
                 <div className="garden-connectionList selfNetwork">
                     <Link to={`/connection/${connection._id}`}>
-                        <p  key={connection._id} className="garden-connectionList__item-name"> {connection.preferredName} </p>
+                        <p  key={connection._id} connection={connection} className="garden-connectionList__item-name"> {connection.preferredName} </p>
                         <div className="garden-connectionList__img-container">
                             <img className="garden-connectionList__img-container__img" src={connection.profilePhoto} alt={connection.preferredName} />
                         </div>
@@ -35,6 +36,30 @@ const UserGarden = (props) => {
     });
         
 
+
+    // if (connection.network === "self") {
+    //     return (
+    //         <div className="garden-connectionList selfNetwork">
+    //             <Link to={`/connection/${connection._id}`}>
+    //                 <p  key={connection._id} connection={connection} className="garden-connectionList__item-name"> {connection.preferredName} </p>
+    //                 <div className="garden-connectionList__img-container">
+    //                     <img className="garden-connectionList__img-container__img" src={connection.profilePhoto} alt={connection.preferredName} />
+    //                 </div>
+    //             </Link>
+    //         </div>
+    // )} else { 
+    //     return(
+    //         <div className="garden-connectionList usersNetwork">
+    //             <Link to={`/connection/${connection._id}`}>
+    //                 <p  key={connection._id} className="garden-connectionList__item-name"> {connection.preferredName} </p>
+    //                 <div className="garden-connectionList__img-container">
+    //                     <img className="garden-connectionList__img-container__img" src={connection.profilePhoto} alt={connection.preferredName} />
+    //                 </div>
+    //             </Link>
+    //         </div>
+    //     )
+    // }
+
     // const connectionList = user ? user.connections.map((connection) => {
     //     return (
     //         <div className="garden-connectionList">
@@ -49,17 +74,17 @@ const UserGarden = (props) => {
     // })    : '';
 
 
+
+
     return (
         <div>
 
             {user ? (
             <>
-                <h3>{user.username}</h3>
-                {/* <div className=''>
-                    <img className="" src={user.profilePhoto} alt={user.preferredName} />
-                </div> */}
-                {connectionList}
-                {/* {generateConnections} */}
+                <h3 className="logo">{user.username}</h3>
+
+                <ConnectionList/>
+
             </>
             ) : ( 
             <>

@@ -39,6 +39,9 @@ function Register(props) {
     AuthModel.register({ username, email, password}).then((response) => {
       console.log(response);
       if (response.status === 201) {
+        
+        // TODO 
+        // try to async await so that login modal opens (or call open modal after register in sidebar?)
         history.push("/login");
       } else {
         setError(response.message);

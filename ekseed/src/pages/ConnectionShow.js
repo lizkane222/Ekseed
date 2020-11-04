@@ -14,7 +14,7 @@ import Note from "../components/Note/Note";
 
 const ConnectionShow = (props) => {
     const user = useRecoilValue(userState)
-
+    console.log("connectionShow props: ", props)
     // import React, {useState, useEffect} from "react";
     // import { useSetRecoilState } from "recoil";
     // import UserModel from "../../models/UserModel";
@@ -36,12 +36,14 @@ const ConnectionShow = (props) => {
    
 
 
-                <a href="/connection/:id">EDIT</a>
+    <a href="/connection/:id">EDIT {user.username}</a>
         </div>
     )
 }
 
 export default withRouter(ConnectionShow);
+
+
 // export default Connection;
 
 
