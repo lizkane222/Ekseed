@@ -9,7 +9,6 @@
 
 .garden-connectionList__item-name {
     width: 500px;
-
 }
 
 .garden-connectionList__img-container {
@@ -24,12 +23,10 @@
     /* max-width: 200px; */
     width: 250px;
     position: center bottom;
-
 }
 
 .selfNetwork {
     width: 15em;
-    
 }
 
 .userNetwork {

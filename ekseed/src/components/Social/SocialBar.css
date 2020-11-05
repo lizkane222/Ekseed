@@ -1,0 +1,38 @@
+
+
+
+.socialBarStrip {
+    position: absolute;
+    margin-top: -15vh;
+    /* left: 5; */
+    z-index: -5;
+    max-width: 1.5vw;
+    min-width: .5vw;
+    background-color: #00CEBD;
+    height: 100vh;
+    margin-left: 3vw;
+    margin-right: 0;
+    justify-content: center;
+    text-decoration: none;
+
+}
+
+.socialList {
+    position: relative;
+    max-width: 4vw;
+    z-index: -3;
+    margin-left: 2%;
+    text-decoration: none;
+    margin-top: 15vh;
+    list-style-type: none;
+}
+
+.socialIcon {
+    position: relative;
+    max-width: 5vw;
+    min-width: 2vw;
+    z-index: 27;
+    text-decoration: none;
+    list-style: none;
+    margin-bottom: 2vh;
+}

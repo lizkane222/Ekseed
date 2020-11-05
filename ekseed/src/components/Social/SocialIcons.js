@@ -58,6 +58,10 @@ const Social = (props) => {
                 <TiLockClosed />
                 <TiLockClosedOutline /> */}
         
+<TiAt />
+< FaAt/>
+<FaPlus />
+<BsBuilding />
 
             {/* at @  */}
             <TiAt />

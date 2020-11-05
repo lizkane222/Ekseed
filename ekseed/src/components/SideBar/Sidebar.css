@@ -21,7 +21,7 @@
 
 .side-bar-container {
     background-color: #00CEBD;
-    height: 100%;
+    height: 325%;
     position: absolute;
     width: 6em;
 
@@ -49,7 +49,7 @@
     margin-top: .8em;
     text-decoration: none;
 
-    padding: .5em 0 1.5em .8em;
+    padding: .5em 0 1.7em .8em;
     background-color: #fff;
 
     text-align: left;

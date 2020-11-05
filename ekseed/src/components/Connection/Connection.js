@@ -10,7 +10,7 @@ import {useRecoilValue, useRecoilState} from "recoil"
 import { userState, connectionState } from "../../recoil/atoms";
 import useConnection from "../../hooks/useConnection";
 import UserModel from "../../models/UserModel"
-
+import {FaRegEdit } from "react-icons/fa"
 
 import Note from "../Note/NoteContainer/Note"
 import ConnectionModel from "../../models/ConnectionModel"
@@ -101,8 +101,9 @@ const Connection = (props) => {
             
             {(user && connection) && (          
                 <>
-                <Link to={`/connection/${connection._id}/edit`}>EDIT {connection.username}</Link>
+                <Link to={`/connection/${connection._id}/edit`}><FaRegEdit /> {connection.username}</Link>
                 <button className="btn" onClick={deleteConnection}>Delete {connection.username}</button>
+                <Link className="btn" to={'/connection'} onClick={deleteConnection}>Delete {connection.username}</Link>
 
                 <section className="connectionShowNetwork">
 
@@ -149,7 +150,7 @@ const Connection = (props) => {
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4><span><p>company</p></span>{connection.company}</h4>
+                        <h4>{connection.company}</h4>
                         <span><p>company</p></span>
                         
                     </div>

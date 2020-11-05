@@ -38,3 +38,30 @@
     background-repeat: no-repeat;
     background-size: 65%;
 }
+
+.cardMargin {
+    margin: 3%;
+  }
+
+.smallerCardArea {
+    max-height: 2em;
+    text-align: center;
+}
+
+.wrapCards {
+    display: grid;
+    grid-template-columns: 1fr,1fr, 1fr, 1fr;
+    max-height: 90vh;
+}
+
+.connectionContainer {
+    display: grid;
+    grid-template-columns: 1fr,1fr, 1fr, 1fr;
+}
+
+.refreshMargin {
+    z-index: 101;
+    margin-left:95%;
+    bottom: 50%;
+    position: absolute;
+}

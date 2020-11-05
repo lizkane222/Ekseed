@@ -49,8 +49,8 @@ const ConnectionList = (props) => {
 
             {user ? (
                 <>
-                <span className="btn"><button onClick={fetchConnections}>Refresh</button></span>
                 {user.connections.length ? <Connections connections={user.connections} props={props}/> : <h1>Loading...</h1>}
+                <span className="refreshMargin"><button onClick={fetchConnections}>Refresh</button></span>
                 
             </>
             ) : ( 

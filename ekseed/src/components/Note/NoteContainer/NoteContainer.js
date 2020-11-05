@@ -18,6 +18,7 @@ import useConnection from "../../../hooks/useConnection"
 
 class NoteContainer extends Component {
     state = {
+        notes: [],
         tag: [],
         content: "",
         reviewed: false,
@@ -55,8 +56,8 @@ class NoteContainer extends Component {
             bodyStyle: {},
         };
 
-        NoteModel.create(newNote).then((res) => {
-            let props = props.connection
+        NoteModel.create(this.props.connection, newNote).then((res) => {
+            // let props = props.connection
             let notes = this.state.notes
             let newNotes = notes.push(res.data)
             this.setState({newNotes})

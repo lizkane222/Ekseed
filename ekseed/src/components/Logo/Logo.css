@@ -43,9 +43,10 @@
     font-style: normal;
     font-weight: 300;
     font-size: 4em;
-    color: #00CEBD;
+    /* color: #00CEBD; */
+    color: #fff;
     top: 0;
-    left: 0;
+    left: 1;
 }
 
 .roundPhoto {
@@ -59,5 +60,5 @@
     max-width: 100%;
     padding: 1vw 1vh;
     border-radius: 50%;
-    z-index: 53;
+    /* z-index: 53; */
 }

@@ -13,6 +13,8 @@ import Logo from "../components/Logo/Logo"
 import NoteContainer from "../components/Note/NoteContainer/NoteContainer"
 import Note from "../components/Note/NoteContainer/Note";
 import "./Connection.css"
+import Social from "../components/Social/SocialBar";
+import SocialBar from "../components/Social/SocialBar";
 
 const ConnectionShow = (props) => {
     const user = useRecoilValue(userState)
@@ -34,12 +36,11 @@ const ConnectionShow = (props) => {
 
                 {/* <Connection props={props} user={user}/> */}
                 <Connection props={props} user={user}/>
+                <SocialBar />
                 <div className="noteContainer connectionShow ">
                     {/* <NoteContainer props={props} user={user}/> */}
                 </div>
    
-        
-
     {/* <a href={`/connection/${connection}`}>EDIT {user.username}</a> */}
     {/* <a href={`/connection/${user._id}/edit`}>EDIT {user.username}</a> */}
         </div>
