@@ -13,16 +13,18 @@
     min-height: 100vh;
     min-width: 100vw;
     background-attachment: contain;
-    background-image: url("./ekseedPNGs/Component\ 31\ –\ 1.png");
+    background-image: url("./ekseedPNGs/Component31–1.png");
 }
 
-.pageOverflowXScrollXUSER {
+.allCompanies {
     max-height: 100vh;
     min-height: 100vh;
     min-width: 100vw;
     overflow-y: hidden;
     background-attachment: contain;
-    background-image: url("./ekseedPNGs/Component\ 31\ –\ 1.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-image: url("./ekseedPNGs/Component40–1.png");
     background-size: 100vw;
 }
 

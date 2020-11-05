@@ -102,13 +102,13 @@ const Connection = (props) => {
             {(user && connection) && (          
                 <>
                 <Link to={`/connection/${connection._id}/edit`}>EDIT {connection.username}</Link>
-                <button onClick={deleteConnection}>Delete {connection.username}</button>
+                <button className="btn" onClick={deleteConnection}>Delete {connection.username}</button>
 
                 <section className="connectionShowNetwork">
 
 
-                    <div className="connectionShowNetworkItem">
-                    {/* <div> */}
+                    {/* <div className="connectionShowNetworkItem" id="networkTop"> */}
+                    <div id="networkTop">
                                 {/* <NetworkPhoto /> */}
                         <div className="grandparent-circle">
                             <div className="parent-circle">
@@ -130,36 +130,41 @@ const Connection = (props) => {
 
                     {/* <PreferredName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2><span>preferred name</span>{connection.preferredName}</h2>
+                        <h2>{connection.preferredName}</h2>
+                        <span><p>preferred name</p></span>
                     </div>
 
                     {/* <FirstName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4><span>first name</span>{connection.firstName}</h4>
+                        <h4>{connection.firstName}</h4>
+                        <span><p>first name</p></span>
                         
                     </div>
 
                     {/* <LastName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4><span>last name</span>{connection.lastName}</h4>
+                        <h4>{connection.lastName}</h4>
+                        <span><p>last name</p></span>
                         
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4><span>company</span>{connection.company}</h4>
+                        <h4><span><p>company</p></span>{connection.company}</h4>
+                        <span><p>company</p></span>
                         
                     </div>
                     {/* <CompanyItem /> */}
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4><span>network</span>{connection.network}</h4>
+                        <h4>{connection.network}</h4>
+                        <span><p>network</p></span>
                         
                     </div>
                     {/* <NetworkName /> */}
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4><span>last review: </span>{connection.dateReview}</h4>
-                        
+                        <h4>{connection.dateReview}</h4>
+                        <span><p>last review: </p></span>
                     </div>
                     {/* <DateReviewed /> */}
                 
@@ -212,43 +217,43 @@ const Connection = (props) => {
                 <section id="constrainContact">
                     <div className="connectionShowContact">
                         <div className="connectionShowContactItem">
-                            
-                            <h4><span><MdPhoneIphone/>1</span>{connection.cellPhoneOne}</h4>
+                            <h4>{connection.cellPhoneOne}</h4>
+                            <span><p><MdPhoneIphone/>1</p></span>
                         </div>
 
                         <div className="connectionShowContactItem">
-                            
-                            <h4><span><MdPhoneIphone/>2</span>{connection.cellPhoneTwo}</h4>
+                            <span><p><MdPhoneIphone/>2</p></span>
+                            <h4>{connection.cellPhoneTwo}</h4>
                         </div>
 
                         <div className="connectionShowContactItem">
-                            
-                            <h4><span>email</span>{connection.email}</h4>
+                            <span><p>email</p></span>
+                            <h4>{connection.email}</h4>
                         </div>
 
                         <div className="connectionShowContactItem">
-                            
-                            <h4><span>workName</span>{connection.workName}</h4>
+                            <span><p>workName</p></span>
+                            <h4>{connection.workName}</h4>
                         </div>
 
                         <div className="connectionShowContactItem">
-                            
-                            <h4><span>workPhone</span>{connection.workPhone}</h4>
+                            <span><p>workPhone</p></span>
+                            <h4>{connection.workPhone}</h4>
                         </div>
 
                         <div className="connectionShowContactItem">
-                            
-                            <h4><span>workEmail</span>{connection.workEmail}</h4>
+                            <span><p>workEmail</p></span>
+                            <h4>{connection.workEmail}</h4>
                         </div>
 
                         <div className="connectionShowContactItem">
-                            
-                            <h4><span><BsBuilding /></span>{connection.workAddress}</h4>
+                            <span><p><BsBuilding /></p></span>
+                            <h4>{connection.workAddress}</h4>
                         </div>
 
                         <div className="connectionShowContactItem">
-                            
-                            <h4><span>moreContact</span>{connection.moreContact}</h4>
+                            <span><p>moreContact</p></span>
+                            <h4>{connection.moreContact}</h4>
                         </div>
                     </div>
                 </section>

@@ -94,7 +94,7 @@ const SideBar = (props) => {
 
             {/* {getUserConnections} */}
 
-                <NavLink className="navlink" to="/" ><p className="link">Ekseed</p></NavLink>
+                
 
                 {/* <NavLink className="navlink" to="/note" ><p className="link">Note</p></NavLink> */}
                 {/* <button type="button" className="btn btn-primary" data-toggle="modal"  onClick={() => setlogoutModal(true)}data-target="#logoutmodal">logout</button> */}
@@ -111,7 +111,7 @@ const SideBar = (props) => {
 
                                 <NavLink className="navlink" to={"/connection"}><p className="link">{user.username}</p></NavLink>
                                 {/* <NavLink className="navlink" to="/note" ><p className="link">Note</p></NavLink> */}
-                                <NavLink className="navlink" to={"/user"}><p className="link">Garden</p></NavLink>
+                                {/* <NavLink className="navlink" to={"/user"}><p className="link">Garden</p></NavLink> */}
                                 
                                 {/* <NavLink className="navlink" to={"/connection/new"}><p className="link"><span className="material-icons">person_add</span> Connect</p></NavLink> */}
                                 {/* <NavLink className="navlink" to={"/connection/new"}><p className="link"><IoMdPersonAdd /> Connect</p></NavLink> */}
@@ -128,7 +128,7 @@ const SideBar = (props) => {
                             </>
                         ) : (
                             <>
-
+                                <NavLink className="navlink" to="/" ><p className="link">Ekseed</p></NavLink>
                                 {/* <NavLink className="navlink" to="/" ><p className="link">Ekseed</p></NavLink> */}
                                 <NavLink className="navlink" to={"/login"} variant="primary" onClick={() => setLoginModalShow(true)} data-target="#loginModal"><p className="link">login</p></NavLink>
                                 <Login show={loginModalShow} onHide={() => setLoginModalShow(false)}/>

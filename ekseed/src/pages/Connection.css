@@ -172,17 +172,18 @@ section .connectionShowNetwork {
   transition: all 0.5s ease-in-out;
 }
 
-.connectionShowNetworkItem > span {
+.connectionShowNetworkItem > span, .connectionShowContactItem > span {
   opacity: 0;
   transition: all 0.5s ease-in-out;
+  align-content: center;
 }
 
-.connectionShowNetwork > .connectionShowNetworkItem:hover {
+.connectionShowNetwork > .connectionShowNetworkItem:hover, .connectionShowContact > .connectionShowContactItem:hover {
   opacity: 0.7;
   transform: scale(0.98);
 }
 
-.connectionShowNetworkItem:hover >span{
+.connectionShowNetworkItem:hover >span, .connectionShowContactItem:hover >span{
   opacity: 1;
   transition: all 0.7s ease-in-out;
 }
@@ -193,10 +194,10 @@ section .connectionShowNetwork {
     /* background: url("./images/supernatural___eurekamic_by_l8_d1zrynu-pre.jpg"); */
     /* background: url("./images/colorful_drops_of_water_on_the_dandelion_by_mt_photografien_dd6gu70-pre.jpg"); */
     /* background: url("./images/falling_to_pieces_by_leahenning_ddecxhq-fullview.jpg"); */
-    /* background: url("./images/blowing_in_the_wind_by_twoofhearts_d21frfl-pre.jpg"); */
+    background: url("../components/Connection/images/blowing_in_the_wind_by_twoofhearts_d21frfl-pre.jpg");
     /* background: url("./images/hold_on_to_spring_by_framedbynature_d1easvg-fullview.jpg"); */
     /* background: url("./images/blow_it_all_away_by_zuliko_forever_d2omvyt-fullview.jpg"); */
-    background: url("../components/Connection/images/Asset\ 1.png");
+    /* background: url("../components/Connection/images/Asset\ 1.png"); */
     background-size: cover;
     background-position: center top;
     /* display: ; */
@@ -205,10 +206,8 @@ section .connectionShowNetwork {
 .itemOnClick{}
 
 .network_deets {
-  max-height: 80%;
-  min-height: 80%;
-
-
+  max-height: 100%;
+  min-height: 100%;
 }
 
 .connectionShowNetworkItem >h4 {
@@ -235,9 +234,41 @@ section .connectionShowNetwork {
 }
 
 .userConnectionListPage > .usersNetwork {
-  /* width: 80%; */
+  width: 80%;
 }
 
+#networkTop{
+  cursor: pointer;
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+
+#networkTop:hover{
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+#networkTop span {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+#networkTop span:hover{
+  opacity: 1;
+  transition: all 0.7s ease-in-out;
+}
 
 /* /////////////////////////// */
 /* connectionShowNetwork children (network) */
@@ -529,9 +560,11 @@ section .connectionShowNetwork {
 /* contact Container START */
 /* /////////////////////////// */
 #constrainContact {
-  overflow: hidden;
+  /* overflow: hidden; */
+  margin-top: -5vh;
   max-height: 35vh;
   max-width: 40vw;
+  overflow: scroll;
 }
 
 .connectionShowContact {
@@ -562,6 +595,7 @@ section .connectionShowNetwork {
   justify-content: center;
   text-align: center;
   color: white;
+  border-radius: 10px;
 
   transition: all 0.5s ease-in-out;
 }

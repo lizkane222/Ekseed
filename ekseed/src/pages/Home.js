@@ -14,7 +14,7 @@ const Home = () => {
 
 
     return (
-        <div className="pageOverflowXScrollX">
+        <div className="pageOverflowXScrollX allCompanies">
             <div>
                 <p></p>
             </div>
