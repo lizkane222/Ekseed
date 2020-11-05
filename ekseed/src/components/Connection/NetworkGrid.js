@@ -145,7 +145,7 @@ const NetworkGrid = (props) => {
                     {/* <div className="great-grandparent-mini-photo connectionShowNetworkItem">
                         <div className="grandparent-mini-photo">
                             <div className="parent-mini-photo">
-                                <img className="mini-photo" src="" alt=""/>
+                                <img className="mini-photo" src=" " alt=" "/>
                             </div>
                         </div>
                     </div> */}

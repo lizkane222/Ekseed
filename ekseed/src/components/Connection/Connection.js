@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link, withRouter } from 'react-router-dom';
+import React, { useState, useEffect, setErrors, setUser } from "react";
+import { Link, withRouter, useHistory } from 'react-router-dom';
 import {roundedCircle} from 'react-bootstrap'
-import {useHistory, UseHistory} from "react-router-dom";
 
 import { MdPhoneIphone } from "react-icons/md"
 import { BsBuilding } from "react-icons/bs"
@@ -10,12 +9,14 @@ import { FaDraft2Digital } from "react-icons/fa"
 import {useRecoilValue, useRecoilState} from "recoil"
 import { userState, connectionState } from "../../recoil/atoms";
 import useConnection from "../../hooks/useConnection";
+import UserModel from "../../models/UserModel"
 
 
 import Note from "../Note/NoteContainer/Note"
 import ConnectionModel from "../../models/ConnectionModel"
 // import NoteContainer from "../Note/NoteContainer/NoteContainer";
-import "./Connection.css"
+// import "./Connection.css"
+
 
 // REFACTURED PROPERTY IMPORTS
 // import NetworkPhoto from "./ConnectionGridComponents/NetworkPhoto";
@@ -30,12 +31,13 @@ import "./Connection.css"
 
 
 const Connection = (props) => {
-    // const history = useHistory
+    const history = useHistory
     const user = useRecoilValue(userState)
     let connectionId = props.props.match.params.id
     const [connection, fetchConnection] = useConnection(connectionId);
 
-    // console.log("NEW CONSOLE LOG", connectionId)
+    console.log("NEW CONSOLE LOG", connectionId)
+    const [error, setError] = useState("");
 
     // useEffect(function () {
     //     return getThisConnection()
@@ -53,6 +55,46 @@ const Connection = (props) => {
 
     // }
 
+    // useEffect(() =>{
+    //     splitNetworkPhoto()
+    // })
+
+    // function splitNetworkPhoto() {
+    //     let network = (connection.network).split(" ")
+    //     console.log(network)
+    //     // return
+    // }
+    // splitNetworkPhoto()
+
+    function deleteConnection(event) {
+        ConnectionModel.delete(connectionId)
+            .then((response)=>{
+                if (response.status === 201) {
+                    UserModel.show().then((response) => {
+                        console.log(response);
+                            setUser(response.User)
+                            props.history.push(`/connection`)
+                    })
+                } else {
+                    setError(response.message);
+                }
+        })
+    }
+
+    
+    
+    // function deleteConnection(event){
+    //     fetchConnection(connectionId)
+    //     ConnectionModel.delete(connectionId).then(res => res.json())
+    //     .then(json => {
+    //         console.log(json);
+    //         props.push("/connection")
+    //     })}
+        // catch{fetchConnection(connectionId)}
+
+
+
+
     return (
 
         <div className={`connectionShow ${connection.network === "self" ? "selfNetwork" : "usersNetwork"}`}>
@@ -60,7 +102,9 @@ const Connection = (props) => {
             {(user && connection) && (          
                 <>
                 <Link to={`/connection/${connection._id}/edit`}>EDIT {connection.username}</Link>
-                <section className="connectionShowNetwork container">
+                <button onClick={deleteConnection}>Delete {connection.username}</button>
+
+                <section className="connectionShowNetwork">
 
 
                     <div className="connectionShowNetworkItem">
@@ -68,7 +112,7 @@ const Connection = (props) => {
                                 {/* <NetworkPhoto /> */}
                         <div className="grandparent-circle">
                             <div className="parent-circle">
-                                <h3 id="networkPhoto">{connection.network}</h3>
+                                <h3 id="networkPhoto" >{connection.network}</h3>
                             </div>
                         </div>
                     </div>
@@ -86,36 +130,36 @@ const Connection = (props) => {
 
                     {/* <PreferredName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2><span>preferredName</span>{connection.preferredName}</h2>
+                        <h2><span>preferred name</span>{connection.preferredName}</h2>
                     </div>
 
                     {/* <FirstName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connection.firstName}</h4>
-                        <p>firstName</p>
+                        <h4><span>first name</span>{connection.firstName}</h4>
+                        
                     </div>
 
                     {/* <LastName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connection.lastName}</h4>
-                        <p>lastName</p>
+                        <h4><span>last name</span>{connection.lastName}</h4>
+                        
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connection.company}</h4>
-                        <p>company</p>
+                        <h4><span>company</span>{connection.company}</h4>
+                        
                     </div>
                     {/* <CompanyItem /> */}
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connection.network}</h4>
-                        <p>network</p>
+                        <h4><span>network</span>{connection.network}</h4>
+                        
                     </div>
                     {/* <NetworkName /> */}
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{connection.dateReview}</h4>
-                        <p>dateReview</p>
+                        <h4><span>last review: </span>{connection.dateReview}</h4>
+                        
                     </div>
                     {/* <DateReviewed /> */}
                 
@@ -165,53 +209,54 @@ const Connection = (props) => {
                     {/* {connection && (notes)} */}
 
 
-                <section className="connectionShowContact container">
-                    <div className="connectionShowContactItem">
-                        <p><MdPhoneIphone/>1</p>
-                        <h4>{connection.cellPhoneOne}</h4>
-                    </div>
+                <section id="constrainContact">
+                    <div className="connectionShowContact">
+                        <div className="connectionShowContactItem">
+                            
+                            <h4><span><MdPhoneIphone/>1</span>{connection.cellPhoneOne}</h4>
+                        </div>
 
-                    <div className="connectionShowContactItem">
-                        <p><MdPhoneIphone/><FaDraft2Digital/></p>
-                        <h4>{connection.cellPhoneTwo}</h4>
-                    </div>
+                        <div className="connectionShowContactItem">
+                            
+                            <h4><span><MdPhoneIphone/>2</span>{connection.cellPhoneTwo}</h4>
+                        </div>
 
-                    <div className="connectionShowContactItem">
-                        <p>email</p>
-                        <h4>{connection.email}</h4>
-                    </div>
+                        <div className="connectionShowContactItem">
+                            
+                            <h4><span>email</span>{connection.email}</h4>
+                        </div>
 
-                    <div className="connectionShowContactItem">
-                        <p>workName</p>
-                        <h4>{connection.workName}</h4>
-                    </div>
+                        <div className="connectionShowContactItem">
+                            
+                            <h4><span>workName</span>{connection.workName}</h4>
+                        </div>
 
-                    <div className="connectionShowContactItem">
-                        <p>workPhone</p>
-                        <h4>{connection.workPhone}</h4>
-                    </div>
+                        <div className="connectionShowContactItem">
+                            
+                            <h4><span>workPhone</span>{connection.workPhone}</h4>
+                        </div>
 
-                    <div className="connectionShowContactItem">
-                        <p>workEmail</p>
-                        <h4>{connection.workEmail}</h4>
-                    </div>
+                        <div className="connectionShowContactItem">
+                            
+                            <h4><span>workEmail</span>{connection.workEmail}</h4>
+                        </div>
 
-                    <div className="connectionShowContactItem">
-                        <p><BsBuilding /></p>
-                        <h4>{connection.workAddress}</h4>
-                    </div>
+                        <div className="connectionShowContactItem">
+                            
+                            <h4><span><BsBuilding /></span>{connection.workAddress}</h4>
+                        </div>
 
-                    <div className="connectionShowContactItem">
-                        <p>moreContact</p>
-                        <h4>{connection.moreContact}</h4>
+                        <div className="connectionShowContactItem">
+                            
+                            <h4><span>moreContact</span>{connection.moreContact}</h4>
+                        </div>
                     </div>
                 </section>
-            
             </>
             )}
 
 
-            <Note props={props}/>
+            {/* <Note props={props}/> */}
         </div>
     )
 }
@@ -364,7 +409,7 @@ export default Connection;
     // const [moreContact, setMoreContact] = useRecoilState(connectionState);
 
 
-    // const [error, setError] = useState("");
+    // const [error, setError] = useState(" ");
 
 
 

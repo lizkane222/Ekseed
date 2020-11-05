@@ -45,7 +45,7 @@ const ConnectionsContainer = (props) => {
             {/* </>
             ) : ( 
             <>
-                ""
+                " "
             </>
             )}     */}
         </div>

@@ -1,15 +1,30 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { TodayOutlined } from "@material-ui/icons";
+import {useRecoilState, useRecoilValue} from "recoil";
+// import {useState} from "react-router-dom";
 
 import NoteModel from "../../../models/NoteModel";
 import Notes from "./Notes"
-import CreateNoteForm from '../NoteContainer/CreateNoteForm'
+import CreateNoteForm from './CreateNoteForm'
+import NoteDashboard from "./NoteDashboard"
+
+
+import { userState } from "../../../recoil/atoms";
+import useConnection from "../../../hooks/useConnection"
+
+
+
 
 
 class NoteContainer extends Component {
     state = {
-        notes: [],
+        tag: [],
+        content: "",
+        reviewed: false,
+        bookmark: false,
+        privacy: true,
     }
+    
 
     componentDidMount() {
         this.fetchData();
@@ -19,7 +34,11 @@ class NoteContainer extends Component {
         NoteModel.all().then((res) => {
             this.setState ({
                 notes: res.data.notes,
-                note: '',
+                tag: [],
+                content: "",
+                reviewed: false,
+                bookmark: false,
+                privacy: true
                 // noteCount:res.data.notes.filter(note => note.reviewed === false).length
             });
         });
@@ -31,10 +50,13 @@ class NoteContainer extends Component {
             content: "",
             reviewed: false,
             bookmark: false,
-            privacy: true
+            privacy: true,
+            formStyle: {display: 'none'},
+            bodyStyle: {},
         };
 
         NoteModel.create(newNote).then((res) => {
+            let props = props.connection
             let notes = this.state.notes
             let newNotes = notes.push(res.data)
             this.setState({newNotes})
@@ -42,7 +64,7 @@ class NoteContainer extends Component {
     }
     
     deleteNote = (note) => {
-        NoteModel.delete(note).then((res) => {
+        NoteModel.destroy(note).then((res) => {
             let notes = this.state.notes.filter((note) => {
                 return note._id !== res.data._id;
             });
@@ -93,7 +115,7 @@ class NoteContainer extends Component {
         let filteredNotes = this.state.notes
         .filter( note => {
             console.log("in filter")
-            if(note.completed === true){
+            if(note.reviewed === true){
                 console.log("markAsNeedsReview")
                 note.reviewed = "sad"
             }
@@ -113,7 +135,8 @@ class NoteContainer extends Component {
         // const notes = NoteModel.all();
 
         return(
-            <div className="notesComponent">
+            <div >
+                <div className="container">
                 <h2>Note Container</h2>
                 <CreateNoteForm createNote={this.createNote} />
                 
@@ -127,8 +150,8 @@ class NoteContainer extends Component {
                 <NoteDashboard 
                     noteCount={this.state.noteCount}
                 />
-
             </div>
+                </div>
         )
     }
 }

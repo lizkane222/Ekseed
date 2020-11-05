@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from "recoil";
 // import { userState, connectionState } from "../recoil/atoms";
 // import ConnectionModel from "../models/ConnectionModel"
+// import {useHistory, UseHistory} from "react-router-dom";
 import SideBar from "../components/SideBar/SideBar";
 import Connection from "../components/Connection/Connection"
 import {loggedInState} from "../recoil/selectors"
@@ -11,6 +12,7 @@ import { userState } from "../recoil/atoms";
 import Logo from "../components/Logo/Logo"
 import NoteContainer from "../components/Note/NoteContainer/NoteContainer"
 import Note from "../components/Note/NoteContainer/Note";
+import "./Connection.css"
 
 const ConnectionShow = (props) => {
     const user = useRecoilValue(userState)
@@ -20,7 +22,6 @@ const ConnectionShow = (props) => {
     // import { useSetRecoilState } from "recoil";
     // import UserModel from "../../models/UserModel";
     // import { userState } from "../../recoil/atoms";
-    // import {useHistory, UseHistory} from "react-router-dom";
         
     //     UserModel.show().then((response) => {
     //                 console.log(response);
@@ -33,7 +34,9 @@ const ConnectionShow = (props) => {
 
                 {/* <Connection props={props} user={user}/> */}
                 <Connection props={props} user={user}/>
-                {/* <NoteContainer /> */}
+                <div className="noteContainer connectionShow ">
+                    {/* <NoteContainer props={props} user={user}/> */}
+                </div>
    
 
 

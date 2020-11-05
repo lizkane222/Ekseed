@@ -46,7 +46,7 @@ const Routes = (props) => {
                     <Route path="/user" component={ConnectionList} />
                     {/* <Route exact path="/user" component={User} /> */}
                     <Route exact path="/ekseed" component={Home} />
-                    {/* <Route path="/note" component={NoteContainer} /> */}
+                    <Route path="/note" component={NoteContainer} />
 
                 </Switch>
             )}

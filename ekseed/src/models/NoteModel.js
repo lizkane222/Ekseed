@@ -45,7 +45,7 @@ class NoteModel {
             ).then((response) => response.json())
     };
 
-    static destroy = (note) => {
+    static destroy = (note, noteData) => {
         return fetch(`${URL}/${note._id}`,
         {
             headers: {
@@ -60,7 +60,5 @@ class NoteModel {
 
 }
 
-
-// CREATE STATIC DELETE
 
 export default NoteModel;

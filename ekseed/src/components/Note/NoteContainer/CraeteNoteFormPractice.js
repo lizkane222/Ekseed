@@ -9,46 +9,34 @@ import { Dropdown, Button } from 'react-bootstrap';
 
 class CreateNoteForm extends Component {
     state = {
-                     /* [<FaRegHandshake />,< AiFillStar/>,<AiOutlineLike />,<AiOutlineDislike />,<FaSlideshare />,<TiHeartOutline />,<FaRegFlushed/>], */
-        tag : [], 
+        tag : "",/* [<FaRegHandshake />,< AiFillStar/>,<AiOutlineLike />,<AiOutlineDislike />,<FaSlideshare />,<TiHeartOutline />,<FaRegFlushed/>], */
         content : "",
         bookmark : false,
         privacy : true,
-        reviewed : <FaRegFlushed/>,
-        // formStyle : "",
-        // bodyStyle : "",
+        reviewed : false,
+        formStyle : "",
+        bodyStyle : "",
     }
     onInputChange= this.onInputChange.bind(this);
     onFormSubmit = this.onFormSubmit.bind(this);
 
     onInputChange(event){
         this.setState({
-            // note: event.target.value
-            tag: event.target.value,
-            content: event.target.value,
-            bookmark: event.target.value,
-            privacy: event.target.value,
-            reviewed: event.target.value
+            note: event.target.value
+            // tag: event.target.value
+            // content: event.target.value
+            // bookmark: event.target.value
+            // privacy: event.target.value
+            // reviewed: event.target.value
         })
     }
 
     onFormSubmit(event){
         event.preventDefault()
-        let tag =this.state.tag
-        let content =this.state.content
-        let bookmark =this.state.bookmark
-        let privacy =this.state.privacy
-        let reviewed =this.state.reviewed
-        // let note = this.state.note
-        this.props.createNote(tag, content, bookmark, privacy, reviewed)
+        let note = this.state.note
+        this.props.createNote(note)
         this.setState({
-            tag : [],
-            content : "",
-            bookmark : false,
-            privacy : true,
-            reviewed : <FaRegFlushed/>,
-            // formStyle : "",
-            // bodyStyle : "",
+            note: ""
         })
     }
 
@@ -60,16 +48,14 @@ class CreateNoteForm extends Component {
             <div>
                 <form onSubmit={this.onFormSubmit} id="taskForm">
                     
-                    <button onClick={this.onInputChange}>{this.state.reviewed ? <FaRegFlushed/> : <FaRegGrinBeam/>}</button>
-                    {/* <button onClick={this.toggleReviewed}>{this.state.reviewed ? <FaRegFlushed/> : <FaRegGrinBeam/>}</button> */}
+                {this.state.reviewed ? 
+                <input type="button" onClick={this.handleCheck} >{<FaRegFlushed/> }</input> :
+                <input type="button" onClick={this.handleCheck} >{<FaRegGrinBeam/> }</input>}
                     
-                    {/* <input type="button" onClick={this.handleCheck} value={<FaRegFlushed/>}/> :
-                    <input type="button" onClick={this.handleCheck} value={<FaRegGrinBeam/>}/>}
-                     */}    
 
                     <Dropdown>
                         <Dropdown.Toggle variant="success" id="dropdown-basic" className="dropDownTag" >
-                            tag {this.state.tag}
+                            tag 
                         </Dropdown.Toggle>
                             
                         <Dropdown.Menu>
@@ -103,13 +89,13 @@ class CreateNoteForm extends Component {
                         </textarea>
                     </div>
                     
-                    {/* {this.state.bookmark ?
+                    {this.state.bookmark ?
                     <input type="button" onClick={this.handleBookmark} >{< BsBookmarkFill/>}</input>:
-                    <input type="button" onClick={this.handleBookmark} > </input>} */}
-                    <button onClick={this.onInputChange}>{this.state.bookmark ? < BsBookmarkFill/> : " "}</button>
-                    {/* {this.state.privacy ?
+                    <input type="button" onClick={this.handleBookmark} > </input>}
+                    
+                    {this.state.privacy ?
                     <input type="button" onClick={this.handlePrivacy} >{<TiLockOpenOutline/>}</input>:
-                    <input type="button" onClick={this.handlePrivacy} >{<TiLockClosed />}</input>} */}
+                    <input type="button" onClick={this.handlePrivacy} >{<TiLockClosed />}</input>}
 
                     {/* <input
                         onChange={this.onInputChange}

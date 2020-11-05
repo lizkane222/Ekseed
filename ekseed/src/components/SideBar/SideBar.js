@@ -84,17 +84,19 @@ const SideBar = (props) => {
                     <ul>
                         {(currentUser && user) ? (
                             <>
+                                <NavLink className="navlink" to="/ekseed" ><p className="link">Ekseed</p></NavLink>
+
                                 <NavLink className="navlink" to={"/connection"}><p className="link">{user.username}</p></NavLink>
-                
+                                <NavLink className="navlink" to="/note" ><p className="link">Note</p></NavLink>
                                 <NavLink className="navlink" to={"/user"}><p className="link">Garden</p></NavLink>
                                 
                                 {/* <NavLink className="navlink" to={"/connection/new"}><p className="link"><span className="material-icons">person_add</span> Connect</p></NavLink> */}
                                 {/* <NavLink className="navlink" to={"/connection/new"}><p className="link"><IoMdPersonAdd /> Connect</p></NavLink> */}
-                                <NavLink className="navlink" to={"/connection/new"}><p className="link"><BsPersonPlusFill /> Connect</p></NavLink>
+                                <NavLink className="navlink" to={"/connection/new"}><p className="link"><span className="navIcon"><BsPersonPlusFill /></span>Connect</p></NavLink>
                                                  
 
                                 <NavLink className="navlink" to={"/"}><p className="link" onClick={logout}>Logout</p></NavLink>
-                                <NavLink className="navlink" to={"/profile/edit"}><p className="link" >Edit {currentUser.preferredName}</p></NavLink>
+                                <NavLink className="navlink" to={"/profile/edit"}><p className="link">Edit {currentUser.preferredName}</p></NavLink>
                                 {/* <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true)} data-target="#logoutmodal">logout</button> */}
                                 {/* <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true).then(() => logoutModalFunction)} data-target="#logoutmodal">logout</button> */}
                                 {/* <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/> */}
@@ -108,7 +110,6 @@ const SideBar = (props) => {
 
                                 <NavLink className="navlink" to={"/register"} variant="primary" onClick={() => setRegisterModalShow(true)} data-target="#registerModal"><p className="link">register</p></NavLink>
                                 <Register show={registerModalShow} onHide={() => setRegisterModalShow(false)}/>
-
                             </>
                         )}
                     </ul>

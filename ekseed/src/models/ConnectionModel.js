@@ -42,6 +42,19 @@ class ConnectionModel {
                 body: JSON.stringify(connectionData),
         }).then((response) => response.json())
     };
+
+    static delete = (connectionId) => {
+        return fetch(`${URL}/${connectionId}`,
+        {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                authorization: `Bearer ${localStorage.uid}`
+            },
+            body: JSON.stringify({person:"DAVID!"}),
+    }).then((response) => response.json())
+    }
+
 }
 
 export default ConnectionModel;

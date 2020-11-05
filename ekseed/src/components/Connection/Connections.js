@@ -85,7 +85,7 @@ const Connections = (props) => {
             </>
             ) : ( 
             <>
-                ""
+                " "
             </>
             )}    
         </div>
@@ -111,7 +111,7 @@ export default Connections;
     //         </>
     //         ) : ( 
     //         <>
-    //             ""
+    //             " "
     //         </>
     //         )}
 

@@ -31,33 +31,34 @@ const Social = (props) => {
             <FaWifi /><FaKey />
             
             {/* stars */}
-            < AiFillStar/>
+                {/* < AiFillStar/> */}
             
             {/* in common */}
-            <FaRegHandshake />
-            <FaSlideshare />
+                {/* <FaRegHandshake />
+                <FaSlideshare /> */}
             
             {/* edit note */}
             <FaRegEdit />
 
             {/* not reviewed */}
-            <FaRegFlushed />
+                {/* <FaRegFlushed /> */}
             {/* reviewed */}
-            <FaRegGrinBeam />
+                {/* <FaRegGrinBeam /> */}
 
             {/* share */}
             <FaShareSquare />
-            < RiUserShared2Line/>
+            <RiUserShared2Line/>
             
             {/* heart */}
-            <TiHeartOutline />
+                {/* <TiHeartOutline /> */}
             
             {/* unlocked/locked */}
-            <TiLockOpenOutline />
-            <TiLockOpen />
-            <TiLockClosed />
-            <TiLockClosedOutline />
-            
+                {/* <TiLockOpenOutline />
+                <TiLockOpen />
+                <TiLockClosed />
+                <TiLockClosedOutline /> */}
+        
+
             {/* at @  */}
             <TiAt />
             < FaAt/>
@@ -73,11 +74,11 @@ const Social = (props) => {
             <FaAngleDoubleDown />
 
             {/* bookmark */}
-            < BsBookmarkFill/>
+                {/* < BsBookmarkFill/> */}
             
             {/* like/dislike */}
-            <AiOutlineLike />
-            <AiOutlineDislike />
+                {/* <AiOutlineLike /> */}
+                {/* <AiOutlineDislike /> */}
 
             {/* location */}
             <MdLocationOn />

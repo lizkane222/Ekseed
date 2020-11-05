@@ -22,6 +22,16 @@ class AuthModel {
             body: JSON.stringify(data),
         }).then((response) => response.json());
     };
+
+    static profile = (data) => {
+        return fetch(`${URL}/profile`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        }).then((response) => response.json());
+    }
 }
 
 export default AuthModel;
