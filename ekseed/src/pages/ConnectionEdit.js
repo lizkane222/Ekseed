@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
+import useConnection from "../hooks/useConnection";
 
 
 // import Connection from "./ConnectionShow";
@@ -8,9 +9,35 @@ import UserModel from "../models/UserModel";
 import { connectionState, userState } from "../recoil/atoms";
 
 import "./pages.css"
+// function ConnectionEdit(props){
+//     return <h1>CONNECTION EDIT -MICAH</h1>
+// }
+
+function ConnectionEdit(props) {
+    const [user, setUser] = useRecoilState(userState);
+    let connectionId = props.match.params.id
+    const [connection, fetchConnection] = useConnection(connectionId);
 
 
-function ConnectionNew(props) {
+    // const [preferredName, setPreferredName] = useState(connection.preferredName);
+    // const [firstName, setFirstName] = useState(connection.firstName);
+    // const [lastName, setLastName] = useState(connection.lastName);
+    // const [network, setNetwork] = useState(connection.network);
+    // const [company, setCompany] = useState(connection.company);
+    // const [dateReview, setDateReview] = useState(connection.dateReview);
+    // const [profilePhoto, setProfilePhoto] = useState(connection.profilePhoto);
+        
+    //     const [cellPhoneOne, setCellPhoneOne] = useState(connection.cellPhoneOne);
+    //     const [cellPhoneTwo, setCellPhoneTwo] = useState(connection.cellPhoneTwo);
+    //     const [email, setEmail] = useState(connection.email);
+    //     const [homeAddress, setHomeAddress] = useState(connection.homeAddress);
+    //     const [workPhone, setWorkPhone] = useState(connection.workPhone);
+    //     const [workEmail, setWorkEmail] = useState(connection.workEmail);
+    //     const [workAddress, setWorkAddress] = useState(connection.workAddress);
+    //     const [birthday, setBirthday] = useState(connection.birthday);
+    //     const [moreContact, setMoreContact] = useState(connection.moreContact);
+ 
+    
     const [preferredName, setPreferredName] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -19,54 +46,52 @@ function ConnectionNew(props) {
     const [dateReview, setDateReview] = useState("");
     const [profilePhoto, setProfilePhoto] = useState("");
         
-        // const [noteTag, setNoteTag] = useState("");
-        // const [noteContent, setNoteContent] = useState("");
-        // const [noteReviewed, setNoteReviewed] = useState("");
-        // const [noteBookmark, setNoteBookmark] = useState("");
-        // const [notePrivacy, setNotePrivacy] = useState("");
-        // const [noteTimestamp, setNoteTimestamp] = useState("");
-    
         const [cellPhoneOne, setCellPhoneOne] = useState("");
         const [cellPhoneTwo, setCellPhoneTwo] = useState("");
         const [email, setEmail] = useState("");
-        const [workName, setWorkName] = useState("");
+        const [homeAddress, setHomeAddress] = useState("");
         const [workPhone, setWorkPhone] = useState("");
         const [workEmail, setWorkEmail] = useState("");
         const [workAddress, setWorkAddress] = useState("");
+        const [birthday, setBirthday] = useState("");
         const [moreContact, setMoreContact] = useState("");
-        
+
+
+
         const [error, setError] = useState("");
 
-        const [user,setUser] = useSetRecoilState(userState);
-        const [connection, setConnection] = useState("");
-        
 
-        function fetchConnection() {
-            if (connection) {
-                ConnectionModel.show(connection).then((data) => {
-                    console.log(data);
-                    setConnection(data.ConnectionModel.connection);
-                });
-            } 
-            // else {
-            //     ConnectionModel.all().then((data) => {
-            //         console.log(data);
-            //         setConnection(data.Connection);
-            //     });
-            // }
-        }
+        console.log(" connection edit props", props)
+        console.log("connection edit connection:", props.connections)
+        console.log("CONNECTION EDIT connectionId", connectionId)
 
-        useEffect(
-            function() {
-                fetchConnection();
-            },
-            []
-        )
+        useEffect(() => {
+            setPreferredName(connection.preferredName)
+            setNetwork(connection.network)
+        },[connection])
 
 
-    function handleSubmit(event) {
-        event.preventDefault(); 
-        
+        // useEffect(
+        //     function() {
+        //         fetchConnection(connectionId);
+        //     },
+        //     []
+        // )
+
+        // function fetchConnection(connection) {
+        //     if (connection) {
+        //         ConnectionModel.show(connection).then((data) => {
+        //             console.log(data);
+        //             setConnection(data.ConnectionModel.connection);
+        //         });
+        //     } 
+        //     else {
+        //         ConnectionModel.all().then((data) => {
+        //             console.log(data);
+        //             setConnection(data.Connection);
+        //         });
+        //     }
+        // }
         // =======================================================
         // dateReview = Date.now();
         // setDateReview = dateReview;
@@ -79,33 +104,37 @@ function ConnectionNew(props) {
         // ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, noteTag, noteContent, noteReviewed, noteBookmark, notePrivacy, noteTimestamp, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
             // ConnectionModel.create({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, noteTag, noteContent, noteReviewed, noteBookmark, notePrivacy, noteTimestamp, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
                 // console.log(response);
-        
-        ConnectionModel.update({preferredName, firstName, lastName, network, company, dateReview, profilePhoto, cellPhoneOne, cellPhoneTwo, email, workName, workPhone, workEmail, workAddress, moreContact}).then((response)=>{
+
+    function handleSubmit(event) {
+        event.preventDefault(); 
+        ConnectionModel.update(connectionId, {preferredName, firstName, lastName, network, company, dateReview, profilePhoto, cellPhoneOne, cellPhoneTwo, email, homeAddress, workPhone, workEmail, workAddress, birthday, moreContact}).then((response)=>{
             if (response.status === 201) {
                 UserModel.show().then((response) => {
                     console.log(response);
                         setUser(response.User)
-                        props.history.push(`/connection/${connection}`)
+                        props.history.push(`/connection/${connectionId}`)
                 })
                 // props.history.push(`/connection/${props}`)
             } else {
                 setError(response.message);
             }
-            // TODO
         })
     }
 
     return (
         <div>
-        {/* <Connection props={props} user={user}/> */}
-        {error && <p style={{ color: "red" }}>{error}</p>}
+            <h1> EDIT THIS PAGE</h1> 
+            {connection && 
+            <>
+                {/* <Connection props={props} user={user}/> */}
+                {error && <p style={{ color: "red" }}>{error}</p>}
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="preferredName">preferredName {connection.preferredName}</label><br/>
+                    <label htmlFor="preferredName">preferredName {preferredName}</label><br/>
                     <input 
                     type="text" 
                     name="preferredName"
-                    value={connection.preferredName}
+                    value={preferredName}
                     onChange={(e)=> setPreferredName(e.target.value)}
                     /> <br/><br/>
                 </div>
@@ -249,12 +278,12 @@ function ConnectionNew(props) {
                     </div>
 
                     <div>
-                        <label htmlFor="workName">workName: {workName}</label><br/>
+                        <label htmlFor="homeAddress">homeAddress: {homeAddress}</label><br/>
                         <input 
                         type="text" 
-                        name="workName"
-                        value={workName}
-                        onChange={(e)=> setWorkName(e.target.value)}
+                        name="homeAddress"
+                        value={homeAddress}
+                        onChange={(e)=> setHomeAddress(e.target.value)}
                         /> <br/><br/>
                     </div>
 
@@ -289,6 +318,15 @@ function ConnectionNew(props) {
                     </div>
 
                     <div>
+                        <label htmlFor="birthday">birthday: {birthday}</label><br/>
+                        <input 
+                        type="text" 
+                        name="birthday"
+                        value={birthday}
+                        onChange={(e)=> setBirthday(e.target.value)}
+                        /> <br/><br/>
+                    </div>
+                    <div>
                         <label htmlFor="moreContact">moreContact: {moreContact}</label><br/>
                         <input 
                         type="text" 
@@ -304,6 +342,8 @@ function ConnectionNew(props) {
                 value="Connect"
                 />
             </form>
+            </>
+            }
         </div>
     )
 };
@@ -320,6 +360,6 @@ function ConnectionNew(props) {
 
 {/* <SideBar /> */}
 
-export default ConnectionNew;
+export default ConnectionEdit;
 
             

@@ -14,7 +14,7 @@ import Logo from "../components/Logo/Logo"
 const ConnectionList = (props) => {
     // console.log(" My Garden passes userId");
     const user = useRecoilValue(userState);
-
+    console.log("CONNECTION LIST USER:", user)
     const [connections, fetchConnections] = useConnection();
 
     // function generateConnections(connections) {
@@ -28,15 +28,15 @@ const ConnectionList = (props) => {
     //     })
     // }
 
-    useEffect(
-        function () {
-            if (connections.length){
-                <ConnectionsContainer connections={connections}/>
-            } else {
-                <h1>Loading...</h1>}
+    // useEffect(
+    //     function () {
+    //         if (connections.length){
+    //             <ConnectionsContainer connections={connections}/>
+    //         } else {
+    //             <h1>Loading...</h1>}
 
-        }, []
-    );
+    //     }, []
+    // );
 
     // useEffect(() => {
     //     ConnectionModel.all(() => )
@@ -50,7 +50,7 @@ const ConnectionList = (props) => {
             {user ? (
             <>
                 <button onClick={fetchConnections}>Refresh</button>
-                {user.connections.length ? <ConnectionsContainer connections={connections}/> : <h1>Loading...</h1>}
+                {user.connections.length ? <Connections connections={user.connections} props={props}/> : <h1>Loading...</h1>}
                 
             </>
             ) : ( 

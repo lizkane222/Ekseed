@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import useConnection from "../../hooks/useConnection";
 import Connection from "./Connection";
@@ -23,29 +23,30 @@ const Connections = (props) => {
     //     })
     // }
     // useEffect(function () {
-       
     //     displayConnections()
     //         // {connections.length ? <Connections connections={connections}/> : <h1>Loading...</h1>}
-        
     //    }, []);
     
 
     function displayConnections(connections) {  
+        fetchConnections(connections)
         // return user.connections.map((connection) => {
             // return connections.map((connection) => {
         connections = []
         return connections = user.connections.map((connection) => {
            if (connection.network === "self") {
+               console.log("connections CL connection:", connection)
+               {<Connection connection={connection} props={props} connectionId={connection._id}/>}
                return (
                    <div className="garden-connectionList selfNetwork">
                        <Link to={`/connection/${connection._id}`}>
-                           <p  key={connection._id} connection={connection} className="garden-connectionList__item-name"> {connection.preferredName} </p>
+                           <p key={connection._id} connection={connection} connectionId={connection._id} props={props} className="garden-connectionList__item-name"> {connection.preferredName} </p>
                            <div className="garden-connectionList__img-container">
                                <img className="garden-connectionList__img-container__img" src={connection.profilePhoto} alt={connection.preferredName} />
                            </div>
                        </Link>
                    </div>
-           )} else { 
+           )} else {
                return(
                    <div className="garden-connectionList usersNetwork">
                        <Link to={`/connection/${connection._id}`}>
@@ -60,15 +61,26 @@ const Connections = (props) => {
        })
    };
 
+
+
+    // useEffect(function ()
+    // {displayConnections(connections)},
+    // fetchConnections().then(
+    //         <Connection connection={connections.connection} props={props} connectionId={connections.connection}/>
+    // ),[])
+
+
+
     return (
         <div className="connectionContainer">
-            <h1>ConnectionList: All Connections</h1>
+            {/* <h1>ConnectionList: All Connections</h1> */}
             
             {user ? (
             <>
                 <h3 className="userNameLogo">{user.username}</h3>
                 <div>
-                    {displayConnections(props.connections)}
+                    {displayConnections(connections)}
+                    {/* {passItOn()} */}
                 </div>
             </>
             ) : ( 

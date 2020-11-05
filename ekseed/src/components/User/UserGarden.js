@@ -83,7 +83,7 @@ const UserGarden = (props) => {
             <>
                 <h3 className="logo">{user.username}</h3>
 
-                <ConnectionList/>
+                <ConnectionList />
 
             </>
             ) : ( 

@@ -99,8 +99,8 @@ body {
 /* ================================================ */
 /* .connectionShow { */
 .connectionShow {
-    min-width: 100vw;
-    max-height: 20vh;
+    min-width: 80vw;
+    max-height: 80vh;
     /* max-height: 30vh; */
     /* margin-top: 35em; */
     top: 10vh;
@@ -110,12 +110,11 @@ body {
     position: absolute;
 }
 
-.container {
+.connectionShowNetwork {
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); */
     grid-gap: 5px;
     margin-left: 0;
-    max-height: 20vh;
+    /* max-height: 20vh; */
     /* height: 800px; */
     /* max-height: 30vh; */
 }
@@ -133,7 +132,7 @@ section .connectionShowNetwork {
     display: grid;
     grid-template-columns: repeat(14,1fr);
     grid-template-rows: repeat(11, 1fr);
-    /* grid-gap: .4em; */
+
     margin-bottom: 50px;
     
 
@@ -147,7 +146,7 @@ section .connectionShowNetwork {
 
 /* } */
 
-.container > .connectionShowNetworkItem {
+.connectionShowNetwork > .connectionShowNetworkItem {
   cursor: pointer;
 
   background-attachment: fixed;
@@ -160,6 +159,9 @@ section .connectionShowNetwork {
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: white;
+  /* padding-bottom: ; */
+
 
   transition: all 0.5s ease-in-out;
 }
@@ -168,7 +170,7 @@ section .connectionShowNetwork {
   transition: all 0.5s ease-in-out;
 }
 
-.container > .connectionShowNetworkItem:hover {
+.connectionShowNetwork > .connectionShowNetworkItem:hover {
   opacity: 0.7;
   transform: scale(0.98);
 
@@ -180,25 +182,25 @@ section .connectionShowNetwork {
 }
 
 
-.connectionShowNetworkItem {
+.connectionShowNetworkItem, .connectionShowContactItem{
     /* background: url("./images/dandelion_seeds_by_jollyoldgeezer_d3gdzd7-pre.jpg"); */
     /* background: url("./images/supernatural___eurekamic_by_l8_d1zrynu-pre.jpg"); */
     /* background: url("./images/colorful_drops_of_water_on_the_dandelion_by_mt_photografien_dd6gu70-pre.jpg"); */
-    background: url("./images/falling_to_pieces_by_leahenning_ddecxhq-fullview.jpg");
+    /* background: url("./images/falling_to_pieces_by_leahenning_ddecxhq-fullview.jpg"); */
+    /* background: url("./images/blowing_in_the_wind_by_twoofhearts_d21frfl-pre.jpg"); */
+    /* background: url("./images/hold_on_to_spring_by_framedbynature_d1easvg-fullview.jpg"); */
+    /* background: url("./images/blow_it_all_away_by_zuliko_forever_d2omvyt-fullview.jpg"); */
+    background: url("./images/Asset\ 1.png");
     background-size: cover;
     background-position: center top;
 }
 
+.itemOnClick{}
+
 .network_deets {
-  max-height: 100%;
-  margin-bottom: 3px;
-  /* display: flex; */
-  /* flex-flow: row nowrap; */
-  /* justify-content: space-evenly; */
-  /* align-items: flex-end; */
-  /* align-content: center; */
-  /* max-width: 10em; */
-  /* display: flex; */
+  max-height: 80%;
+  min-height: 80%;
+
 
 }
 
@@ -218,11 +220,11 @@ section .connectionShowNetwork {
 
 
 /* /////////////////////////// */
-/* container children (network) */
+/* connectionShowNetwork children (network) */
 /* /////////////////////////// */
 
 /* NETWORK */
-.container > div:nth-of-type(1) {
+.connectionShowNetwork > div:nth-of-type(1) {
     grid-column: 3 / 6;
     grid-row: 2 / 4;
     /* display: flex; */
@@ -252,26 +254,25 @@ section .connectionShowNetwork {
   justify-content: center;
   border-radius: 50%;
   align-self: center;
-
 }
 
 .parent-circle{
-  
   padding: 0 .4em;
   align-self: center;
 
 }
 
-/* .network-photo {
-  padding: 20px;
-} */
+#networkPhoto {
+  color: white;
+  /* padding: 20px; */
+}
 
 
 
 /* /////////////////////////// */
 /* PROFILE PHOTO: MAIN profilePhoto START*/
 
-.container > div:nth-of-type(2) {
+.connectionShowNetwork > div:nth-of-type(2) {
     grid-column: 8 / 10;
     grid-row: 2 / 5;
     width: 12em;
@@ -341,7 +342,7 @@ section .connectionShowNetwork {
 
 /* /////////////////////////// */
 /* PREFERRED NAME: preferredName */
-.container > div:nth-of-type(3) {
+.connectionShowNetwork > div:nth-of-type(3) {
     grid-column: 11 / 13;
     grid-row: 2 / 3;
     /* display: flex; */
@@ -352,7 +353,7 @@ section .connectionShowNetwork {
 
 /* /////////////////////////// */
 /* FIRST NAME: firstName */
-.container > div:nth-of-type(4) {
+.connectionShowNetwork > div:nth-of-type(4) {
     grid-column: 11 / 13;
     grid-row: 3 / 4;
     margin-bottom: -10px;
@@ -364,7 +365,7 @@ section .connectionShowNetwork {
 
 /* /////////////////////////// */
 /* LAST NAME: lastName */
-.container > div:nth-of-type(5) {
+.connectionShowNetwork > div:nth-of-type(5) {
     grid-column: 11 / 13;
     grid-row: 4 / 5;
     margin-top: -10px;
@@ -375,7 +376,7 @@ section .connectionShowNetwork {
 
 /* /////////////////////////// */
 /* COMPANY: company */
-.container > div:nth-of-type(6) {
+.connectionShowNetwork > div:nth-of-type(6) {
     grid-column: 11 / 13;
     grid-row: 5 / 6;
     border-radius: 5px;
@@ -387,7 +388,7 @@ section .connectionShowNetwork {
 
 /* /////////////////////////// */
 /* NETWORK NAME: network name */
-.container > div:nth-of-type(7) {
+.connectionShowNetwork > div:nth-of-type(7) {
     grid-column: 11 / 12;
     grid-row: 6 / 7;  
     border-radius: 5px;
@@ -396,7 +397,7 @@ section .connectionShowNetwork {
 
 /* /////////////////////////// */
 /* DATE REVIEWED: dateReview */
-.container > div:nth-of-type(8) {
+.connectionShowNetwork > div:nth-of-type(8) {
     grid-column: 12 / 13;
     grid-row: 6 / 7;  
     display: flex;
@@ -449,7 +450,7 @@ section .connectionShowNetwork {
 }
 
 /* first-mini-photo */
-.container > div:nth-of-type(9)  {
+.connectionShowNetwork > div:nth-of-type(9)  {
   grid-column: 7 / 8;
   grid-row: 3 / 4;
   margin-left: 25%;
@@ -458,7 +459,7 @@ section .connectionShowNetwork {
 }
 
 /* second-mini-photo */
-.container > div:nth-of-type(10) {
+.connectionShowNetwork > div:nth-of-type(10) {
   grid-column: 7 / 8;
   grid-row: 4 / 5;
   align-self: flex-end;
@@ -468,7 +469,7 @@ section .connectionShowNetwork {
 }
 
 /* third-mini-photo */
-.container > div:nth-of-type(11) {
+.connectionShowNetwork > div:nth-of-type(11) {
   grid-column: 8 / 9;
   grid-row: 5 / 6;
   margin-top: -15%;
@@ -477,7 +478,7 @@ section .connectionShowNetwork {
 }
 
 /* fourth-mini-photo */
-.container > div:nth-of-type(12) {
+.connectionShowNetwork > div:nth-of-type(12) {
   grid-column: 9 / 10;
   grid-row: 5 / 6;
   margin-top: -10%;
@@ -486,7 +487,7 @@ section .connectionShowNetwork {
 }
 
 /* fifth-mini-photo */
-.container > div:nth-of-type(13) {
+.connectionShowNetwork > div:nth-of-type(13) {
   grid-column: 10 / 11;
   grid-row: 4 / 5;
   margin-top: 20%;
@@ -498,28 +499,40 @@ section .connectionShowNetwork {
 /* /////////////////////////// */
 
 
+
+
+
+
 /* /////////////////////////// */
 /* contact Container START */
 /* /////////////////////////// */
-/* section .connection-show__contact {
+.connectionShowContact {
+  display: grid;
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-gap: 5px;
+  margin-left: 0;
   max-height: 20vh;
+  /* height: 800px; */
+  /* max-height: 30vh; */
+}
+.connectionShowContact > .connectionShowContactItem {
+  cursor: pointer;
 
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+
+  transition: all 0.5s ease-in-out;
 }
 
-.contactContainer > .connection-show__contactItem {
-    cursor: pointer;
-    height: 40px;
-    background-size: cover;
-    background-attachment: fixed;
-    
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    
-    transition: all 0.5s ease-in;
-}
 
 .connection-show__contact {
     background-color: rgb(131, 212, 138);
@@ -530,13 +543,13 @@ section .connectionShowNetwork {
     padding: 10px;
 }
 
-.connection-show__contactItem {
+/* .connectionShow__contactItem {
     background: url("./images/natural_spectacles_26_by_mt_photografien_dahtedd-fullview.jpg")
-}
+} */
 
 .connection-show__contactItem >h2 {
     font-size: 20px;
-} */
+}
 
 /* /////////////////////////// */
 /* END  contact Container */

@@ -9,7 +9,7 @@ import { useSetRecoilState } from "recoil";
 import UserModel from "../models/UserModel";
 import { connectionState, userState } from "../recoil/atoms";
 import Connection from "./ConnectionShow";
-import Note from "../components/Note/Note";
+import Note from "../components/Note/NoteContainer/Note";
 // import NewNote from "../components/Note/NewNote";
 
 function ConnectionNew(props) {

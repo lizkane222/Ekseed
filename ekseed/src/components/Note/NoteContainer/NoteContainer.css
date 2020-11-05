@@ -29,11 +29,11 @@
   }
   
   body {
-    background-image: url('images/grass.jpg');
+    /* background-image: url('images/grass.jpg'); */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: fill;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
     font-weight: 600;
     color: #666;
   }
@@ -171,7 +171,7 @@
     float: left;
   }
   
-  .completed {
+  .reviewed {
     text-decoration: line-through;
     color: #bebebe;
   }

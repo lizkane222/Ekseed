@@ -12,20 +12,22 @@ import "../User/UserGarden.css";
 const ConnectionsContainer = (props) => {
     const [connections, fetchConnections] = useConnection([]);
     const user = useRecoilValue(userState);
-    
+    console.log("connectionscontainer : user",user)
+
+    // let connections = []
     function generateConnections(connections) {
-        return connections = user.connections.map(connection => {
-            if (connection.network === "self") {
-                return <Connections className="selfNetwork" key={connection._id} connection={connection} props={props}/>
-            } else {
-                return <Connections  key={connection._id} connection={connection} props={props}/>
-            }
+        return user.connections.map(connection => {
+            return <Connections key={connection._id} connections={connections} props={props}/>
+
+            // if (connection.network === "self") {
+            // } else {
+            //     return <Connections  className="usersNetwork" key={connection._id} connection={connection} props={props}/>
+            // }
         })
     }
     // useEffect(function () {
-       
-    //     displayConnections()
-    //         {connections.length ? <Connections connections={connections}/> : <h1>Loading...</h1>}
+    //     {generateConnections(props.connections)}
+    //     {<Connections connections={props.connections}/>}
     //     }, []);
         
        return (
@@ -36,7 +38,9 @@ const ConnectionsContainer = (props) => {
             <>
                 <h3 className="userNameLogo">{user.username}</h3> */}
                 <div>
-                    {generateConnections(props.connections)}
+                    {generateConnections(user.connections)}
+                    {/* {generateConnections(props.connections)} */}
+
                 </div>
             {/* </>
             ) : ( 

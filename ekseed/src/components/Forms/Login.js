@@ -27,13 +27,13 @@ const Login = (props)=> {
             UserModel.show().then((response) => {
                 console.log(response);
                     setUser(response.User)
-                    // try{
-                    //     history.push("/user")
-                    // }
-                    // catch{
-                    //     (history.push("/connection"))
-                    // }
-                        history.push("/user").then(history.push("/connection"))
+                    try{
+                        history.push("/user")
+                    }
+                    catch{
+                        (history.push("/connection"))
+                    }
+                        // history.push("/user").then(history.push("/connection"))
             });
         });
     }

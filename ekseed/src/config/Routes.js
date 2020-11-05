@@ -32,22 +32,21 @@ const Routes = (props) => {
 
             {/* <Route path="/connection/:id" component={ConnectionShow} /> */}
             
-            {loggedIn && (
+            {/* {loggedIn && ( */}
+            {currentUser && (
                 <Switch>
-                    <Route path="/connection/new" component={ConnectionNew} />
-                    {/*  put these links in the garden page */}
                     <Route path="/connection/:id/edit" component={ConnectionEdit} />
+                    <Route path="/connection/new" component={ConnectionNew} />
                     <Route path="/connection/:id" component={ConnectionShow} />
                     {/* <Route path="/connection/:id" render={(match) => (<ConnectionShow currentUser={currentUser} match={match}/>)} /> */}
                     
-                    <Route path="/note" component={NoteContainer} />
 
                     {/* <Link to={`/connection/${_id}`} > */}
                     <Route path="/connection" component={ConnectionList} />
                     <Route path="/user" component={ConnectionList} />
                     {/* <Route exact path="/user" component={User} /> */}
                     <Route exact path="/ekseed" component={Home} />
-                    <Route path="/note" component={NoteContainer} />
+                    {/* <Route path="/note" component={NoteContainer} /> */}
 
                 </Switch>
             )}

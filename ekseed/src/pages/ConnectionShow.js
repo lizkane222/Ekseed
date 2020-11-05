@@ -10,11 +10,12 @@ import {loggedInState} from "../recoil/selectors"
 import { userState } from "../recoil/atoms";
 import Logo from "../components/Logo/Logo"
 import NoteContainer from "../components/Note/NoteContainer/NoteContainer"
-import Note from "../components/Note/Note";
+import Note from "../components/Note/NoteContainer/Note";
 
 const ConnectionShow = (props) => {
     const user = useRecoilValue(userState)
     console.log("connectionShow props: ", props)
+    console.log("CONNECTION SHOW user: ", user)
     // import React, {useState, useEffect} from "react";
     // import { useSetRecoilState } from "recoil";
     // import UserModel from "../../models/UserModel";
@@ -32,11 +33,12 @@ const ConnectionShow = (props) => {
 
                 {/* <Connection props={props} user={user}/> */}
                 <Connection props={props} user={user}/>
-                <NoteContainer />
+                {/* <NoteContainer /> */}
    
 
 
-    <a href="/connection/:id">EDIT {user.username}</a>
+    {/* <a href={`/connection/${connection}`}>EDIT {user.username}</a> */}
+    {/* <a href={`/connection/${user._id}/edit`}>EDIT {user.username}</a> */}
         </div>
     )
 }

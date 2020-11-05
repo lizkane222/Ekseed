@@ -9,7 +9,8 @@ function useConnection(connectionId) {
     function fetchConnections(id) {
         if (id) {
             ConnectionModel.show(id).then((data) => {
-                setConnections(data.connection);
+                console.log("hook data", data)
+                setConnections(data.connectionId);
             });
         } else {
             ConnectionModel.all().then((data) => {

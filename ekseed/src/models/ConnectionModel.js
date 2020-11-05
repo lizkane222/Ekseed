@@ -31,17 +31,14 @@ class ConnectionModel {
     };
 
 
-    static edit = (connectionId, connectionData) => {
+    static update = (connectionId, connectionData) => {
         return fetch(`${URL}/${connectionId}`, 
-            {
-                method: "GET",
-                headers: {
-                authorization: `Bearer ${localStorage.uid}`}}).then((response) => response.json()).then(
             {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-            },
+                    authorization: `Bearer ${localStorage.uid}`
+                },
                 body: JSON.stringify(connectionData),
         }).then((response) => response.json())
     };

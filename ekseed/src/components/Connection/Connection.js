@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, withRouter } from 'react-router-dom';
 import {roundedCircle} from 'react-bootstrap'
+import {useHistory, UseHistory} from "react-router-dom";
 
 import { MdPhoneIphone } from "react-icons/md"
 import { BsBuilding } from "react-icons/bs"
@@ -10,6 +11,8 @@ import {useRecoilValue, useRecoilState} from "recoil"
 import { userState, connectionState } from "../../recoil/atoms";
 import useConnection from "../../hooks/useConnection";
 
+
+import Note from "../Note/NoteContainer/Note"
 import ConnectionModel from "../../models/ConnectionModel"
 // import NoteContainer from "../Note/NoteContainer/NoteContainer";
 import "./Connection.css"
@@ -27,60 +30,45 @@ import "./Connection.css"
 
 
 const Connection = (props) => {
+    // const history = useHistory
     const user = useRecoilValue(userState)
-    // console.log("connection @ 27 user",user)
-    // const connectionId = user.props.match.params.id
-    // console.log("connection @ 27 props user",props.user)
-    // const connection = props.connection
-    console.log("connection @ 33 props ",props)
-    console.log("connection line 33: props connection", props.connection)
+    let connectionId = props.props.match.params.id
+    const [connection, fetchConnection] = useConnection(connectionId);
 
-    const [connections, fetchConnections] = useConnection([]);
+    // console.log("NEW CONSOLE LOG", connectionId)
 
-    // const userId = user.id
-    const connectionId = user
-    // const connectionId = props.props.match.params.id
-
-    console.log("connection line34 props of user", props.user.connections)
-
-    const [thisConnection, setThisConnection] = useState(userState)
-
-    // // console.log("ConnectionShow: is userState", userState)
-    
-    useEffect(function () {
-        fetchConnections()
-    },[]);
-
+    // useEffect(function () {
+    //     return getThisConnection()
+    // },[]);
 
     // function getThisConnection() {
-    //     ConnectionModel.show(connectionId).then((response) => {
-    //         setThisConnection(response.connection)
-    //     })
+    //     fetchConnection(connectionId)
+        // ConnectionModel.show(connectionId).then((response) => {
+        //     setThisConnection(response.connection)
     // }
+    
+    // if (connection.network === "self") {
+        
+    // } else {
 
-    // console.log("line31 connection detail connection data, CONNECTION DETAIL ",connectionDetail)
-
-    // for (let i in connectionDetail){
-    //         console.log("MY FOR LOOP TO GET NOTE", i, typeof(i))
     // }
-    // {connectionDetail.note.map(note => <h4>{note.content} </h4>)}
-    // const notes = connectionDetail.note.map((note, idx) => <Note note={note}/> )
 
     return (
-        <div className="connectionShow">
+
+        <div className={`connectionShow ${connection.network === "self" ? "selfNetwork" : "usersNetwork"}`}>
             
-            {thisConnection && (          
-            <>
+            {(user && connection) && (          
+                <>
+                <Link to={`/connection/${connection._id}/edit`}>EDIT {connection.username}</Link>
                 <section className="connectionShowNetwork container">
 
 
                     <div className="connectionShowNetworkItem">
-
                     {/* <div> */}
                                 {/* <NetworkPhoto /> */}
                         <div className="grandparent-circle">
                             <div className="parent-circle">
-                                <h3 id="network-photo">{thisConnection.network}</h3>
+                                <h3 id="networkPhoto">{connection.network}</h3>
                             </div>
                         </div>
                     </div>
@@ -90,7 +78,7 @@ const Connection = (props) => {
                         <Link to={`/connection/:id`} className="imgContainer ">
                             <div className="imgContainer">
                                 <div className='image-wrapper'>
-                                    <img className="connectionShowNetwork__img" src={thisConnection.profilePhoto} alt={thisConnection.preferredName} />
+                                    <img className="connectionShowNetwork__img" src={connection.profilePhoto} alt={connection.preferredName} />
                                 </div>
                             </div>
                         </Link>
@@ -98,36 +86,35 @@ const Connection = (props) => {
 
                     {/* <PreferredName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h2>{thisConnection.preferredName}</h2>
-                        <p>preferredName</p>
+                        <h2><span>preferredName</span>{connection.preferredName}</h2>
                     </div>
 
                     {/* <FirstName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{thisConnection.firstName}</h4>
+                        <h4>{connection.firstName}</h4>
                         <p>firstName</p>
                     </div>
 
                     {/* <LastName /> */}
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{thisConnection.lastName}</h4>
+                        <h4>{connection.lastName}</h4>
                         <p>lastName</p>
                     </div>
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{thisConnection.company}</h4>
+                        <h4>{connection.company}</h4>
                         <p>company</p>
                     </div>
                     {/* <CompanyItem /> */}
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{thisConnection.network}</h4>
+                        <h4>{connection.network}</h4>
                         <p>network</p>
                     </div>
                     {/* <NetworkName /> */}
 
                     <div className="connectionShowNetworkItem network_deets">
-                        <h4>{thisConnection.dateReview}</h4>
+                        <h4>{connection.dateReview}</h4>
                         <p>dateReview</p>
                     </div>
                     {/* <DateReviewed /> */}
@@ -174,62 +161,57 @@ const Connection = (props) => {
                         </div>
                     </div>
                 
-                    {/* <div className="great-grandparent-mini-photo connectionShowNetworkItem">
-                        <div className="grandparent-mini-photo">
-                            <div className="parent-mini-photo">
-                                <img className="mini-photo" src="" alt=""/>
-                            </div>
-                        </div>
-                    </div> */}
-
                 </section>
-                    {/* {thisConnection && (notes)} */}
+                    {/* {connection && (notes)} */}
 
 
-                <section className="connection-show__contact container">
-                    <div className="connection-show__contactItem">
+                <section className="connectionShowContact container">
+                    <div className="connectionShowContactItem">
                         <p><MdPhoneIphone/>1</p>
-                        <h4>{thisConnection.cellPhoneOne}</h4>
+                        <h4>{connection.cellPhoneOne}</h4>
                     </div>
 
-                    <div className="connection-show__contactItem">
+                    <div className="connectionShowContactItem">
                         <p><MdPhoneIphone/><FaDraft2Digital/></p>
-                        <h4>{thisConnection.cellPhoneTwo}</h4>
+                        <h4>{connection.cellPhoneTwo}</h4>
                     </div>
 
-                    <div className="connection-show__contactItem">
+                    <div className="connectionShowContactItem">
                         <p>email</p>
-                        <h4>{thisConnection.email}</h4>
+                        <h4>{connection.email}</h4>
                     </div>
 
-                    <div className="connection-show__contactItem">
+                    <div className="connectionShowContactItem">
                         <p>workName</p>
-                        <h4>{thisConnection.workName}</h4>
+                        <h4>{connection.workName}</h4>
                     </div>
 
-                    <div className="connection-show__contactItem">
+                    <div className="connectionShowContactItem">
                         <p>workPhone</p>
-                        <h4>{thisConnection.workPhone}</h4>
+                        <h4>{connection.workPhone}</h4>
                     </div>
 
-                    <div className="connection-show__contactItem">
+                    <div className="connectionShowContactItem">
                         <p>workEmail</p>
-                        <h4>{thisConnection.workEmail}</h4>
+                        <h4>{connection.workEmail}</h4>
                     </div>
 
-                    <div className="connection-show__contactItem">
+                    <div className="connectionShowContactItem">
                         <p><BsBuilding /></p>
-                        <h4>{thisConnection.workAddress}</h4>
+                        <h4>{connection.workAddress}</h4>
                     </div>
 
-                    <div className="connection-show__contactItem">
+                    <div className="connectionShowContactItem">
                         <p>moreContact</p>
-                        <h4>{thisConnection.moreContact}</h4>
+                        <h4>{connection.moreContact}</h4>
                     </div>
                 </section>
             
             </>
             )}
+
+
+            <Note props={props}/>
         </div>
     )
 }
@@ -242,6 +224,57 @@ export default Connection;
 
 
 
+    // function displayConnections(connections) { 
+    //     connections = []
+    //     return connections = user.connections.map((connection) => {
+    //         connection = connection.id
+    //         connectionId = connection
+            
+    //     })
+    // }
+    // console.log("connection @ displayConnections, connection:", connection)
+    // const thisConnection = connectionId
+
+    
+    // console.log("connection.js line 33 connecitionId?:props.match.params.id y/n", connectionId)
+    // console.log("connection @ 27 props user",props.user)
+    // const connection = props.connection
+    // console.log("connection @ 33 props ",props)
+    // console.log("connection line 33: props connection", props.connection)
+
+
+    // const userId = user.id
+    // const connectionId = user
+    // const connectionId = props.props.match.params.id
+    // console.log("connection @ 48 connections",connectionId)
+
+    // console.log("connection line34 props of user", props.user.connections)
+
+
+    // // console.log("ConnectionShow: is userState", userState)
+    
+
+    // useEffect(function () {
+    //     displayConnections()
+    //     fetchConnection(connectionId)
+    // },[]);
+
+
+    // function getThisConnection() {
+    //     ConnectionModel.show(connectionId).then((response) => {
+    //         setThisConnection(response.connection)
+    //     })
+    // }
+
+    // console.log("line31 connection detail connection data, CONNECTION DETAIL ",connectionDetail)
+
+    // for (let i in connectionDetail){
+    //         console.log("MY FOR LOOP TO GET NOTE", i, typeof(i))
+    // }
+    // {connectionDetail.note.map(note => <h4>{note.content} </h4>)}
+    // const notes = connectionDetail.note.map((note, idx) => <Note note={note}/> )
+
+
 
 
 // note.tag, note.content, note.reviewed, note.bookmark, note.privacy
@@ -252,15 +285,15 @@ export default Connection;
 
 
 {/* <div>
-                    <h4>note: <b>{thisconnection.note}</b></h4>
+                    <h4>note: <b>{connection.note}</b></h4>
                 </div> */}
 
                  {/* <div>
-                    <h4>noteTag:</h4> {thisconnection.note.map(note =><h4><b>{note.content}</b></h4>)}
+                    <h4>noteTag:</h4> {connection.note.map(note =><h4><b>{note.content}</b></h4>)}
                 </div> */}
 {/* 
                 <div>
-                    <h4>noteContent: <b>{thisconnection.note.noteContent}</b></h4>
+                    <h4>noteContent: <b>{connectionId.note.noteContent}</b></h4>
                 </div>
 
                 <div>

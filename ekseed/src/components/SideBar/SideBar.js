@@ -15,7 +15,7 @@ import UserModel from "../../models/UserModel";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { userState } from "../../recoil/atoms";
 
-
+import Edit from "../../pages/ConnectionEdit"
 import { loggedInState } from "../../recoil/selectors";
 import AuthModel from "../../models/AuthModel"
 import Routes from "../../config/Routes"
@@ -23,42 +23,48 @@ import NoteContainer from "../Note/NoteContainer/NoteContainer"
 import Logo from "../Logo/Logo"
 import Login from "../Forms/Login"
 import Register from "../Forms/Register"
-import Logout from "../Forms/Logout"
+// import Logout from "../Forms/Logout"
 
 import "./Sidebar.css"
 
 const SideBar = (props) => {
-    console.log("sidebar", props)
+    // console.log("sidebar", props)
+    // const [user, setUser] = useRecoilState(userState);
     const [user, setUser] = useRecoilState(userState);
     // const [modalShow, setModalShow] = React.useState(false);
 
-    const [logoutModal, setlogoutModal] = React.useState(false);
+    // const [logoutModal, setlogoutModal] = React.useState(false);
     const [loginModalShow, setLoginModalShow] = React.useState(false);
     const [registerModalShow, setRegisterModalShow] = React.useState(false);
 
-    
+    const currentUser = localStorage.getItem("uid")
+
+    if (currentUser === true){
+        return user
+    }
+    console.log("is user ?", user)
+
     // const connectionList = user ? user.connections.map((connection) => <a href={`/connection/${connection._id}`}><p key={connection._id}>{connection.preferredName}</p></a>): '';
     // <div>
-
     // function handleLogout(event) {
     //     event.preventDefault();
     //     <Logout show={logoutModalShow} onHide={() => setLogoutModalShow(false)} handleLogout={props.handleLogout}/>
 
-
     const logout = ()=> {
+        console.log("console.log logout")
         setUser(null);
         localStorage.clear();
         // history.push("/")
     }
-    const handlelogout = ()=> {
-        setUser(null);
-        localStorage.clear();
-        // history.push("/")
-    }
+    // const handlelogout = ()=> {
+    //     setUser(null);
+    //     localStorage.clear();
+    //     // history.push("/")
+    // }
 
-    const logoutModalFunction = () => {
-        <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/>
-    }
+    // const logoutModalFunction = () => {
+    //     <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/>
+    // }
     
     
     return (
@@ -69,16 +75,16 @@ const SideBar = (props) => {
 
                     <NavLink className="navlink" to="/" ><p className="link">Ekseed</p></NavLink>
                 
-                    <NavLink className="navlink" to="/note" ><p className="link">Note</p></NavLink>
+                    {/* <NavLink className="navlink" to="/note" ><p className="link">Note</p></NavLink> */}
                 {/* <button type="button" className="btn btn-primary" data-toggle="modal"  onClick={() => setlogoutModal(true)}data-target="#logoutmodal">logout</button> */}
                 {/* <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/> */}
 
 
                 <div className="nav-links">
                     <ul>
-                        {user ? (
+                        {(currentUser && user) ? (
                             <>
-                                <NavLink className="navlink" to={"/user"}><p className="link">{user.username}</p></NavLink>
+                                <NavLink className="navlink" to={"/connection"}><p className="link">{user.username}</p></NavLink>
                 
                                 <NavLink className="navlink" to={"/user"}><p className="link">Garden</p></NavLink>
                                 
@@ -88,6 +94,7 @@ const SideBar = (props) => {
                                                  
 
                                 <NavLink className="navlink" to={"/"}><p className="link" onClick={logout}>Logout</p></NavLink>
+                                <NavLink className="navlink" to={"/profile/edit"}><p className="link" >Edit {currentUser.preferredName}</p></NavLink>
                                 {/* <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true)} data-target="#logoutmodal">logout</button> */}
                                 {/* <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true).then(() => logoutModalFunction)} data-target="#logoutmodal">logout</button> */}
                                 {/* <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/> */}
