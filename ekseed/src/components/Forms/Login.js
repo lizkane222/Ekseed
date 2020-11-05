@@ -28,10 +28,10 @@ const Login = (props)=> {
                 console.log(response);
                     setUser(response.User)
                     try{
-                        history.push("/user")
+                        history.push("/connection")
                     }
                     catch{
-                        (history.push("/connection"))
+                        (history.push("/user"))
                     }
                         // history.push("/user").then(history.push("/connection"))
             });

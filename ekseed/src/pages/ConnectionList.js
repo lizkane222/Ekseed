@@ -45,10 +45,10 @@ const ConnectionList = (props) => {
 
 
     return (
-        <div className="connectionsListContainer pageOverflowHidden">
+        <div className="connectionsListContainer pageOverflowHidden userConnectionListPage">
 
             {user ? (
-            <>
+                <>
                 <button onClick={fetchConnections}>Refresh</button>
                 {user.connections.length ? <Connections connections={user.connections} props={props}/> : <h1>Loading...</h1>}
                 

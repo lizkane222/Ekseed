@@ -222,8 +222,21 @@ section .connectionShowNetwork {
     /* display: inline; */
 }
 
+.userConnectionListPage{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 
+}
+.userConnectionListPage > .selfNetwork{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%)
+}
 
+.userConnectionListPage > .usersNetwork {
+  /* width: 80%; */
+}
 
 
 /* /////////////////////////// */

@@ -43,16 +43,7 @@ function Logo() {
                     {/* </NavLink> */}
             </div>
 
-            {user ? 
-                <div>
-                    {/* <NavLink to={"/user"}> */}
-            {/* <h3>{user.username}{getUserConnections(connections)}</h3> */}
-            <h3>{user.username}</h3>{getUserConnections(connections)}
-                            {/* <h3>{currentUser.uid}</h3> */}
-                            {/* <h3>Lizay</h3> */}
-                        {/* </NavLink> */}
-                </div>
-             : " " }
+          
  
 
 

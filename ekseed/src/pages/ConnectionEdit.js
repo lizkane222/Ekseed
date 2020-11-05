@@ -66,8 +66,22 @@ function ConnectionEdit(props) {
         console.log("CONNECTION EDIT connectionId", connectionId)
 
         useEffect(() => {
-            setPreferredName(connection.preferredName)
             setNetwork(connection.network)
+            setPreferredName(connection.preferredName)
+            setFirstName(connection.firstName)
+            setLastName(connection.lastName)
+            setNetwork(connection.network)
+            setCompany(connection.company)
+            setProfilePhoto(connection.setProfilePhoto)
+            setCellPhoneOne(connection.setCellPhoneOne)
+            setCellPhoneTwo(connection.setCellPhoneTwo)
+            setEmail(connection.setEmail)
+            setHomeAddress(connection.setHomeAddress)
+            setWorkPhone(connection.setWorkPhone)
+            setWorkEmail(connection.setWorkEmail)
+            setWorkAddress(connection.setWorkAddress)
+            setBirthday(connection.setBirthday)
+            setMoreContact(connection.setMoreContact)
         },[connection])
 
 

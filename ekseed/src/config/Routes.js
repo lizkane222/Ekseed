@@ -46,7 +46,7 @@ const Routes = (props) => {
 
                     {/* <Link to={`/connection/${_id}`} > */}
                     <Route path="/connection" component={ConnectionList} />
-                    <Route path="/user" component={ConnectionList} />
+                    <Route path="/user" component={Home} />
                     {/* <Route exact path="/user" component={User} /> */}
                     <Route exact path="/ekseed" component={Home} />
                     <Route path="/note" component={NoteContainer} />

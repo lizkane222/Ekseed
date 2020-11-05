@@ -38,7 +38,7 @@ const ConnectionShow = (props) => {
                     {/* <NoteContainer props={props} user={user}/> */}
                 </div>
    
-
+        
 
     {/* <a href={`/connection/${connection}`}>EDIT {user.username}</a> */}
     {/* <a href={`/connection/${user._id}/edit`}>EDIT {user.username}</a> */}
