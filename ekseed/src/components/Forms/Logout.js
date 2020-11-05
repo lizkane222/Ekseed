@@ -31,7 +31,7 @@ const Logout = (props) => {
 
 
     return(
-        <div>
+        <div className="formText">
             {/* <button type="button" className="btn btn-primary" data-toggle="modal" data-target="logoutModal" id="logoutModal">LOGOUT</button> */}
 
 

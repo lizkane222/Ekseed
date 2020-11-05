@@ -6,10 +6,34 @@
 .inputValue {
     color: blue;
     font-size: 1.3em;
-    margin-left: 2em;
+    /* margin-left: 2em; */
 }
 
 
 .modalHeader {
     text-align: center;
+}
+
+.formText {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+input {
+    width: 80%;
+}
+
+label {
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.form-input {
+    margin-bottom: 5%;
+    text-align: center;
+    align-content: center;
+    align-items: center;
 }

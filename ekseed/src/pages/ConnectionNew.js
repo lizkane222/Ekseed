@@ -99,8 +99,8 @@ function ConnectionNew(props) {
     }
 
     return (
-        <div>
-            <h1>New Connection Form</h1>
+        <div className="pageOverflowHidden">
+            <h1>Connect</h1>
             {error && <p style={{ color: "red" }}>{error}</p>}
             <form onSubmit={handleSubmit}>
             <div>

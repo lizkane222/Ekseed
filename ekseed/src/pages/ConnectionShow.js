@@ -30,7 +30,7 @@ const ConnectionShow = (props) => {
     //             })
 
     return(
-        <div className="connectionShowPage">
+        <div className="connectionShowPage pageOverflowHidden">
 
                 {/* <Connection props={props} user={user}/> */}
                 <Connection props={props} user={user}/>

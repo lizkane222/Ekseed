@@ -67,7 +67,7 @@ function Register(props) {
     ]
 
   return (
-    <div>
+    <div className="formText">
         <div>
           <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered id="registerModal">
                   <Modal.Header closeButton>
@@ -76,7 +76,7 @@ function Register(props) {
                   </Modal.Header>
 
                   <Modal.Body>
-                    <h2>Register for an Account!</h2>
+                    {/* <h2>Register for an Account!</h2> */}
 
               {error && <p style={{ color: "red" }}>{error}</p>}
               <form onSubmit={handleSubmit}>

@@ -40,7 +40,7 @@ const Login = (props)=> {
     
 
     return (
-        <div>
+        <div className="formText">
             <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" centered >
                 <Modal.Header closeButton>
                     <Modal.Title id="loginModal"><h2>Login</h2></Modal.Title>

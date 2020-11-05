@@ -9,6 +9,7 @@ import ConnectionEdit from "../pages/ConnectionEdit";
 import Login from "../components/Forms/Login";
 import Register from "../components/Forms/Register"
 import User from "../components/User/User"
+import ProfilePage from "../pages/Profile"
 
 import { useRecoilValue } from "recoil";
 import { loggedInState } from "../recoil/selectors";
@@ -35,6 +36,8 @@ const Routes = (props) => {
             {/* {loggedIn && ( */}
             {currentUser && (
                 <Switch>
+
+                    <Route path="/profile" component={ProfilePage} />
                     <Route path="/connection/:id/edit" component={ConnectionEdit} />
                     <Route path="/connection/new" component={ConnectionNew} />
                     <Route path="/connection/:id" component={ConnectionShow} />

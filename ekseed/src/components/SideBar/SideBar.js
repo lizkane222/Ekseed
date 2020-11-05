@@ -56,6 +56,7 @@ const SideBar = (props) => {
         localStorage.clear();
         // history.push("/")
     }
+    
     // const handlelogout = ()=> {
     //     setUser(null);
     //     localStorage.clear();
@@ -66,6 +67,25 @@ const SideBar = (props) => {
     //     <Logout show={logoutModal} onHide={() => setlogoutModal(false)} handleLogout={props.handleLogout}/>
     // }
     
+    // TODO userProfilePhoto
+    // useEffect(() => {
+    //     fetchConnections().then(
+    //     getUserConnections(connections))
+    // },[])
+
+
+    // function getUserConnections(connections) {
+    //     // fetchConnections(connections)
+    //     if (user){
+    //         return user.connections.map(connection => {
+    //             if (connection.network === "self"){
+    //                 return <div className="roundPhoto"><span>{user.username}<img className="userMiniProfPhoto" src={connection.profilePhoto} alt={user.name}/></span></div>
+    //             } else {
+    //             return <div className="roundPhoto"><span>{user.username}<img className="userMiniProfPhoto"src={<FaUserAstronaut/>} alt={user.name}/></span></div>
+    //             }
+    //         })
+    //     }
+    // } 
     
     return (
         <div className="side-bar">
@@ -73,7 +93,8 @@ const SideBar = (props) => {
 
             <nav className="side-bar-container navlink" >
 
-                    <NavLink className="navlink" to="/" ><p className="link">Ekseed</p></NavLink>
+            {/* {getUserConnections} */}
+
                 
                     {/* <NavLink className="navlink" to="/note" ><p className="link">Note</p></NavLink> */}
                 {/* <button type="button" className="btn btn-primary" data-toggle="modal"  onClick={() => setlogoutModal(true)}data-target="#logoutmodal">logout</button> */}
@@ -84,6 +105,8 @@ const SideBar = (props) => {
                     <ul>
                         {(currentUser && user) ? (
                             <>
+                            {/* <div className="roundPhoto"><img className="userMiniProfPhoto" src={connection.profilePhoto} alt={user.name}/></div> */}
+
                                 <NavLink className="navlink" to="/ekseed" ><p className="link">Ekseed</p></NavLink>
 
                                 <NavLink className="navlink" to={"/connection"}><p className="link">{user.username}</p></NavLink>
@@ -95,6 +118,7 @@ const SideBar = (props) => {
                                 <NavLink className="navlink" to={"/connection/new"}><p className="link"><span className="navIcon"><BsPersonPlusFill /></span>Connect</p></NavLink>
                                                  
 
+                                <NavLink className="navlink" to={"/profile"}><p className="link" >ProfilePage</p></NavLink>
                                 <NavLink className="navlink" to={"/"}><p className="link" onClick={logout}>Logout</p></NavLink>
                                 <NavLink className="navlink" to={"/profile/edit"}><p className="link">Edit {currentUser.preferredName}</p></NavLink>
                                 {/* <button type="button" className="navlink" data-toggle="modal"  onClick={() => setlogoutModal(true)} data-target="#logoutmodal">logout</button> */}
@@ -105,6 +129,8 @@ const SideBar = (props) => {
                             </>
                         ) : (
                             <>
+
+                                <NavLink className="navlink" to="/" ><p className="link">Ekseed</p></NavLink>
                                 <NavLink className="navlink" to={"/login"} variant="primary" onClick={() => setLoginModalShow(true)} data-target="#loginModal"><p className="link">login</p></NavLink>
                                 <Login show={loginModalShow} onHide={() => setLoginModalShow(false)}/>
 

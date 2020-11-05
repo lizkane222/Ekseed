@@ -48,5 +48,15 @@
     left: 0;
 }
 
+.roundPhoto {
+    border-radius: 50%;
+    max-width: 4vw;
+    
+    /* overflow: hidden; */
+}
 
-
+.userMiniProfPhoto{
+    max-width: 100%;
+    padding: 1vw 1vh;
+    border-radius: 50%;
+}

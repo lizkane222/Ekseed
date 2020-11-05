@@ -45,7 +45,7 @@ const ConnectionList = (props) => {
 
 
     return (
-        <div className="connectionsListContainer">
+        <div className="connectionsListContainer pageOverflowHidden">
 
             {user ? (
             <>

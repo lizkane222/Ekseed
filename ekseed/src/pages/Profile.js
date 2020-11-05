@@ -9,9 +9,9 @@ const ProfilePage = (props) => {
     const user = useRecoilState(userState)
 
     return(
-        <div>
+        <div className="pageOverflowHidden">
             <div>
-                {user.username} has
+                {user.username}
                 {user.email}
                 {user.password}
             </div>

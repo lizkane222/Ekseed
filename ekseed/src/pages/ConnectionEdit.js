@@ -122,7 +122,7 @@ function ConnectionEdit(props) {
     }
 
     return (
-        <div>
+        <div className="pageOverflowHidden">
             <h1> EDIT THIS PAGE</h1> 
             {connection && 
             <>

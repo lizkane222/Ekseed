@@ -4,10 +4,10 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { userState } from "../../recoil/atoms";
 import {NavLink} from "react";
 import User from "../../models/UserModel"
-import useConnection from "../../hooks/useConnection"
+import useConnection from "../../hooks/useConnection";
 
-import "./Logo.css"
-
+import "./Logo.css";
+import {FaUserAstronaut} from"react-icons/fa";
 
 function Logo() {
     const [user, setUser] = useRecoilState(userState);
@@ -25,7 +25,9 @@ function Logo() {
         if (user){
             return user.connections.map(connection => {
                 if (connection.network === "self"){
-                    return <img src={connection.profilePhoto} alt={user.name}/>
+                    return <div className="roundPhoto"><span>{user.username}<img className="userMiniProfPhoto" src={connection.profilePhoto} alt={user.name}/></span></div>
+                // } else {
+                // return <div className="roundPhoto"><span>{user.username}<img className="userMiniProfPhoto"src={<FaUserAstronaut/>} alt={user.name}/></span></div>
                 }
             })
         }
@@ -44,7 +46,8 @@ function Logo() {
             {user ? 
                 <div>
                     {/* <NavLink to={"/user"}> */}
-                        <h3>{user.username}</h3>
+            {/* <h3>{user.username}{getUserConnections(connections)}</h3> */}
+            <h3>{user.username}</h3>{getUserConnections(connections)}
                             {/* <h3>{currentUser.uid}</h3> */}
                             {/* <h3>Lizay</h3> */}
                         {/* </NavLink> */}
