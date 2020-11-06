@@ -37,7 +37,7 @@ const ConnectionShow = (props) => {
                 {/* <Connection props={props} user={user}/> */}
                 <Connection props={props} user={user}/>
                 <SocialBar />
-                <div className="noteContainer connectionShow ">
+                <div className="noteContainer /* connectionShow */ ">
                     {/* <NoteContainer props={props} user={user}/> */}
                 </div>
    

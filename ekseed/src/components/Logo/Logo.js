@@ -5,6 +5,8 @@ import { userState } from "../../recoil/atoms";
 import {NavLink} from "react";
 import User from "../../models/UserModel"
 import useConnection from "../../hooks/useConnection";
+// import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
+
 
 import "./Logo.css";
 import {FaUserAstronaut} from"react-icons/fa";
@@ -40,6 +42,25 @@ function Logo() {
             <div>
                 {/* <NavLink to="/ekseed" > */}
                     <h1 id="logo">Ekseed</h1>
+                    {/* <MDBCol md="12">
+                    <MDBFormInline className="md-form mr-auto mb-4">
+                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+                        <MDBBtn gradient="aqua" rounded size="sm" type="submit" className="mr-auto">
+                        Search
+                        </MDBBtn>
+                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+                        <MDBBtn outline color="warning" rounded size="sm" type="submit" className="mr-auto">
+                        Search
+                        </MDBBtn>
+                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+                        <MDBBtn color="unique" rounded size="sm" type="submit" className="mr-auto">
+                        Search
+                        </MDBBtn>
+                    </MDBFormInline>
+                    </MDBCol> */}
+
+
+                    
                     {/* </NavLink> */}
             </div>
 

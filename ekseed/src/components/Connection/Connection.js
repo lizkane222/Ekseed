@@ -101,22 +101,21 @@ const Connection = (props) => {
             
             {(user && connection) && (          
                 <>
-                <Link to={`/connection/${connection._id}/edit`}><FaRegEdit /> {connection.username}</Link>
-                <button className="btn" onClick={deleteConnection}>Delete {connection.username}</button>
-                <Link className="btn" to={'/connection'} onClick={deleteConnection}>Delete {connection.username}</Link>
+                <div className="refreshParent" id="editParent"><Link className="refreshMargin2" to={`/connection/${connection._id}/edit`}><FaRegEdit /> {connection.username}</Link></div>
+                
+                <div className="refreshParent" id="deleteParent"><Link className="btn refreshMargin3" to={'/connection'} onClick={deleteConnection}>Delete {connection.username}</Link></div>
 
                 <section className="connectionShowNetwork">
 
-
+                    <div className="connectionShowNetworkItem"></div>
                     {/* <div className="connectionShowNetworkItem" id="networkTop"> */}
-                    <div id="networkTop">
-                                {/* <NetworkPhoto /> */}
+                    {/* <div id="networkTop">
                         <div className="grandparent-circle">
                             <div className="parent-circle">
                                 <h3 id="networkPhoto" >{connection.network}</h3>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* <ProfilePhoto /> */}
                     <div className="connectionShowNetworkItem" id="profile-photo">

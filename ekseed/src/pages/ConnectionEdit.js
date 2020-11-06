@@ -137,7 +137,7 @@ function ConnectionEdit(props) {
 
     return (
         <div className="pageOverflowHidden">
-            <h1> EDIT THIS PAGE</h1> 
+            <h1> EDIT {preferredName}</h1> 
             {connection && 
             <>
                 {/* <Connection props={props} user={user}/> */}

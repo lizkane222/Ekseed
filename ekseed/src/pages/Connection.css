@@ -109,11 +109,10 @@ body {
     z-index: 5;
     position: absolute;
 }
-
+/* TODO */
 .noteContainer {
   z-index: 23;
   color: #006A56;
-
 }
 
 .connectionShowNetwork {
@@ -203,6 +202,8 @@ section .connectionShowNetwork {
     /* display: ; */
 }
 
+
+
 .itemOnClick{}
 
 .network_deets {
@@ -291,13 +292,13 @@ section .connectionShowNetwork {
 }
 
 
-.selfNetwork {
+/* .selfNetwork {
   width: 15em;
 }
 
 .userNetwork {
   width: 6em;
-}
+} */
 
 #networkTop:hover{
   opacity: 0.7;
@@ -322,6 +323,7 @@ section .connectionShowNetwork {
 .connectionShowNetwork > div:nth-of-type(1) {
     grid-column: 3 / 6;
     grid-row: 2 / 4;
+    opacity: 0;
     /* display: flex; */
 }
 

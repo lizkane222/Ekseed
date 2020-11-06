@@ -59,9 +59,67 @@
     grid-template-columns: 1fr,1fr, 1fr, 1fr;
 }
 
-.refreshMargin {
-    z-index: 101;
+
+
+.refreshParent {
+    display: flex;
+    margin-top: .8em;
+    text-decoration: none;
+
+    padding: .5em 0 1.7em .8em;
+    background-color: #fff;
+
+    text-align: left;
+    align-items: flex-start;
+    align-content: center;
+    margin-right: 1.2em;
+    margin-left: -.8em;
+    border-radius: 10px;
+
+    max-height: 2.5em;
+    max-width: 6em;
+        /* min-height: 2em; */
+        min-width: 5em;
+
+    transition: all 0.4s ease-in-out;
+}
+
+
+.refreshParent:hover{
+    background-color: #eff;
+    text-decoration: none;
+    /* transform: scale(0.98); */
+    margin-left: -1.2em;
+}
+
+.refreshParent >.refreshMargin {
     margin-left:95%;
     bottom: 50%;
-    position: absolute;
+}
+.refreshMargin {
+    z-index: 101;
+    position: relative;
+}
+
+
+.editParent{
+    margin-left:118%;
+    bottom: -12%;
+}
+.refreshMargin2 {
+    z-index: 101;
+    position: relative;
+}
+
+
+.deleteParent {
+    margin-top: 52%;
+    margin-left:90%;
+
+}
+
+
+.refreshMargin3 {
+    z-index: 101;
+    position: relative;
 }

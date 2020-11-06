@@ -47,6 +47,7 @@ class NoteContainer extends Component {
 
     createNote = (note) => {
         let newNote = {
+            note: [],
             tag: [],
             content: "",
             reviewed: false,

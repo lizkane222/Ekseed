@@ -60,7 +60,7 @@ class CreateNoteForm extends Component {
             <div>
                 <form onSubmit={this.onFormSubmit} id="taskForm">
                     
-                    <button onClick={this.onInputChange}>{this.state.reviewed ? <FaRegFlushed/> : <FaRegGrinBeam/>}</button>
+                    <input type="button" onClick={this.onInputChange}>{this.state.reviewed ? <FaRegFlushed/> : <FaRegGrinBeam/>}</input>
                     {/* <button onClick={this.toggleReviewed}>{this.state.reviewed ? <FaRegFlushed/> : <FaRegGrinBeam/>}</button> */}
                     
                     {/* <input type="button" onClick={this.handleCheck} value={<FaRegFlushed/>}/> :
@@ -104,9 +104,11 @@ class CreateNoteForm extends Component {
                     </div>
                     
                     {/* {this.state.bookmark ?
-                    <input type="button" onClick={this.handleBookmark} >{< BsBookmarkFill/>}</input>:
-                    <input type="button" onClick={this.handleBookmark} > </input>} */}
-                    <button onClick={this.onInputChange}>{this.state.bookmark ? < BsBookmarkFill/> : " "}</button>
+                    <input type="button" onClick={this.handleBookmark}>{< BsBookmarkFill/>}</input>:
+                    <input type="button" onClick={this.handleBookmark}> </input>}
+                    
+                    <button onClick={this.onInputChange}>{this.state.bookmark ? < BsBookmarkFill/> : " "}</button> */}
+
                     {/* {this.state.privacy ?
                     <input type="button" onClick={this.handlePrivacy} >{<TiLockOpenOutline/>}</input>:
                     <input type="button" onClick={this.handlePrivacy} >{<TiLockClosed />}</input>} */}
